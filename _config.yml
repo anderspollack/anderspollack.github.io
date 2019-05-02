@@ -1,5 +1,5 @@
 title: Anders Pollack
-baseurl: ""
+baseurl: /portfolio2019 
 port: 4001
 
 defaults:
@@ -9,11 +9,11 @@ defaults:
       layout: default
 
   - scope:
-      path: "assets/images"
+      path: "/assets/images"
     values:
       image: true
 
 collections:
   project_collections:
     output: true
-    permalink: /projects/:name
+    permalink: /pojects/:name

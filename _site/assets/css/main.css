@@ -1,20 +1,44 @@
-@font-face {
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title></title>
+        <link href="/portfolio2019/assets/css/main.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <input name="site-nav-toggle" id="site-nav-toggle" class="invisible" type="checkbox" value=""/>
+        <label for="site-nav-toggle" class="site-header site-header--project">
+            <h1 class="site-header__title">Projects</h1>
+        </label>
+        <label for="site-nav-toggle" class="site-nav-screen"></label>
+        <nav class="site-nav site-nav--project dither">
+            <div class="site-nav__interior">
+                <ul class="projects-list site-nav__items">
+                    <li class="site-nav__item">Item 1</li>
+                    <li class="site-nav__item">Item 2</li>
+                    <li class="site-nav__item">item 3</li>
+                </ul>
+            </div>
+        </nav>
+        <main class="page-main page-main--project">
+            <a href="/portfolio2019/">home</a>
+            @font-face {
   font-family: 'inter-semibold';
-  src: url('/assets/fonts/inter-semibold.otf');
+  src: url('/portfolio2019/assets/fonts/inter-semibold.otf');
 }
 
 @font-face {
   font-family: 'inter-medium';
-  src: url('/assets/fonts/inter-medium.otf');
+  src: url('/portfolio2019/assets/fonts/inter-medium.otf');
 }
 
 @font-face {
   font-family: 'inter-light';
-  src: url('/assets/fonts/inter-light.otf');
+  src: url('/portfolio2019/assets/fonts/inter-light.otf');
 }
 
 body {
-  background: url('/assets/images/noise.png');
+  background: url('/portfolio2019/assets/images/noise.png');
   background-size: 1024px;
   background-repeat: repeat;
   margin: 3px;
@@ -77,7 +101,7 @@ body {
    z-index: -1;
    width: 100%;
    height: 100%;
-   background: url('/assets/images/dither.png');
+   background: url('/portfolio2019/assets/images/dither.png');
    } */
 
 .site-header__title {
@@ -90,7 +114,7 @@ body {
 }
 @media screen and (max-width: 800px) {
   .site-header__title {
-    background-image: url('/assets/images/dither.png');
+    background-image: url('/portfolio2019/assets/images/dither.png');
   }
   .site-header--project:after {
     content: 'close';
@@ -128,7 +152,7 @@ body {
 @media screen and (max-width: 800px) {
   .site-nav-screen {
     background-color: rgba(0,0,0,0.1);
-    background-image: url('/assets/images/dither.png');
+    background-image: url('/portfolio2019/assets/images/dither.png');
     position: fixed;
     top: 0;
     left: 0;
@@ -150,14 +174,13 @@ body {
 .site-nav {
   width: 100%;
   /* border: 3px solid #fff; */
-  background-image: url('/assets/images/dither.png');
 }
 .site-nav--project {
   display: flex;
   flex-direction: column;
   overflow: auto;
   /* border: 4px solid #fff; */
-  background-image: url('/assets/images/dither.png');
+  /* background-image: url('/portfolio2019/assets/images/dither.png'); */
   position: fixed;
 }
 @media screen and (max-width: 800px) {
@@ -259,5 +282,12 @@ body * {
   z-index: -1;
   opacity: 0;
 }
+.dither {
+  background-image: url('/portfolio2019/assets/images/dither.png');
+}
 /* /UTILITIES */
 
+
+        </main>
+    </body>
+</html>

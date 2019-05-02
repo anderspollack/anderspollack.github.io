@@ -4,6 +4,6 @@ layout: home
 ---
 <h1>this is the home page</h1>
 {% for project_collection in site.project_collections %}
-    <a href="{{ project_collection.url }}"><h2>{{ project_collection.name }}</h2></a>
+    <a href="{{ site.baseurl }}{{ project_collection.url }}"><h2>{{ project_collection.name }}</h2></a>
     <p>{{ project_collection.content }}</p>
 {% endfor %}
