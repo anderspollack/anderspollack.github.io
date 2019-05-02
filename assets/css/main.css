@@ -21,6 +21,10 @@
   src: url('{{ site.baseurl }}/assets/fonts/inter-bold.otf');
 }
 
+html {
+  background-color: #000;
+}
+
 body {
   background: url('{{ site.baseurl }}/assets/images/noise@2x.png');
   background-size: 1024px;
@@ -115,7 +119,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 150%;
     cursor: pointer;
     transition: opacity 0.3s ease-in-out, max-height 0.15s ease-out;
   }
