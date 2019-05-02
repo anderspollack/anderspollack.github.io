@@ -22,11 +22,16 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+@media screen and (min-width: 801px) {
+  body {
+    flex-wrap: nowrap;
+  }
+}
 
 .site-header,
 .site-nav,
 .page-main {
-  background: #fff;
+  background-color: #fff;
   border-radius: 4px;
   margin-bottom: 3px;
 }
@@ -34,45 +39,76 @@ body {
 /* HEADER */
 .site-header {
   width: 100%;
-  height: 500px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  /* border: 3px solid #fff; */
 }
-
+.site-header--home {
+  padding-bottom: 18px;
+}
 .site-header--project {
   width: auto;
-  height: auto;
-  cursor: pointer;
+  height: 32px;
   position: fixed;
   z-index: 1;
-  transition: box-shadow 0.3s linear;
+  overflow: hidden;
 }
-input[type="checkbox"]#site-nav-toggle:not(:checked) ~ .site-header--project {
-  box-shadow: 0 1px 1px rgba(0,0,0,0.0);
+@media screen and (max-width: 800px) {
+  .site-header--project {
+    cursor: pointer;
+    transition: box-shadow 0.3s linear;
+  }
+  input[type="checkbox"]#site-nav-toggle:not(:checked) ~ .site-header--project {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.0);
+  }
+  input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  }
 }
-input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project {
-  box-shadow: 0 1px 1px rgba(0,0,0,0.5);
-}
+
+/* .site-header--project:before {
+   content: '';
+   display: block;
+   position: absolute;
+   top: 3px;
+   left: 4px;
+   z-index: -1;
+   width: 100%;
+   height: 100%;
+   background: url('/assets/images/dither.png');
+   } */
 
 .site-header__title {
-  padding: 9px 9px 9px 18px;
-}
-
-.site-header--project:after {
-  content: 'close';
-  background: #fff;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
-  transition: opacity 0.15s ease-in;
-  opacity: 0;
+  align-items: center;
+  padding: 0 9px 0 18px;
+  border-radius: 4px;
 }
-input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
-  opacity: 1;
+@media screen and (max-width: 800px) {
+  .site-header__title {
+    background-image: url('/assets/images/dither.png');
+  }
+  .site-header--project:after {
+    content: 'close';
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.15s ease-in;
+    opacity: 0;
+  }
+  input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
+    opacity: 1;
+  }
 }
 
 .site-header__planets {
@@ -89,56 +125,72 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
 
 /* /HEADER */
 /* NAV */
-.site-nav-screen {
-  background-color: rgba(0,0,0,0.1);
-  background-image: url('/assets/images/dither.png');
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: opacity 0.3s ease-in-out, max-height 0.15s ease-out;
-}
-input[type="checkbox"]#site-nav-toggle:not(:checked) ~ .site-nav-screen {
-  opacity: 0;
-  max-height: 0;
-}
-input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
-  opacity: 1;
-  max-height: 100%;
+@media screen and (max-width: 800px) {
+  .site-nav-screen {
+    background-color: rgba(0,0,0,0.1);
+    background-image: url('/assets/images/dither.png');
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out, max-height 0.15s ease-out;
+  }
+  input[type="checkbox"]#site-nav-toggle:not(:checked) ~ .site-nav-screen {
+    opacity: 0;
+    max-height: 0;
+  }
+  input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
+    opacity: 1;
+    max-height: 100%;
+  }
 }
 
 .site-nav {
   width: 100%;
-  border: 3px solid #fff;
+  /* border: 3px solid #fff; */
   background-image: url('/assets/images/dither.png');
 }
 .site-nav--project {
-  top: 52px;
-  width: calc(100vw - 63px);
-  height: calc(100vh - 108px);
-  min-width: 288px;
-  max-width: 460px;
-  max-height: 540px;
-  /* transform: translateY(-50%); */
-  position: fixed;
   display: flex;
   flex-direction: column;
   overflow: auto;
-  border: 3px solid #fff;
+  /* border: 4px solid #fff; */
   background-image: url('/assets/images/dither.png');
-  box-shadow: 0 1px 1px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease-in-out;
+  position: fixed;
 }
-input[type="checkbox"]#site-nav-toggle:not(:checked) ~ .site-nav--project {
-  transform: translateY(calc(-100% - 100px));
+@media screen and (max-width: 800px) {
+  .site-nav--project {
+    top: 44px;
+    width: calc(100vw - 63px);
+    height: calc(100vh - 108px);
+    min-width: 288px;
+    max-width: 460px;
+    max-height: 540px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  input[type="checkbox"]#site-nav-toggle:not(:checked) ~ .site-nav--project {
+    transform: translateY(calc(-100% - 100px));
+  }
+  input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
+    transform: translateY(0);
+  }
 }
-input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
-  transform: translateY(0);
+@media screen and (min-width: 801px) {
+  .site-nav--project {
+    top: 50px;
+    width: 270px;
+    height: auto
+    max-height: calc(100vh - 61px);
+    align-self: flex-start;
+  }
 }
 
 .site-nav__interior {
-  padding: 5px 8px;
+  padding: 5px 11px 5px 10px;
+;
 }
 
 .site-nav__item {
@@ -152,12 +204,21 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
 /* MAIN */
 .page-main {
   width: 100%;
-  height: 400px;
   padding: 12px 9px;
 }
 
 .page-main--project {
-  margin-top: 49px;
+  min-height: 1000px;
+}
+@media screen and (max-width: 800px) {
+  .page-main--project {
+    margin-top: 50px;
+  }
+}
+@media screen and (min-width: 801px) {
+  .page-main--project {
+    margin-left: 299px;
+  }
 }
 
 /* /MAIN */
@@ -181,6 +242,7 @@ body * {
   padding: 0;
 }
 
+.site-header__site-title,
 .site-header__title,
 .site-header:after {
   font-family: 'inter-medium';
