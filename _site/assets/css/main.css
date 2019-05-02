@@ -42,7 +42,7 @@ body {
   background: url('/portfolio2019/assets/images/noise@2x.png');
   background-size: 1024px;
   background-repeat: repeat;
-  margin: 3px;
+  margin: 8px;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -78,6 +78,9 @@ body {
   /* top: 0; */
   z-index: 1;
   overflow: hidden;
+  background: rgba(255,255,255,0.9);
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
 }
 @media screen and (max-width: 800px) {
   .site-header--project {
@@ -98,15 +101,12 @@ body {
   justify-content: center;
   align-items: center;
   padding: 0 9px 0 18px;
-  border: 3px solid #fff;
 }
 @media screen and (max-width: 800px) {
   .site-header--project:after {
     content: 'close';
     background: #fff;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     width: 100%;
     height: 100%;
     display: flex;
@@ -157,7 +157,6 @@ body {
 
 .site-nav {
   width: 100%;
-  border: 3px solid #fff;
 }
 .site-nav--project {
   display: flex;
@@ -167,12 +166,14 @@ body {
 }
 @media screen and (max-width: 800px) {
   .site-nav--project {
-    top: 37px;
+    top: 40px;
     width: calc(100% - 63px);
-    height: calc(100% - 108px);
+    /* height: calc(100% - 108px); */
     min-width: 288px;
     max-width: 460px;
     max-height: 540px;
+    border-top: 1px solid #000; 
+    border-bottom: 1px solid #000; 
     box-shadow: 0 1px 1px rgba(0,0,0,0.2);
     transition: transform 0.3s ease-in-out;
   }
