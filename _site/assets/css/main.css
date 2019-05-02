@@ -246,6 +246,11 @@ body {
 
 /* /MAIN */
 /* ICONOGRAPHY */
+.icon-world {
+  width: 32px;
+  height: 32px;
+}
+
 .world {
   width: 80px;
   height: 80px;
