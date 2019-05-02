@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>{{ page.title }}</title>
+        <link href="/assets/css/main.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header class="site-header">
+            <h1 class="site-header__title">{{ site.title }}</h1>
+            <div class="site-header__planets">
+                <img class="site-header__planet wireframe-world" alt="wireframe world" src="/assets/images/world-wireframe.png"/> 
+                <img class="site-header__planet world" alt="world" src="/assets/images/world.png"/> 
+            </div>
+        </header>
+        <nav class="site-nav site-nav">
+            <div class="site-nav__interior">
+                <ul class="projects-list site-nav__items">
+                    <li class="site-nav__item">Item 1</li>
+                    <li class="site-nav__item">Item 2</li>
+                    <li class="site-nav__item">item 3</li>
+                </ul>
+            </div>
+        </nav>
+        <main class="page-main">
+            {{ content }}
+        </main>
+    </body>
+</html>
