@@ -91,9 +91,6 @@ body {
   border-radius: 4px;
 }
 @media screen and (max-width: 800px) {
-  .site-header__title {
-    background-image: url('{{ site.baseurl }}/assets/images/dither@2x.png');
-  }
   .site-header--project:after {
     content: 'close';
     background: #fff;
@@ -157,7 +154,6 @@ body {
   flex-direction: column;
   overflow: auto;
   /* border: 4px solid #fff; */
-  /* background-image: url('{{ site.baseurl }}/assets/images/dither@2x.png'); */
   position: fixed;
 }
 @media screen and (max-width: 800px) {
