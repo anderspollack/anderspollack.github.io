@@ -23,26 +23,32 @@
         </nav>
         <main class="page-main page-main--project">
             <a href="/portfolio2019/">home</a>
-            @font-face {
-  font-family: 'inter-semibold';
-  src: url('/portfolio2019/assets/fonts/inter-semibold.otf');
-}
+            /* pair of brackets is here to prevent front matter dashes from interfering */
+{}
 
 @font-face {
   font-family: 'inter-medium';
+  font-weight: 400;
   src: url('/portfolio2019/assets/fonts/inter-medium.otf');
 }
 
 @font-face {
   font-family: 'inter-light';
+  font-weight: 400;
   src: url('/portfolio2019/assets/fonts/inter-light.otf');
+}
+
+@font-face {
+  font-family: 'inter-bold';
+  font-weight: 400;
+  src: url('/portfolio2019/assets/fonts/inter-bold.otf');
 }
 
 body {
   background: url('/portfolio2019/assets/images/noise@2x.png');
   background-size: 1024px;
   background-repeat: repeat;
-  margin: 8px;
+  margin: 4px;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -57,7 +63,7 @@ body {
 .site-nav,
 .page-main {
   background-color: #fff;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
 }
 
 /* HEADER */
@@ -75,23 +81,14 @@ body {
   width: auto;
   height: 31px;
   position: fixed;
-  /* top: 0; */
-  z-index: 1;
   overflow: hidden;
-  background: rgba(255,255,255,0.9);
+  z-index: 1;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
 }
 @media screen and (max-width: 800px) {
   .site-header--project {
     cursor: pointer;
-    transition: box-shadow 0.3s linear;
-  }
-  input[type="checkbox"]#site-nav-toggle:not(:checked) ~ .site-header--project {
-    box-shadow: 0 1px 1px rgba(0,0,0,0.0);
-  }
-  input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project {
-    box-shadow: 0 1px 1px rgba(0,0,0,0.2);
   }
 }
 
@@ -162,19 +159,19 @@ body {
   display: flex;
   flex-direction: column;
   overflow: auto;
+  /* border-top: 1px solid #000;  */
+  border-bottom: 1px solid #000; 
   position: fixed;
+  z-index: 2;
+  margin-top: 29px;
 }
 @media screen and (max-width: 800px) {
   .site-nav--project {
-    top: 40px;
     width: calc(100% - 63px);
     /* height: calc(100% - 108px); */
     min-width: 288px;
     max-width: 460px;
     max-height: 540px;
-    border-top: 1px solid #000; 
-    border-bottom: 1px solid #000; 
-    box-shadow: 0 1px 1px rgba(0,0,0,0.2);
     transition: transform 0.3s ease-in-out;
   }
   input[type="checkbox"]#site-nav-toggle:not(:checked) ~ .site-nav--project {
@@ -186,7 +183,6 @@ body {
 }
 @media screen and (min-width: 801px) {
   .site-nav--project {
-    top: 50px;
     width: 270px;
     height: auto
     max-height: calc(100vh - 61px);
@@ -195,7 +191,7 @@ body {
 }
 
 .site-nav__interior {
-  padding: 5px 11px 5px 10px;
+  padding: 2px 8px;
 ;
 }
 
@@ -256,7 +252,7 @@ body * {
 .site-header__site-title,
 .site-header__title,
 .site-header:after {
-  font-family: 'inter-medium';
+  font-family: 'inter-bold';
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 10px;
