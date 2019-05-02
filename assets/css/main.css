@@ -16,7 +16,7 @@
 }
 
 body {
-  background: url('{{ site.baseurl }}/assets/images/noise.png');
+  background: url('{{ site.baseurl }}/assets/images/noise@2x.png');
   background-size: 1024px;
   background-repeat: repeat;
   margin: 3px;
@@ -79,7 +79,7 @@ body {
    z-index: -1;
    width: 100%;
    height: 100%;
-   background: url('{{ site.baseurl }}/assets/images/dither.png');
+   background: url('{{ site.baseurl }}/assets/images/dither@2x.png');
    } */
 
 .site-header__title {
@@ -92,7 +92,7 @@ body {
 }
 @media screen and (max-width: 800px) {
   .site-header__title {
-    background-image: url('{{ site.baseurl }}/assets/images/dither.png');
+    background-image: url('{{ site.baseurl }}/assets/images/dither@2x.png');
   }
   .site-header--project:after {
     content: 'close';
@@ -130,7 +130,6 @@ body {
 @media screen and (max-width: 800px) {
   .site-nav-screen {
     background-color: rgba(0,0,0,0.1);
-    background-image: url('{{ site.baseurl }}/assets/images/dither.png');
     position: fixed;
     top: 0;
     left: 0;
@@ -158,7 +157,7 @@ body {
   flex-direction: column;
   overflow: auto;
   /* border: 4px solid #fff; */
-  /* background-image: url('{{ site.baseurl }}/assets/images/dither.png'); */
+  /* background-image: url('{{ site.baseurl }}/assets/images/dither@2x.png'); */
   position: fixed;
 }
 @media screen and (max-width: 800px) {
@@ -261,7 +260,9 @@ body * {
   opacity: 0;
 }
 .dither {
-  background-image: url('{{ site.baseurl }}/assets/images/dither.png');
+  background-image: url('{{ site.baseurl }}/assets/images/dither@2x.png');
+  background-repeat: repeat;
+  background-size: 16px;
 }
 /* /UTILITIES */
 
