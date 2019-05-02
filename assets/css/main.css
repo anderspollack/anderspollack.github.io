@@ -21,12 +21,9 @@
   src: url('{{ site.baseurl }}/assets/fonts/inter-bold.otf');
 }
 
-html {
-  background-color: #000;
-}
-
 body {
-  background: url('{{ site.baseurl }}/assets/images/noise@2x.png');
+  background-color: #000;
+  background-image: url('{{ site.baseurl }}/assets/images/noise@2x.png');
   background-size: 1024px;
   background-repeat: repeat;
   margin: 4px;
