@@ -16,4 +16,4 @@ defaults:
 collections:
   project_collections:
     output: true
-    permalink: /pojects/:name
+    permalink: /projects/:name
