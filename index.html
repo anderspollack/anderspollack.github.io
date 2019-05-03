@@ -2,8 +2,24 @@
 title: Anders Pollack
 layout: home
 ---
-<h1>this is the home page</h1>
-{% for project_collection in site.project_collections %}
-    <a href="{{ site.baseurl }}{{ project_collection.url }}"><h2>{{ project_collection.name }}</h2></a>
-    <p>{{ project_collection.content }}</p>
-{% endfor %}
+<header class="site-header site-header--home">
+    <div class="site-header__interior">
+        <h1 class="site-header__site-title">{{ site.title }}</h1>
+        <div class="site-header__planets">
+            <img class="site-header__planet icon-world" alt="wireframe world" src="{{ site.baseurl }}/assets/images/icon-world@2x.png"/> 
+            <img class="site-header__planet world" alt="world" src="{{ site.baseurl }}/assets/images/world.png"/> 
+        </div>
+    </div>
+</header>
+<nav class="site-nav site-nav--home dither">
+    <div class="site-nav__interior">
+        <ul class="projects-list site-nav__items">
+            {% for project_collection in site.project_collections %}
+                <li class="site-nav__item">
+                    <a href="{{ site.baseurl }}{{ project_collection.url }}"><h2>{{ project_collection.name }}</h2></a>
+                    <p>{{ project_collection.content }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>

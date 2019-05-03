@@ -47,22 +47,6 @@ body.project {
   justify-content: space-between;
 }
 
-.site-container--home {
-  width: 100%;
-  padding: {{ page.margin }}px;
-}
-@media screen and (min-width: {{ page.min_desktop }}px) {
-  .site-container--home {
-    /* position: fixed;
-       width: calc(100% - ({{ page.margin }}px * 2)); 
-       height: calc(100% - ({{ page.margin }}px * 2)); 
-       background-image: url('{{ site.baseurl }}/assets/images/noise@2x.png');
-       background-size: 1024px; */
-    display: flex;
-    /* -webkit-overflow-scrolling: touch; */
-  }
-}
-
 .site-header,
 .site-nav,
 .site-main {

@@ -70,22 +70,6 @@ body.project {
   justify-content: space-between;
 }
 
-.site-container--home {
-  width: 100%;
-  padding: 4px;
-}
-@media screen and (min-width: 667px) {
-  .site-container--home {
-    /* position: fixed;
-       width: calc(100% - (4px * 2)); 
-       height: calc(100% - (4px * 2)); 
-       background-image: url('/portfolio2019/assets/images/noise@2x.png');
-       background-size: 1024px; */
-    display: flex;
-    /* -webkit-overflow-scrolling: touch; */
-  }
-}
-
 .site-header,
 .site-nav,
 .site-main {
