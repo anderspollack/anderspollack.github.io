@@ -37,6 +37,9 @@ body {
   body {
     flex-wrap: nowrap;
   }
+  body.project {
+    flex-wrap: wrap;
+  }
 }
 body.home {
   margin: 0;
@@ -46,12 +49,12 @@ body.project {
 }
 
 .site-container--home {
-  position: fixed;
-  height: calc(100% - 8px); 
-  padding: 4px;
+    padding: 4px;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .site-container--home {
+    position: fixed;
+    height: calc(100% - 8px); 
     display: flex;
   }
 }
