@@ -1,6 +1,7 @@
 ---
 max_mobile: 666
 min_desktop: 667 
+margin: 4
 ---
 /* pair of brackets is here to prevent front matter dashes from interfering */
 {}
@@ -28,7 +29,7 @@ body {
   background-image: url('{{ site.baseurl }}/assets/images/noise@2x.png');
   background-size: 1024px;
   background-repeat: repeat;
-  margin: 4px;
+  margin: {{ page.margin }}px;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -49,13 +50,18 @@ body.project {
 }
 
 .site-container--home {
-    padding: 4px;
+  width: 100%;
+  padding: {{ page.margin }}px;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .site-container--home {
     position: fixed;
-    height: calc(100% - 8px); 
+    width: calc(100% - ({{ page.margin }}px * 2)); 
+    height: calc(100% - ({{ page.margin }}px * 2)); 
+    background-image: url('{{ site.baseurl }}/assets/images/noise@2x.png');
+    background-size: 1024px;
     display: flex;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -86,6 +92,9 @@ body.project {
   border-bottom: 1px solid #000;
 }
 @media screen and (max-width: {{ page.max_mobile }}px) {
+  .site-header--home {
+    min-height: 200px;
+  }
   .site-header--project {
     cursor: pointer;
   }
@@ -198,6 +207,9 @@ body.project {
   }
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
+  .site-nav--home {
+    width: 100%;
+  }
   .site-nav--project {
     width: 230px;
     height: auto
@@ -207,10 +219,14 @@ body.project {
 }
 
 .site-nav__item {
-  margin: 2px 0;
+  margin: 4px 0;
   border-radius: 8px;
   background: #fff;
   padding: 18px 9px;
+  transition: border-radius 0.2s ease-in-out
+}
+.site-nav__item:hover {
+  border-radius: 16px;
 }
 
 /* /NAV */
@@ -290,6 +306,9 @@ body * {
 }
 .dither--3 {
   background-image: url('{{ site.baseurl }}/assets/images/dither-3@2x.png');
+}
+.dither--lace {
+  background-image: url('{{ site.baseurl }}/assets/images/dither-5@2x-white.png');
 }
 /* /UTILITIES */
 
