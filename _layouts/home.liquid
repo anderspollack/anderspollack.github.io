@@ -6,25 +6,31 @@
         <title>{{ page.title }}</title>
         <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet"/>
     </head>
-    <body>
-        <header class="site-header site-header--home">
-            <h1 class="site-header__site-title">{{ site.title }}</h1>
-            <div class="site-header__planets">
-                <img class="site-header__planet icon-world" alt="wireframe world" src="{{ site.baseurl }}/assets/images/icon-world@2x.png"/> 
-                <img class="site-header__planet world" alt="world" src="{{ site.baseurl }}/assets/images/world.png"/> 
-            </div>
-        </header>
-        <nav class="site-nav dither">
-            <div class="site-nav__interior">
+    <body class="home">
+        <div class="site-container--home">
+            <header class="site-header site-header--home">
+                <h1 class="site-header__site-title">{{ site.title }}</h1>
+                <div class="site-header__planets">
+                    <img class="site-header__planet icon-world" alt="wireframe world" src="{{ site.baseurl }}/assets/images/icon-world@2x.png"/> 
+                    <img class="site-header__planet world" alt="world" src="{{ site.baseurl }}/assets/images/world.png"/> 
+                </div>
+            </header>
+            <nav class="site-nav site-nav--home dither">
                 <ul class="projects-list site-nav__items">
                     <li class="site-nav__item">Item 1</li>
                     <li class="site-nav__item">Item 2</li>
                     <li class="site-nav__item">item 3</li>
+                    <li class="site-nav__item">item 4</li>
+                    <li class="site-nav__item">item 5</li>
+                    <li class="site-nav__item">item 6</li>
+                    <li class="site-nav__item">item 7</li>
+                    <li class="site-nav__item">item 8</li>
+                    <li class="site-nav__item">item 9</li>
                 </ul>
-            </div>
-        </nav>
-        <main class="page-main">
-            {{ content }}
-        </main>
+            </nav>
+            <main class="site-main site-main--home">
+                {{ content }}
+            </main>
+        </div>
     </body>
 </html>
