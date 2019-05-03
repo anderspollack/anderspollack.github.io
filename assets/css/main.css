@@ -98,19 +98,29 @@ body.project {
     position: relative;
   }
 }
-
-@media screen and (min-width: {{ page.min_desktop }}px) {
-  .site-header__interior {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
+@media screen and (min-height: {{ page.min_desktop }}px) {
+  .site-header--home {
+    min-height: 360px;
   }
+}
+
+.site-header__interior {
+  position: fixed;
+  bottom: 50%;
+  transform: translateY(50%);
 }
 @media screen and (min-height: {{ page.min_desktop }}px) {
   .site-header__interior {
     position: relative;
-    top: 0;
+    bottom: 0;
     transform: none;
+  }
+}
+@media screen and (min-width: {{ page.med_desktop }}px) {
+  .site-header__interior {
+    position: fixed;
+    bottom: 50%;
+    transform: translateY(50%);
   }
 }
 

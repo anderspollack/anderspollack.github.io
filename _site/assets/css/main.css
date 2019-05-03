@@ -133,19 +133,29 @@ body.project {
     position: relative;
   }
 }
-
-@media screen and (min-width: 667px) {
-  .site-header__interior {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
+@media screen and (min-height: 667px) {
+  .site-header--home {
+    min-height: 360px;
   }
+}
+
+.site-header__interior {
+  position: fixed;
+  bottom: 50%;
+  transform: translateY(50%);
 }
 @media screen and (min-height: 667px) {
   .site-header__interior {
     position: relative;
-    top: 0;
+    bottom: 0;
     transform: none;
+  }
+}
+@media screen and (min-width: 888px) {
+  .site-header__interior {
+    position: fixed;
+    bottom: 50%;
+    transform: translateY(50%);
   }
 }
 
