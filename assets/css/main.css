@@ -42,9 +42,7 @@ body {
     flex-wrap: wrap;
   }
 }
-body.home {
-  margin: 0;
-}
+
 body.project {
   justify-content: space-between;
 }
@@ -55,13 +53,13 @@ body.project {
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .site-container--home {
-    position: fixed;
-    width: calc(100% - ({{ page.margin }}px * 2)); 
-    height: calc(100% - ({{ page.margin }}px * 2)); 
-    background-image: url('{{ site.baseurl }}/assets/images/noise@2x.png');
-    background-size: 1024px;
+    /* position: fixed;
+       width: calc(100% - ({{ page.margin }}px * 2)); 
+       height: calc(100% - ({{ page.margin }}px * 2)); 
+       background-image: url('{{ site.baseurl }}/assets/images/noise@2x.png');
+       background-size: 1024px; */
     display: flex;
-    -webkit-overflow-scrolling: touch;
+    /* -webkit-overflow-scrolling: touch; */
   }
 }
 
@@ -97,6 +95,21 @@ body.project {
   }
   .site-header--project {
     cursor: pointer;
+  }
+}
+@media screen and (min-width: {{ page.min_desktop }}px) {
+  .site-header--home {
+    width: auto;
+    flex-grow: 1;
+    position: relative;
+  }
+}
+
+@media screen and (min-width: {{ page.min_desktop }}px) {
+  .site-header__interior {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -177,11 +190,12 @@ body.project {
 }
 
 .site-nav {
-  padding: 8px 8px;
+  padding: 8px;
   overflow: auto;
 }
 .site-nav--home {
   min-width: 180px;
+  padding: 0;
 }
 .site-nav--project {
   display: flex;
@@ -192,6 +206,9 @@ body.project {
   margin-top: 29px;
 }
 @media screen and (max-width: {{ page.max_mobile }}px) {
+  .site-nav--home {
+    width: 100%;
+  }
   .site-nav--project {
     width: calc(100% - 63px);
     min-width: 288px;
@@ -208,7 +225,8 @@ body.project {
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .site-nav--home {
-    width: 100%;
+    /* width: 100%; */
+    flex-basis: 56%
   }
   .site-nav--project {
     width: 230px;
@@ -216,6 +234,10 @@ body.project {
     max-height: calc(100vh - 61px);
     align-self: flex-start;
   }
+}
+
+.site-nav__interior {
+  padding: 8px;
 }
 
 .site-nav__item {
