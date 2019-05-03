@@ -106,21 +106,15 @@ body.project {
 
 .site-header__interior {
   position: fixed;
-  bottom: 50%;
-  transform: translateY(50%);
 }
 @media screen and (min-height: {{ page.min_desktop }}px) {
   .site-header__interior {
     position: relative;
-    bottom: 0;
-    transform: none;
   }
 }
 @media screen and (min-width: {{ page.med_desktop }}px) {
   .site-header__interior {
     position: fixed;
-    bottom: 50%;
-    transform: translateY(50%);
   }
 }
 

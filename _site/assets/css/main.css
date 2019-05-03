@@ -141,21 +141,15 @@ body.project {
 
 .site-header__interior {
   position: fixed;
-  bottom: 50%;
-  transform: translateY(50%);
 }
 @media screen and (min-height: 667px) {
   .site-header__interior {
     position: relative;
-    bottom: 0;
-    transform: none;
   }
 }
 @media screen and (min-width: 888px) {
   .site-header__interior {
     position: fixed;
-    bottom: 50%;
-    transform: translateY(50%);
   }
 }
 
