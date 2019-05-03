@@ -139,8 +139,10 @@ body.project {
   }
 }
 
-.site-header__interior {
-  position: fixed;
+@media screen and (min-width: 667px) {
+  .site-header__interior {
+    position: fixed;
+  }
 }
 @media screen and (min-height: 667px) {
   .site-header__interior {

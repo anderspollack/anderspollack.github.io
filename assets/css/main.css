@@ -104,8 +104,10 @@ body.project {
   }
 }
 
-.site-header__interior {
-  position: fixed;
+@media screen and (min-width: {{ page.min_desktop }}px) {
+  .site-header__interior {
+    position: fixed;
+  }
 }
 @media screen and (min-height: {{ page.min_desktop }}px) {
   .site-header__interior {
