@@ -16,13 +16,26 @@
         </div>
         <label for="site-nav-toggle" class="site-nav-screen dither dither--3"></label>
         <nav class="site-nav site-nav--project dither">
-            <div class="site-nav__interior">
-                <ul class="projects-list site-nav__items">
-                    <li class="site-nav__item">Item 1</li>
-                    <li class="site-nav__item">Item 2</li>
-                    <li class="site-nav__item">item 3</li>
-                </ul>
-            </div>
+            <ul class="projects-list site-nav__items">
+                
+                
+                    <li class="site-nav__item">
+                        <a href="/portfolio2019/pojects/super-deluxe"><h2>Super Deluxe</h2></a>
+                    </li>
+                
+                    <li class="site-nav__item">
+                        <a href="/portfolio2019/pojects/tio"><h2>Tuition.io</h2></a>
+                    </li>
+                
+                    <li class="site-nav__item">
+                        <a href="/portfolio2019/pojects/don-pollack"><h2>Don Pollack</h2></a>
+                    </li>
+                
+                    <li class="site-nav__item">
+                        <a href="/portfolio2019/pojects/c2st"><h2>The Chicago Council on Science and Technology</h2></a>
+                    </li>
+                
+            </ul>
         </nav>
         <main class="site-main site-main--project">
             <a href="/portfolio2019/">home</a>
@@ -144,6 +157,11 @@ body.project {
     opacity: 1;
   }
 }
+@media screen and (min-width: 667px) {
+  .site-header__title {
+    background: #fff !important;
+  }
+}
 
 .site-header__planets {
   display: flex;
@@ -197,12 +215,11 @@ body.project {
 }
 
 .site-nav {
-  padding: 8px;
+  padding: 4px 8px;
   overflow: auto;
 }
 .site-nav--home {
   min-width: 180px;
-  padding: 0;
 }
 .site-nav--project {
   display: flex;
@@ -232,8 +249,10 @@ body.project {
 }
 @media screen and (min-width: 667px) {
   .site-nav--home {
-    /* width: 100%; */
-    flex-basis: 56%
+    flex-basis: 56%;
+    min-height: calc(100vh - (4px * 4));
+    display: flex;
+    align-items: center;
   }
   .site-nav--project {
     width: 230px;
@@ -244,7 +263,6 @@ body.project {
 }
 
 .site-nav__interior {
-  padding: 8px;
 }
 
 .site-nav__item {

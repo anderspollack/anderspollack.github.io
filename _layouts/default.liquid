@@ -16,13 +16,14 @@
         </div>
         <label for="site-nav-toggle" class="site-nav-screen dither dither--3"></label>
         <nav class="site-nav site-nav--project dither">
-            <div class="site-nav__interior">
-                <ul class="projects-list site-nav__items">
-                    <li class="site-nav__item">Item 1</li>
-                    <li class="site-nav__item">Item 2</li>
-                    <li class="site-nav__item">item 3</li>
-                </ul>
-            </div>
+            <ul class="projects-list site-nav__items">
+                {% assign items = site.project_collections | sort: 'order' | reverse %}
+                {% for item in items %}
+                    <li class="site-nav__item">
+                        <a href="{{ site.baseurl }}{{ item.url }}"><h2>{{ item.name }}</h2></a>
+                    </li>
+                {% endfor %}
+            </ul>
         </nav>
         <main class="site-main site-main--project">
             <a href="{{ site.baseurl }}/">home</a>
