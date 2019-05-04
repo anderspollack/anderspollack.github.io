@@ -9,6 +9,12 @@ defaults:
       layout: default
 
   - scope:
+      path: ""
+      type: "project_collections"
+    values:
+      layout: project
+
+  - scope:
       path: "/assets/images"
     values:
       image: true

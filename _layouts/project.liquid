@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<body class="project">
+    <input name="site-nav-toggle" id="site-nav-toggle" class="invisible" type="checkbox" value=""/>
+    <label for="site-nav-toggle" class="site-header site-header--project">
+        <h1 class="site-header__title lace">Projects</h1>
+    </label>
+    <div class="info-header">
+        <div class="info-header__interior lace">Anders<br/>Pollack</div>
+    </div>
+    <label for="site-nav-toggle" class="site-nav-screen dither dither--3"></label>
+    <nav class="site-nav site-nav--project lace-dither">
+        {% include site-nav-items.liquid %}
+    </nav>
+    <main class="site-main site-main--project">
+        <a href="{{ site.baseurl }}/">home</a>
+        {{ content }}
+    </main>
+</body>

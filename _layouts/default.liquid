@@ -6,28 +6,5 @@
         <title>{{ page.title }}</title>
         <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet"/>
     </head>
-    <body class="project">
-        <input name="site-nav-toggle" id="site-nav-toggle" class="invisible" type="checkbox" value=""/>
-        <label for="site-nav-toggle" class="site-header site-header--project">
-            <h1 class="site-header__title dither">Projects</h1>
-        </label>
-        <div class="info-header">
-            <div class="info-header__lace">Anders<br/>Pollack</div>
-        </div>
-        <label for="site-nav-toggle" class="site-nav-screen dither dither--3"></label>
-        <nav class="site-nav site-nav--project dither">
-            <ul class="projects-list site-nav__items">
-                {% assign items = site.project_collections | sort: 'order' | reverse %}
-                {% for item in items %}
-                    <li class="site-nav__item">
-                        <a href="{{ site.baseurl }}{{ item.url }}"><h2>{{ item.name }}</h2></a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </nav>
-        <main class="site-main site-main--project">
-            <a href="{{ site.baseurl }}/">home</a>
-            {{ content }}
-        </main>
-    </body>
+    {{ content }}
 </html>

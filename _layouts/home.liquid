@@ -1,12 +1,17 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width">
-        <title>{{ page.title }}</title>
-        <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet"/>
-    </head>
-    <body class="home">
-        {{ content }}
-    </body>
-</html>
+---
+layout: default
+---
+<body class="home">
+    <header class="site-header site-header--home">
+        <div class="site-header__interior">
+            <h1 class="site-header__site-title">{{ site.title }}</h1>
+            <div class="site-header__planets">
+                <img class="site-header__planet icon-world" alt="wireframe world" src="{{ site.baseurl }}/assets/images/icon-world@2x.png"/> 
+                <img class="site-header__planet world" alt="world" src="{{ site.baseurl }}/assets/images/world.png"/> 
+            </div>
+        </div>
+    </header>
+    <nav class="site-nav site-nav--home lace-dither">
+        {% include site-nav-items.liquid %}
+    </nav>
+</body>

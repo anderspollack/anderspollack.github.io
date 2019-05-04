@@ -1,39 +1,37 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width">
-        <title></title>
-        <link href="/portfolio2019/assets/css/main.css" rel="stylesheet"/>
-    </head>
-    /* pair of brackets is here to prevent front matter dashes from interfering */
+---
+max_mobile: 666
+min_desktop: 667 
+med_desktop: 888
+margin: 4
+---
+/* pair of brackets is here to prevent front matter dashes from interfering */
 {}
 
 @font-face {
   font-family: 'inter-medium';
   font-weight: 400;
-  src: url('/portfolio2019/assets/fonts/inter-medium.otf');
+  src: url('{{ site.baseurl }}/assets/fonts/inter-medium.otf');
 }
 
 @font-face {
   font-family: 'inter-light';
   font-weight: 400;
-  src: url('/portfolio2019/assets/fonts/inter-light.otf');
+  src: url('{{ site.baseurl }}/assets/fonts/inter-light.otf');
 }
 
 @font-face {
   font-family: 'inter-bold';
   font-weight: 400;
-  src: url('/portfolio2019/assets/fonts/inter-bold.otf');
+  src: url('{{ site.baseurl }}/assets/fonts/inter-bold.otf');
 }
 
 body {
   background-color: #000;
-  background-image: url('/portfolio2019/assets/images/noise@2x.png');
+  background-image: url('{{ site.baseurl }}/assets/images/noise@2x.png');
   background-size: 1024px;
   background-repeat: repeat;
   background-attachment: fixed;
-  margin: 4px;
+  margin: {{ page.margin }}px;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -41,7 +39,7 @@ body {
 body.project {
   justify-content: space-between;
 }
-@media screen and (min-width: 667px) {
+@media screen and (min-width: {{ page.min_desktop }}px) {
   body {
     flex-wrap: nowrap;
   }
@@ -49,12 +47,12 @@ body.project {
     flex-wrap: wrap;
   }
 }
-@media screen and (min-height: 667px) {
+@media screen and (min-height: {{ page.min_desktop }}px) {
   body.home {
     flex-wrap: wrap;
   }
 }
-@media screen and (min-width: 888px) {
+@media screen and (min-width: {{ page.med_desktop }}px) {
   body.home {
     flex-wrap: nowrap;
   }
@@ -89,36 +87,36 @@ body.project {
   background-color: transparent;
   cursor: pointer;
 }
-@media screen and (min-width: 667px) {
+@media screen and (min-width: {{ page.min_desktop }}px) {
   .site-header--home {
     width: auto;
     flex-grow: 1;
     position: relative;
   }
 }
-@media screen and (min-height: 667px) {
+@media screen and (min-height: {{ page.min_desktop }}px) {
   .site-header--home {
     min-height: 360px;
   }
 }
-@media screen and (min-width: 888px) {
+@media screen and (min-width: {{ page.med_desktop }}px) {
   .site-header--project {
     cursor: default;
   }
 }
 
 
-@media screen and (min-width: 667px) {
+@media screen and (min-width: {{ page.min_desktop }}px) {
   .site-header__interior {
     position: fixed;
   }
 }
-@media screen and (min-height: 667px) {
+@media screen and (min-height: {{ page.min_desktop }}px) {
   .site-header__interior {
     position: relative;
   }
 }
-@media screen and (min-width: 888px) {
+@media screen and (min-width: {{ page.med_desktop }}px) {
   .site-header__interior {
     position: fixed;
   }
@@ -133,7 +131,7 @@ body.project {
 }
 .site-header--project:after {
   content: '× close';
-  background-image: url('/portfolio2019/assets/images/dither-7@2x.png');
+  background-image: url('{{ site.baseurl }}/assets/images/dither-7@2x.png');
   background-repeat: repeat;
   background-size: 16px;
   position: absolute;
@@ -152,7 +150,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project .site-hea
 input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
   opacity: 1;
 }
-@media screen and (min-width: 888px) {
+@media screen and (min-width: {{ page.med_desktop }}px) {
   .site-header--project:after {
     display: none;
   }
@@ -210,7 +208,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
   opacity: 1;
   transform: translateX(0);
 }
-@media screen and (min-width: 888px) {
+@media screen and (min-width: {{ page.med_desktop }}px) {
   .site-nav-screen {
     display: none;
   }
@@ -219,6 +217,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
 .site-nav {
   padding: 4px 8px;
   overflow: auto;
+  background-image: url(), url();
 }
 .site-nav--home {
   min-width: 180px;
@@ -244,31 +243,31 @@ input[type="checkbox"]#site-nav-toggle:not(:checked) ~ .site-nav--project {
 input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
   transform: translateY(0);
 }
-@media screen and (min-width: 667px) {
+@media screen and (min-width: {{ page.min_desktop }}px) {
   .site-nav--home {
     flex-basis: 56%;
-    min-height: calc(100vh - (4px * 4));
+    min-height: calc(100vh - ({{ page.margin }}px * 4));
     display: flex;
     align-items: center;
   }
 }
-@media screen and (min-height: 667px){
+@media screen and (min-height: {{ page.min_desktop }}px){
   .site-nav--home {
     flex-basis: 100%;
     min-height: 0;
   }
 }
-@media screen and (min-width: 888px) {
+@media screen and (min-width: {{ page.med_desktop }}px) {
   .site-nav--home {
     flex-basis: 56%;
-    min-height: calc(100vh - (4px * 4));
+    min-height: calc(100vh - ({{ page.margin }}px * 4));
   }
   input[type="checkbox"]#site-nav-toggle:not(:checked) ~ .site-nav--project,
   input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project,
   .site-nav--project {
     width: 230px;
-    height: auto;
-    max-height: calc(100vh - 42px);
+    height: auto
+    max-height: calc(100vh - 61px);
     align-self: flex-start;
     transform: translateY(0);
   }
@@ -302,12 +301,12 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
   min-height: 1000px;
   width: 100%;
 }
-@media screen and (max-width: 666px) {
+@media screen and (max-width: {{ page.max_mobile }}px) {
   .site-main--project {
     /* margin-top: 50px; */
   }
 }
-@media screen and (min-width: 888px) {
+@media screen and (min-width: {{ page.med_desktop }}px) {
   .site-main--project {
     margin-left: 320px;
   }
@@ -360,25 +359,18 @@ body * {
 }
 
 .dither {
-  background-image: url('/portfolio2019/assets/images/dither@2x.png');
+  background-image: url('{{ site.baseurl }}/assets/images/dither@2x.png');
   background-repeat: repeat;
   background-size: 16px;
   background-position: top -1px left;
 }
 .dither--3 {
-  background-image: url('/portfolio2019/assets/images/dither-3@2x.png');
+  background-image: url('{{ site.baseurl }}/assets/images/dither-3@2x.png');
 }
 .lace {
-  background-image: url('/portfolio2019/assets/images/dither-7@2x-white.png');
-  background-repeat: repeat;
-  background-size: 16px;
-}
-.lace-dither {
-  background-image: url('/portfolio2019/assets/images/dither@2x.png'), url('/portfolio2019/assets/images/dither-7@2x-white.png');
+  background-image: url('{{ site.baseurl }}/assets/images/dither-7@2x-white.png');
   background-repeat: repeat;
   background-size: 16px;
 }
 /* /UTILITIES */
 
-
-</html>

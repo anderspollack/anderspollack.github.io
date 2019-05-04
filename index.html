@@ -2,22 +2,3 @@
 title: Anders Pollack
 layout: home
 ---
-<header class="site-header site-header--home">
-    <div class="site-header__interior">
-        <h1 class="site-header__site-title">{{ site.title }}</h1>
-        <div class="site-header__planets">
-            <img class="site-header__planet icon-world" alt="wireframe world" src="{{ site.baseurl }}/assets/images/icon-world@2x.png"/> 
-            <img class="site-header__planet world" alt="world" src="{{ site.baseurl }}/assets/images/world.png"/> 
-        </div>
-    </div>
-</header>
-<nav class="site-nav site-nav--home dither">
-    <ul class="projects-list site-nav__items">
-        {% assign items = site.project_collections | sort: 'order' | reverse %}
-        {% for item in items %}
-            <li class="site-nav__item">
-                <a href="{{ site.baseurl }}{{ item.url }}"><h2>{{ item.name }}</h2></a>
-            </li>
-        {% endfor %}
-    </ul>
-</nav>
