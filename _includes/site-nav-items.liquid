@@ -2,7 +2,30 @@
     {% assign items = site.project_collections | sort: 'order' | reverse %}
     {% for item in items %}
         <li class="site-nav__item">
-            <a href="{{ site.baseurl }}{{ item.url }}"><h2>{{ item.name }}</h2></a>
+            <input class="collection-toggle-input invisible" name="{{ item.slug }}-toggle" id="{{ item.slug }}-toggle" type="checkbox" value=""/>
+            <div class="site-nav__expanded-margin">
+                <div class="site-nav__folder-icon"></div>
+            </div>
+            <div class="site-nav__collection-excerpt">
+                <label for="{{ item.slug }}-toggle" class="collection-toggle">
+                    <h2 class="site-nav__heading">{{ item.name }}</h2>
+                    <div class="site-nav__arrow-icon"></div>
+                    <p class="site-nav__body collection-body">
+                        {{ item.description }}
+                    </p>
+                    <p class="site-nav__body collection-body-alternate">
+                        Projects
+                    </p>
+                </label>
+                <ul class="site-nav__projects">
+                    {% assign projects = site.projects | sort: 'order' %}
+                    {% for project in projects %}
+                        {% if project.project_collection == item.slug %}
+                            <li class="site-nav__project">{{ project.name }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
         </li>
     {% endfor %}
 </ul>

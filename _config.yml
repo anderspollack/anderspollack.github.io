@@ -15,11 +15,21 @@ defaults:
       layout: project
 
   - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
+
+  - scope:
       path: "/assets/images"
     values:
       image: true
 
 collections:
   project_collections:
+    output: true
+    permalink: /projects/:name
+
+  projects:
     output: true
     permalink: /projects/:name
