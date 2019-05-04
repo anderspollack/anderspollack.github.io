@@ -233,7 +233,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
   width: calc(100% - 63px);
   min-width: 288px;
   max-width: 460px;
-  max-height: 540px;
+  max-height: calc(100vh - 42px);
   transition: transform 0.3s ease-in-out;
 }
 input[type="checkbox"]#site-nav-toggle:not(:checked) ~ .site-nav--project {
@@ -357,6 +357,9 @@ body * {
   opacity: 0;
 }
 
+.white {
+  background-color: #fff;
+}
 .dither {
   background-image: url('{{ site.baseurl }}/assets/images/dither@2x.png');
   background-repeat: repeat;
