@@ -17,16 +17,14 @@
                         Projects
                     </p>
                 </label>
-                <div class="collection-projects">
-                    <ul class="site-nav__projects dither">
-                        {% assign projects = site.projects | sort: 'order' %}
-                        {% for project in projects %}
-                            {% if project.project_collection == item.slug %}
-                                <li class="site-nav__project">{{ project.name }}</li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
+                <ul class="site-nav__projects dither">
+                    {% assign projects = site.projects | sort: 'order' %}
+                    {% for project in projects %}
+                        {% if project.project_collection == item.slug %}
+                            <li class="site-nav__project">{{ project.name }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
             </div>
         </li>
     {% endfor %}

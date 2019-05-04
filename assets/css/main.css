@@ -427,6 +427,7 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-e
   left: -10px;
   overflow: hidden;
   max-height: 0;
+  transition: max-height 0.2s ease-in-out;
 }
 input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-excerpt .collection-body-alternate {
   opacity: 1;
@@ -435,34 +436,27 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-e
   transition:
     opacity 0.2s ease-in-out 0.2s,
     left 0.2s ease-in 0.2s,
-    max-height 0.2s ease-in-out 0.2s;
+    max-height 0.1s ease-in-out;
 }
 
 /* NAV: projects list */
-.collection-projects {
-  padding: 0 24px 28px 0;
-}
-input[type="checkbox"].collection-toggle-input:checked ~ .collection-projects {
-}
-
 .site-nav__projects {
   width: 100%;
-  /* padding: 18px 9px; */
   opacity: 0;
-  /* transform: translateY(-10px); */
+  transform: translate(-24px, -10px);
   overflow: hidden;
   max-height: 0;
 }
 input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-excerpt .site-nav__projects {
   opacity: 1;
-  /* transform: translateY(0); */
+  transform: translateY(0);
   max-height: 1000px;
+  transform: translate(-24px, 0);
   margin-bottom: 28px;
   transition:
-    opacity 0.2s ease-in-out 0.2s,
-    /* transform 0.2s ease-in 0.2s, */
-    max-height 0.2s ease-in-out 0.25s,
-    padding 0.2s ease-in-out 0.2s;
+    opacity 0.2s ease-in-out 0.25s,
+    transform 0.2s ease-in 0.25s,
+    max-height 0.3s ease-in-out;
 }
 
 /* /NAV: projects list */
