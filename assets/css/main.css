@@ -636,7 +636,8 @@ screen and (min-width: {{ page.med_desktop }}px) {
 }
 
 .project__section--full-bleed {
-  min-height: 300px;
+  min-height: 160px;
+  display: flex;
 }
 
 .site-main--project > p,
@@ -646,13 +647,14 @@ screen and (min-width: {{ page.med_desktop }}px) {
   margin: 8px 16px;
 }
 
-.super-deluxe-store-tile {
-  box-shadow: inset 0 1px 4px rgba(0,0,0,0.2);
+.super-deluxe-store-tile--geometric {
+  width: 100%;
   background-image: url('{{ site.baseurl }}/assets/images/super-deluxe-tile-pastel.jpg');
   background-position: top 0px left 0px;
   background-size: 160px;
   background-repeat: repeat;
-  animation: SD-tile-diagonal 4s linear infinite 0.5s;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.2);
+  animation: SD-tile-diagonal 4s 24 linear 0.5s;
 }
 @keyframes SD-tile-diagonal {
   from {
@@ -662,6 +664,30 @@ screen and (min-width: {{ page.med_desktop }}px) {
     background-position: top 120px left 160px;
   }
 }
+.super-deluxe-store-tile--squiggles {
+  width: 100%;
+  background-image: url('{{ site.baseurl }}/assets/images/green-squiggles.png');
+  background-position: top 0px left 0px;
+  background-color: #bbfeef;
+  background-size: 160px;
+  background-repeat: repeat;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  animation: SD-tile-vertical 4s 24 ease-in-out alternate 0.5s;
+}
+@keyframes SD-tile-vertical {
+  from {
+    background-position: top 0px left 0px;
+    background-color: #bbfeef;
+  }
+  50% {
+    background-color: #fafebb;
+  }
+  to {
+    background-position: top 160px left 0px;
+    background-color: #bbfeef;
+  }
+}
+
 /* /MAIN: Project */
 /* /MAIN */
 /* HOMEPAGE ANIMATIONS */
