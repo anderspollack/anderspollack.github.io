@@ -251,7 +251,8 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
   width: calc(100% - 64px);
   min-width: 288px;
   max-width: 460px;
-  min-height: calc(100% - 40px);
+  /* uncomment below if you want nav container to always try to be as tall as .site-main */
+  /* min-height: calc(100% - 40px); */
   transition: transform 0.3s ease-in-out;
   transform: translateY(calc(-100% - 100px));
   position: absolute;
@@ -364,7 +365,7 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__expanded-mar
 input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__expanded-margin .site-nav__folder-icon {
   top: 0;
   opacity: 1;
-  transition: opacity 0.2s ease-in-out 0.1s, top 0.15s ease-out 0.2s;
+  transition: opacity 0.2s ease-in-out 0.2s, top 0.15s ease-out 0.2s;
 }
 
 .site-nav__collection-excerpt {
