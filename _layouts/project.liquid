@@ -6,31 +6,33 @@ layout: default
     <label for="site-nav-toggle" class="site-header site-header--project">
         <h1 class="site-header__title lace">Projects</h1>
     </label>
-    <div class="info-header">
-        <a class="info-header__interior dither" href="{{ site.baseurl }}/">
-            <div class="planets planets--project">
-                <div class="planet world world--project"></div>
-            </div>
-        </a>
-    </div>
     <label for="site-nav-toggle" class="site-nav-screen dither dither--3"></label>
     <nav class="site-nav site-nav--project white dither">
         {% include site-nav-items.liquid %}
     </nav>
-    <main class="site-main site-main--project">
-        <header class="project__header">
-            <h1 class="page-title">{{ page.name }}</h1>
-            <ul class="project__breadcrumbs">
-                <li class="project__breadcrumb"><a href="{{ site.baseurl }}/">Home</a></li>
-                <li class="project__breadcrumb">
-                    {% for item in site.project_collections %}
-                        {% if item.slug == page.project_collection %}
-                            {{ item.name }}
-                        {% endif %}
-                    {% endfor %}
-                </li>
-            </ul>
-        </header>
-        {{ content }}
-    </main>
+    <article class="project__page">
+        <div class="info-header">
+            <a class="info-header__interior dither" href="{{ site.baseurl }}/">
+                <div class="planets planets--project">
+                    <div class="planet world world--project"></div>
+                </div>
+            </a>
+        </div>
+        <main class="site-main site-main--project">
+            <header class="project__header">
+                <ul class="project__breadcrumbs">
+                    <li class="project__breadcrumb"><a href="{{ site.baseurl }}/">Home</a></li>
+                    <li class="project__breadcrumb">
+                        {% for item in site.project_collections %}
+                            {% if item.slug == page.project_collection %}
+                                {{ item.name }}
+                            {% endif %}
+                        {% endfor %}
+                    </li>
+                </ul>
+                <h1 class="project__title">{{ page.name }}</h1>
+            </header>
+            {{ content }}
+        </main>
+    </article>
 </body>
