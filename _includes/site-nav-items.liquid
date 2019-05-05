@@ -12,6 +12,11 @@
                     <div class="site-nav__arrow-icon"></div>
                     <p class="site-nav__body collection-body">
                         {{ item.description }}
+                        <div class="project-icons">
+                            {% for icon in item.icons %}
+                                <div class="project-icons__icon icon-{{ icon }}"></div>
+                            {% endfor %}
+                        </div>
                     </p>
                     <p class="site-nav__body collection-body-alternate">
                         Projects
@@ -21,7 +26,7 @@
                     {% assign projects = site.projects | sort: 'order' %}
                     {% for project in projects %}
                         {% if project.project_collection == item.slug %}
-                            <li class="site-nav__project">{{ project.name }}</li>
+                            <li class="site-nav__project"><a href="{{ site.baseurl }}{{ project.url }}">{{ project.name }}</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>

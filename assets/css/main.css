@@ -439,6 +439,23 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-e
     max-height 0.1s ease-in-out;
 }
 
+.project-icons {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out 0.15s;
+}
+input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-excerpt .project-icons {
+  opacity: 0;
+  height: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.project-icon__icon {
+  flex-shrink: 0;
+}
+
 /* NAV: projects list */
 .site-nav__projects {
   width: 100%;
@@ -459,6 +476,18 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-e
     max-height 0.3s ease-in-out;
 }
 
+.site-nav__project {
+  /* display: inline-block; */
+  margin: 2px 2px 2px 2px;
+  padding: 16px 22px;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-radius 0.1s ease-out;
+}
+.site-nav__project:hover {
+  border-radius: 16px;
+}
 /* /NAV: projects list */
 /* /NAV */
 /* MAIN */
@@ -494,6 +523,28 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-e
 .world {
   width: 80px;
   height: 80px;
+}
+
+.project-icons__icon {
+  background-repeat: no-repeat;
+  background-size: 32px;
+  width: 32px;
+  height: 32px;
+}
+.icon-code {
+  background-image: url('{{ site.baseurl }}/assets/images/icon-code@2x.png');
+}
+.icon-graphic {
+  background-image: url('{{ site.baseurl }}/assets/images/icon-graphic@2x.png');
+}
+.icon-presentation {
+  background-image: url('{{ site.baseurl }}/assets/images/icon-presentation@2x.png');
+}
+.icon-sound {
+  background-image: url('{{ site.baseurl }}/assets/images/icon-sound@2x.png');
+}
+.icon-ux {
+  background-image: url('{{ site.baseurl }}/assets/images/icon-ux@2x.png');
 }
 
 /* /ICONOGRAPHY */
