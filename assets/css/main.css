@@ -178,13 +178,18 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
   }
 }
 
-.site-header__planets {
+.planets {
   display: flex;
   justify-content: center;
-  padding: 0 18px;
+  padding: 0 16px;
+}
+.planets--project {
+  padding: 0 8px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.site-header__planet {
+.planet {
   display: block;
   width: auto;
 }
@@ -197,12 +202,20 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
 }
 
 .info-header__interior {
-  width: 130px;
-  height: 130px;
+  width: auto;
   min-width: 64px;
-  min-height: 33px;
+  padding-bottom: 12px;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
+}
+
+.info-header__heading {
+  margin-top: 7px;
+  text-align: center;
+  flex-shrink: 1;
+  /* position: absolute;
+     top: 20px;
+     transform: rotate(60deg); */
 }
 /* /HEADER */
 /* NAV */
@@ -531,6 +544,23 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-e
   }
 }
 
+@keyframes World-appear-small {
+  from {
+    opacity: 0;
+    background-size: 16px;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    background-size: 16px;
+  }
+  to {
+    background-size: 32px;
+    opacity: 1;
+  }
+}
+
 @keyframes World-hover {
   from {
     top: 0px;
@@ -565,7 +595,10 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-e
 
 /* /HOMEPAGE ANIMATIONS */
 /* ICONOGRAPHY */
-.site-header__planet {
+.planet {
+  margin: 8px 8px;
+}
+.planet--home {
   margin: 16px 8px;
 }
 
@@ -590,6 +623,14 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-e
   background-repeat: no-repeat;
   animation:
     World-appear 1 0.6s linear,
+    World-hover 1.6s ease-in-out infinite alternate 0.2s;
+}
+.world--project {
+  width: 48px;
+  height: 48px;
+  background-size: 48px;
+  animation:
+    World-appear-small 1 0.6s linear,
     World-hover 1.6s ease-in-out infinite alternate 0.2s;
 }
 
@@ -650,11 +691,12 @@ body * {
 .site-header__site-title,
 .site-header__title,
 .site-header:after,
-.info-header__lace {
+.info-header {
   font-family: 'work-sans-semibold', sans-serif;
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 10px;
+  text-align: center;
 }
 
 .site-header__site-title {
