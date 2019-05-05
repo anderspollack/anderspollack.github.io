@@ -574,6 +574,7 @@ body {
 body * {
   line-height: 1.2;
   list-style: none;
+  font-weight: 400;
   margin: 0;
   padding: 0;
 }
