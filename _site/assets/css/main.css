@@ -251,10 +251,10 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
   margin-top: 32px;
 }
 .site-nav--project {
-  width: calc(100% - 63px);
+  width: calc(100% - 64px);
   min-width: 288px;
   max-width: 460px;
-  max-height: calc(100vh - 46px);
+  max-height: calc(100vh - 161px);
   transition: transform 0.3s ease-in-out;
   transform: translateY(calc(-100% - 100px));
 }
@@ -371,7 +371,7 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__expanded-mar
 .site-nav__collection-excerpt {
   display: block;
   /* padding: 24px 0 28px; */
-  flex: 1 0 min-content;
+  flex: 1;
 }
 
 .collection-toggle {
