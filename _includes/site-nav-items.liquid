@@ -6,15 +6,15 @@
             <div class="site-nav__expanded-margin">
                 <div class="site-nav__folder-icon"></div>
             </div>
-            <div class="site-nav__collection-excerpt">
+            <div class="site-nav__collection">
                 <label for="{{ item.slug }}-toggle" class="collection-toggle">
                     <h2 class="site-nav__heading">{{ item.name }}</h2>
                     <div class="site-nav__arrow-icon"></div>
                     <p class="site-nav__body collection-body">
                         {{ item.description }}
-                        <div class="project-icons">
+                        <div class="project__icons project__icons--collection">
                             {% for icon in item.icons %}
-                                <div class="project-icons__icon icon-{{ icon }}"></div>
+                                <div class="project__icon icon-{{ icon }}"></div>
                             {% endfor %}
                         </div>
                     </p>
@@ -25,8 +25,24 @@
                 <ul class="site-nav__projects dither">
                     {% assign projects = site.projects | sort: 'order' %}
                     {% for project in projects %}
-                        {% if project.project_collection == item.slug %}
-                            <li class="site-nav__project"><a href="{{ site.baseurl }}{{ project.url }}">{{ project.name }}</a></li>
+                        {% if project.project_collection == item.slug and project.published == true %}
+                            <li class="site-nav__project project">
+                                <a class="project__link" href="{{ site.baseurl }}{{ project.url }}">
+                                    <div class="project__heading">
+                                        {{ project.name }}
+                                    </div>
+                                    <div class="project__body">
+                                        <div class="project__icons">
+                                            {% for icon in project.icons %}
+                                                <div class="project__icon icon-{{ icon }}"></div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="project__description">
+                                            {{ project.description }}
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         {% endif %}
                     {% endfor %}
                 </ul>

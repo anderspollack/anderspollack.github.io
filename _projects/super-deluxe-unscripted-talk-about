@@ -1,0 +1,9 @@
+---
+name: "'Talk About' Game Show Prototype"
+project_collection: super-deluxe
+published: true
+description: UI design and front-end development for a prototype of Talk About, a free-association TV guessing game
+icons:
+  - ux
+  - code
+---

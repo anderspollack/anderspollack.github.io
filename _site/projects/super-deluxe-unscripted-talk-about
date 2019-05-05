@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width">
-        <title>Tio Email Templates</title>
+        <title></title>
         <link href="/portfolio2019/assets/css/main.css" rel="stylesheet"/>
     </head>
     <body class="project">
@@ -294,7 +294,7 @@
     </nav>
     <main class="site-main site-main--project">
         <header class="project__header">
-            <h1 class="page-title">Tuition.io Email Templates</h1>
+            <h1 class="page-title">'Talk About' Game Show Prototype</h1>
             <ul class="project__breadcrumbs">
                 <li class="project__breadcrumb"><a href="/portfolio2019/">Home</a></li>
                 <li class="project__breadcrumb">
@@ -304,16 +304,15 @@
                         
                     
                         
-                    
+                            Super Deluxe
                         
-                            Tuition.io
+                    
                         
                     
                 </li>
             </ul>
         </header>
         
-
     </main>
 </body>
 
