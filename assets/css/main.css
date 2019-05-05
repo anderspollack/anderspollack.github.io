@@ -630,7 +630,6 @@ body * {
 }
 .dither--3 {
   background-image: url('{{ site.baseurl }}/assets/images/dither-3@2x.png');
-  background-position: top left;
 }
 .lace {
   background-image: url('{{ site.baseurl }}/assets/images/dither-7@2x-white.png');
