@@ -122,7 +122,7 @@ body.project {
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .site-header__interior {
     position: fixed;
-    top: 35%;
+    top: 30%;
   }
 }
 @media screen and (min-height: {{ page.min_desktop }}px) {
@@ -134,7 +134,8 @@ body.project {
 @media screen and (min-width: {{ page.med_desktop }}px) {
   .site-header__interior {
     position: fixed;
-    top: 35%;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 

@@ -124,7 +124,7 @@ body.project {
 @media screen and (min-width: 667px) {
   .site-header__interior {
     position: fixed;
-    top: 35%;
+    top: 30%;
   }
 }
 @media screen and (min-height: 667px) {
@@ -136,7 +136,8 @@ body.project {
 @media screen and (min-width: 888px) {
   .site-header__interior {
     position: fixed;
-    top: 35%;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
