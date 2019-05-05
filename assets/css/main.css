@@ -245,14 +245,12 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
   flex-direction: column;
   border-top: 1px solid #000; 
   border-bottom: 1px solid #000; 
-  /* position: fixed; */
   z-index: 2;
   margin-top: 30px;
-  /* top: 34px; */
   width: calc(100% - 64px);
   min-width: 288px;
   max-width: 460px;
-  min-height: calc(100vh - 40px);
+  min-height: calc(100% - 40px);
   transition: transform 0.3s ease-in-out;
   transform: translateY(calc(-100% - 100px));
   position: absolute;
