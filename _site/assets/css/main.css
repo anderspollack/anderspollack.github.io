@@ -259,11 +259,11 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
   /* uncomment below if you want nav container to always try to be as tall as .site-main */
   /* min-height: calc(100% - 40px); */
   transition: transform 0.3s ease-in-out;
-  transform: translateY(calc(-100% - 100px));
+  transform: translateX(calc(-100% - 100px));
   position: absolute;
 }
 input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
-  transform: translateY(0);
+  transform: translateX(0);
 }
 @media screen and (min-width: 667px) {
   .site-nav--home {
