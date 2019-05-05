@@ -7,7 +7,7 @@ layout: default
         <h1 class="site-header__title lace">Projects</h1>
     </label>
     <div class="info-header">
-        <a class="info-header__interior lace" href="{{ site.baseurl }}/">
+        <a class="info-header__interior dither" href="{{ site.baseurl }}/">
             <div class="planets planets--project">
                 <div class="planet world world--project"></div>
             </div>
@@ -18,7 +18,19 @@ layout: default
         {% include site-nav-items.liquid %}
     </nav>
     <main class="site-main site-main--project">
-        <a href="{{ site.baseurl }}/">home</a>
+        <header class="project__header">
+            <h1 class="page-title">{{ page.name }}</h1>
+            <ul class="project__breadcrumbs">
+                <li class="project__breadcrumb"><a href="{{ site.baseurl }}/">Home</a></li>
+                <li class="project__breadcrumb">
+                    {% for item in site.project_collections %}
+                        {% if item.slug == page.project_collection %}
+                            {{ item.name }}
+                        {% endif %}
+                    {% endfor %}
+                </li>
+            </ul>
+        </header>
         {{ content }}
     </main>
 </body>
