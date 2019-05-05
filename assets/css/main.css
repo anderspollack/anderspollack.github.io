@@ -235,6 +235,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
 .site-nav {
   padding: 4px 8px;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .site-nav--home {
   min-width: 180px;
