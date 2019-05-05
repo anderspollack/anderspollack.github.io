@@ -247,6 +247,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
 }
 .site-nav--home {
   min-width: 180px;
+  margin: 2px 0;
 }
 .site-nav--project {
   display: flex;
