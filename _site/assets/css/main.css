@@ -136,8 +136,7 @@ body.project {
 @media screen and (min-width: 888px) {
   .site-header__interior {
     position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 230px;
   }
 }
 
