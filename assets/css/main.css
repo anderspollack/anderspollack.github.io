@@ -510,7 +510,7 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-e
 .site-main--project {
   min-height: 1000px;
   flex-grow: 1;
-  padding: 12px 10px 24px 16px;
+  padding: 12px 13px 24px 16px;
 }
 @media screen and (max-width: {{ page.max_mobile }}px) {
   .site-main--project {
@@ -546,11 +546,11 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-e
   content: '';
   display: block;
   height: 16px;
-  width: 30px;
-  background-image: url('{{ site.baseurl }}/assets/images/caret-down.png');
+  width: 29px;
+  background-image: url('{{ site.baseurl }}/assets/images/caret-down@2x.png');
   background-size: 16px;
   background-repeat: no-repeat;
-  background-position: top 1px left 1px;
+  background-position: top 1px left;
 }
 
 .page-title {
