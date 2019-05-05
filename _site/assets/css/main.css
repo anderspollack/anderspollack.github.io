@@ -244,19 +244,18 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
 .site-nav--project {
   display: flex;
   flex-direction: column;
+  border-top: 1px solid #000; 
   border-bottom: 1px solid #000; 
   position: fixed;
   z-index: 2;
-  margin-top: 29px;
+  margin-top: 32px;
 }
 .site-nav--project {
   width: calc(100% - 63px);
   min-width: 288px;
   max-width: 460px;
-  max-height: calc(100vh - 42px);
-  tranSition: transform 0.3s ease-in-out;
-}
-input[type="checkbox"]#site-nav-toggle:not(:checked) ~ .site-nav--project {
+  max-height: calc(100vh - 46px);
+  transition: transform 0.3s ease-in-out;
   transform: translateY(calc(-100% - 100px));
 }
 input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
@@ -286,7 +285,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
   .site-nav--project {
     width: 230px;
     height: auto;
-    max-height: calc(100vh - 42px);
+    max-height: calc(100vh - 46px);
     align-self: flex-start;
     transform: translateY(0);
   }
@@ -633,6 +632,7 @@ body * {
 }
 .dither--3 {
   background-image: url('/portfolio2019/assets/images/dither-3@2x.png');
+  background-position: top left;
 }
 .lace {
   background-image: url('/portfolio2019/assets/images/dither-7@2x-white.png');
