@@ -95,9 +95,7 @@ body.project {
   height: 31px;
   position: fixed;
   overflow: hidden;
-  z-index: 1;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
+  z-index: 3;
   background-color: transparent;
   cursor: pointer;
 }
@@ -148,6 +146,8 @@ body.project {
   justify-content: center;
   align-items: center;
   padding: 0 9px 0 18px;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
 }
 .site-header--project:after {
   content: '× close';
@@ -247,17 +247,19 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
   flex-direction: column;
   border-top: 1px solid #000; 
   border-bottom: 1px solid #000; 
-  position: fixed;
+  /* position: fixed; */
   z-index: 2;
-  margin-top: 32px;
-}
-.site-nav--project {
+  margin-top: 30px;
+  /* top: 34px; */
   width: calc(100% - 64px);
   min-width: 288px;
   max-width: 460px;
-  max-height: calc(100vh - 161px);
+  /* max-height: calc(100vh - 161px); */
+  height: calc(100% - 39px);
+  min-height: calc(100vh - 44px);
   transition: transform 0.3s ease-in-out;
   transform: translateY(calc(-100% - 100px));
+  position: absolute;
 }
 input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
   transform: translateY(0);
@@ -289,6 +291,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
     max-height: calc(100vh - 46px);
     align-self: flex-start;
     transform: translateY(0);
+    position: fixed;
   }
 }
 
