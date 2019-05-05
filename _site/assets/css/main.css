@@ -93,7 +93,7 @@ body.project {
 .site-header--project {
   width: auto;
   height: 31px;
-  position: absolute;
+  position: fixed;
   overflow: hidden;
   z-index: 3;
   background-color: transparent;
@@ -115,6 +115,7 @@ body.project {
 @media screen and (min-width: 888px) {
   .site-header--project {
     cursor: default;
+    position: absolute;
   }
 }
 
