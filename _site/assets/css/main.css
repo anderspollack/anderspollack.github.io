@@ -93,7 +93,7 @@ body.project {
 .site-header--project {
   width: auto;
   height: 31px;
-  position: fixed;
+  position: absolute;
   overflow: hidden;
   z-index: 3;
   background-color: transparent;
@@ -109,6 +109,7 @@ body.project {
 @media screen and (min-height: 667px) {
   .site-header--home {
     min-height: 360px;
+    margin-right: 0;
   }
 }
 @media screen and (min-width: 888px) {
@@ -270,29 +271,33 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
     flex-basis: 56%;
     min-height: calc(100vh - (4px * 4));
     display: flex;
-    /* align-items: center; */
+    margin: 0 0 0 2px;
   }
 }
 @media screen and (min-height: 667px){
   .site-nav--home {
     flex-basis: 100%;
     min-height: 0;
+    margin: 2px 0;
   }
 }
 @media screen and (min-width: 888px) {
   .site-nav--home {
     flex-basis: 56%;
     min-height: calc(100vh - (4px * 4));
+    margin: 0 0 0 2px;
   }
   input[type="checkbox"]#site-nav-toggle:not(:checked) ~ .site-nav--project,
   input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project,
   .site-nav--project {
     width: 230px;
     height: auto;
-    max-height: calc(100vh - 46px);
     align-self: flex-start;
     transform: translateY(0);
-    position: fixed;
+    margin-top: 0;
+    margin-right: 2px;
+    position: relative;
+    top: -1px;
   }
 }
 
@@ -504,7 +509,7 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-e
 }
 .site-main--project {
   min-height: 1000px;
-  width: 100%;
+  flex-grow: 1;
   padding: 12px 10px 24px 16px;
 }
 @media screen and (max-width: 666px) {
@@ -514,7 +519,7 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection-e
 }
 @media screen and (min-width: 888px) {
   .site-main--project {
-    margin-left: 320px;
+    /* margin-left: 250px; */
   }
 }
 
