@@ -28,9 +28,9 @@
                         {% if project.project_collection == item.slug and project.published == true %}
                             <li class="site-nav__project project">
                                 <a class="project__link" href="{{ site.baseurl }}{{ project.url }}">
-                                    <div class="project__heading">
+                                    <h3 class="project__heading">
                                         {{ project.name }}
-                                    </div>
+                                    </h3>
                                     <div class="project__body">
                                         <div class="project__icons">
                                             {% for icon in project.icons %}
