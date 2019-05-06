@@ -248,7 +248,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
   flex-direction: column;
   z-index: 2;
   margin-top: 30px;
-  width: calc(100% - 63px);
+  width: calc(100% - 72px);
   max-width: 460px;
   /* uncomment below if you want nav container to always try to be as tall as .site-main */
   /* min-height: calc(100% - 40px); */
@@ -620,7 +620,7 @@ screen and (min-width: {{ page.med_desktop }}px) {
 .project__section--video {
   padding: 24px 48px 24px 16px;
 }
-@media screen and (min-width: {{ page.min_desktop }}px) {
+@media screen and (min-width: {{ page.med_mobile }}px) {
  .project__section--video {
     padding: 24px 48px 48px 48px;
   }
@@ -935,7 +935,7 @@ body * {
   font-size: 24px;
   font-weight: 750;
   letter-spacing: 0.8px;
-  margin-top: 8px;
+  margin-top: 24px;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .project__title {
