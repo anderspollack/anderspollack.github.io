@@ -249,7 +249,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
   flex-direction: column;
   z-index: 2;
   margin-top: 30px;
-  width: calc(100% - 64px);
+  width: calc(100% - 63px);
   max-width: 460px;
   /* uncomment below if you want nav container to always try to be as tall as .site-main */
   /* min-height: calc(100% - 40px); */
