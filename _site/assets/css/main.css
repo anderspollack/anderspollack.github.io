@@ -631,9 +631,15 @@ screen and (min-width: 888px) {
 }
 
 .project__section--video video {
-  max-width: 100%;
+  background-color: #000;
+  max-width: 640px;
   width: 100%;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.project__section--video img {
+  max-width: 640px;
+  width: 100%;
 }
 
 .project__section--full-bleed {
@@ -650,7 +656,7 @@ screen and (min-width: 888px) {
 
 .super-deluxe-store-tile--geometric {
   width: 100%;
-  background-image: url('/portfolio2019/assets/images/super-deluxe-tile-pastel.jpg');
+  background-image: url('/portfolio2019/assets/images/super-deluxe/super-deluxe-tile-pastel.jpg');
   background-position: top 0px left 0px;
   background-size: 160px;
   background-repeat: repeat;
@@ -667,7 +673,7 @@ screen and (min-width: 888px) {
 }
 .super-deluxe-store-tile--squiggles {
   width: 100%;
-  background-image: url('/portfolio2019/assets/images/green-squiggles.png');
+  background-image: url('/portfolio2019/assets/images/super-deluxe/green-squiggles.png');
   background-position: top 0px left 0px;
   background-color: #bbfeef;
   background-size: 160px;
