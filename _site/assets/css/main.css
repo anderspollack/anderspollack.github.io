@@ -617,7 +617,7 @@ screen and (min-width: 888px) {
 /* MAIN: Project */
 .project__title {
   margin-top: 42px;
-  margin-right: 12px;
+  margin-right: 24px;
   flex: 1;
 }
 @media screen and (min-width: 888px) {
@@ -692,6 +692,31 @@ screen and (min-width: 888px) {
   to {
     background-position: top 160px left 0px;
     background-color: #bbfeef;
+  }
+}
+
+.project__section--image-thumbnails {
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 375px) {
+  .project__section--image-thumbnails {
+    flex-wrap: wrap;
+  }
+}
+
+.project__section--image-thumbnails img {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  flex-basis: calc(50% - 16px);
+  margin: 0 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+@media screen and (max-width: 375px) {
+  .project__section--image-thumbnails img {
+    flex-basis: 100%;
+    margin-bottom: 32px;
   }
 }
 
