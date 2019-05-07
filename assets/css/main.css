@@ -627,7 +627,7 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
 
 .page-navigation__item {
   position: fixed;
-  top: 60%;
+  bottom: 160px;
   width: 56px;
   height: 56px;
   display: flex;
