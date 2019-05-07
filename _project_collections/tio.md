@@ -1,6 +1,6 @@
 ---
 name: Tuition.io
-order: 3
+order: 2
 description: UX design and brand collateral for this student loan repayment benefit B2B platform
 icons:
   - ux

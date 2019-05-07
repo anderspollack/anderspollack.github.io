@@ -26,19 +26,19 @@
                     {% assign projects = site.projects | sort: 'order' %}
                     {% for project in projects %}
                         {% if project.project_collection == item.slug and project.published == true %}
-                            <li class="site-nav__project project">
+                            <li class="site-nav__project">
                                 <a class="project__link" href="{{ site.baseurl }}{{ project.url }}">
                                     <h3 class="project__heading">
                                         {{ project.name }}
                                     </h3>
                                     <div class="project__body">
+                                        <div class="project__description">
+                                            {{ project.description }}
+                                        </div>
                                         <div class="project__icons">
                                             {% for icon in project.icons %}
                                                 <div class="project__icon icon-{{ icon }}"></div>
                                             {% endfor %}
-                                        </div>
-                                        <div class="project__description">
-                                            {{ project.description }}
                                         </div>
                                     </div>
                                 </a>
