@@ -1,5 +1,5 @@
 <!doctype html>
-<html id="top" lang="en">
+<html lang="en">
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width">
@@ -56,6 +56,11 @@ body.project {
   body.home {
     flex-wrap: nowrap;
   }
+}
+
+#top {
+  position: absolute;
+  top: -20px;
 }
 
 .site-header,
