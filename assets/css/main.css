@@ -10,9 +10,9 @@ margin: 4
 
 /* @import url('https://rsms.me/inter/inter.css'); */
 /* html { font-family: 'Inter', sans-serif; } */
-@supports (font-variation-settings: normal) {
-  html { font-family: 'Inter var', sans-serif; }
-}
+/* @supports (font-variation-settings: normal) {
+   html { font-family: 'Inter var', sans-serif; }
+   } */
 
 @font-face {
   font-family: 'work-sans-light';
@@ -623,16 +623,13 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
   background-image: url('{{ site.baseurl }}/assets/images/caret-right@2x.png');
   background-size: 16px;
   background-repeat: no-repeat;
-  background-position: center top 1px;
 }
 
 .page-navigation__item {
   position: fixed;
   top: 60%;
-  width: 16px;
-  height: 64px;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -643,25 +640,32 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .page-navigation
   opacity: 0;
 }
 .page-navigation__item--previous {
-  left: {{ page.margin }}px;
+  left: calc(({{ page.margin }}px * 6) * -1);
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
 }
 .page-navigation__item--next {
-  right: {{ page.margin }}px;
+  right: calc(({{ page.margin }}px * 6) * -1);
+  border-top-left-radius: 100%;
+  border-bottom-left-radius: 100%;
 }
 .page-navigation__item:after {
   content: '';
   display: block;
-  width: 16px;
-  height: 16px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-size: 16px;
-  background-position: center
   background-repeat: no-repeat
 }
 .page-navigation__item--previous:after {
-  background-image: url('{{ site.baseurl }}/assets/images/caret-left@2x.png')
+  background-image: url('{{ site.baseurl }}/assets/images/arrow-left-white@2x.png');
+  background-position: top 19px right 10px;
 }
 .page-navigation__item--next:after {
-  background-image: url('{{ site.baseurl }}/assets/images/caret-right@2x.png')
+  background-image: url('{{ site.baseurl }}/assets/images/arrow-right-white@2x.png');
+  background-position: top 19px left 9px;
+;
 }
 
 /* MAIN: Project */
@@ -998,7 +1002,8 @@ body * {
 .site-header__site-title,
 .site-header__title,
 .site-header:after,
-.info-header {
+.info-header,
+.page-navigation__text {
   font-weight: 900;
   text-transform: uppercase;
   font-size: 12px;
