@@ -657,9 +657,28 @@ screen and (min-width: 888px) {
 
 .site-main--project > p {
   font-size: 13px;
+  letter-spacing: 0.4px;
   font-weight: 250;
   max-width: 36em;
   line-height: 1.4;
+}
+
+.site-main--project a {
+  color: #000;
+}
+
+p > strong {
+  font-weight: 750;
+  letter-spacing: 0.6px;
+}
+
+p.indented-image-caption {
+  margin: 24px 16px 0;
+}
+@media screen and (min-width: 667px) {
+  p.indented-image-caption {
+    margin: 24px 0 0 48px;
+  }
 }
 
 .site-main--project > img {
@@ -914,7 +933,6 @@ body {
 }
 
 body * {
-  line-height: 1.2;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -966,6 +984,11 @@ body * {
   }
 }
 
+.project__title em {
+  font-weight: 250;
+  margin-right: 0.15em;
+}
+
 .site-nav__heading,
 .project__heading {
   font-weight: 650;
@@ -979,7 +1002,7 @@ body * {
 .site-nav__project {
   font-size: 11px;
   letter-spacing: 0.5px;
-  line-height: 14px;
+  line-height: 1.3;
 }
 .site-nav__body.collection-body-alternate {
   text-transform: uppercase;
@@ -998,6 +1021,12 @@ body * {
   font-size: 13px;
   line-height: 18px;
   letter-spacing: 0.6px;
+}
+
+p.indented-image-caption {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 /* /TYPOGRAPHY */
