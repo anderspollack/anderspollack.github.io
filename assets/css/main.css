@@ -559,12 +559,12 @@ screen and (min-width: {{ page.med_desktop }}px) {
 .project__header {
   display: flex;
   flex-direction: row-reverse;
-  padding: 12px 16px;
+  padding: 12px 16px 0;
 }
 @media screen and (min-width: {{ page.med_desktop }}px) {
   .project__header {
     flex-direction: column;
-    padding: 20px 16px;
+    padding: 20px 16px 0;
   }
 }
 
@@ -634,7 +634,7 @@ screen and (min-width: {{ page.med_desktop }}px) {
 }
 
 .project__section--image {
-    padding: 24px 48px 48px 48px;
+    padding: 24px 26px 48px 26px;
 }
 
 .project__section--image img {
@@ -651,7 +651,28 @@ screen and (min-width: {{ page.med_desktop }}px) {
 .site-main--project > h1,
 .site-main--project > h2,
 .site-main--project > h3 {
-  margin: 8px 16px;
+  margin: 8px 48px 8px 16px;
+}
+
+.site-main--project > p {
+  font-size: 13px;
+  font-weight: 250;
+  max-width: 36em;
+  line-height: 1.4;
+}
+
+.site-main--project > img {
+  width: calc(100% - 64px);
+  height: auto;
+  max-width: 640px;
+  margin: 24px 48px 24px 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+@media screen and (min-width: {{ page.min_desktop }}px) {
+  .site-main--project > img {
+    width: calc(100% - 96px);
+    margin: 32px 48px;
+  }
 }
 
 .super-deluxe-store-tile--geometric {
@@ -935,11 +956,11 @@ body * {
   font-size: 24px;
   font-weight: 750;
   letter-spacing: 0.8px;
-  margin-top: 24px;
+  margin: 16px 0 8px;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .project__title {
-    margin-top: 16px;
+    margin: 16px 0;
     font-size: 30px;
   }
 }
