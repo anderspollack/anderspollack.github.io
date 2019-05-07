@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html id="top" lang="en">
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width">
@@ -626,6 +626,11 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
   background-repeat: no-repeat;
 }
 
+@media screen and (min-width: 888px) {
+  .page-navigation {
+    display: none;
+  }
+}
 .page-navigation__item {
   position: fixed;
   bottom: 160px;
@@ -666,7 +671,48 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .page-navigation
 .page-navigation__item--next:after {
   background-image: url('/portfolio2019/assets/images/arrow-right-white@2x.png');
   background-position: top 19px left 9px;
-;
+}
+
+.back-to-top {
+  box-sizing: border-box;
+  color: #fff;
+  position: fixed;
+  height: 37px;
+  width: auto;
+  bottom: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  /* flex-direction: column; */
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  background-image: url('/portfolio2019/assets/images/dither-7@2x.png');
+  background-repeat: repeat;
+  background-size: 16px;
+  padding: 8px 12px 24px;
+  border-radius: 8px;
+}
+input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
+  opacity: 1;
+}
+@media screen and (min-width: 888px) {
+  .back-to-top {
+    display: none;
+  }
+}
+
+.back-to-top:before,
+.back-to-top:after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 16px;
+  background-image: url('/portfolio2019/assets/images/arrow-up-white@2x.png');
+  background-size: 16px;
+}
+.back-to-top:after {
+  position: absolute;
+  top: 13px;
 }
 
 /* MAIN: Project */
@@ -1004,7 +1050,7 @@ body * {
 .site-header__title,
 .site-header:after,
 .info-header,
-.page-navigation__text {
+.back-to-top {
   font-weight: 900;
   text-transform: uppercase;
   font-size: 12px;
@@ -1032,6 +1078,18 @@ body * {
   .site-header__site-title {
     font-size: 16px;
   }
+}
+
+.back-to-top {
+  /* font-weight: 750;
+     font-size: 12px;
+     letter-spacing: 0.8px; */
+  /* text-transform: uppercase;
+     font-size: 15px;
+     letter-spacing: 10px; */
+  /* text-align: center; */
+  text-decoration: none;
+  color: #fff;
 }
 
 .project__title {
