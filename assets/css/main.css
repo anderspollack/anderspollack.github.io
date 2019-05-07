@@ -149,6 +149,8 @@ body.project {
   transition: opacity 0.15s ease-in;
   opacity: 0;
   color: #fff;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project .site-header__title {
   opacity: 0;
@@ -688,7 +690,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .page-navigation
   background-image: url('/portfolio2019/assets/images/dither-7@2x.png');
   background-repeat: repeat;
   background-size: 16px;
-  padding: 8px 12px 24px;
+  padding: 7px 24px 24px;
   border-radius: 8px;
 }
 input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
@@ -699,19 +701,18 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
     display: none;
   }
 }
-
 .back-to-top:before,
 .back-to-top:after {
   content: '';
   display: block;
-  width: 48px;
+  width: 80px;
   height: 16px;
   background-image: url('{{ site.baseurl }}/assets/images/arrow-up-white@2x.png');
   background-size: 16px;
 }
 .back-to-top:after {
   position: absolute;
-  top: 13px;
+  top: 14px;
 }
 
 /* MAIN: Project */
