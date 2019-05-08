@@ -36,21 +36,6 @@ layout: default
                 <h1 class="project__title">{{ page.name }}</h1>
             </header>
             {{ content }}
-            {% assign items = site.project_collections | sort: 'order' | reverse %}
-            {% for item in items %}
-                <h2>
-                    {{ forloop.index0 }}
-                </h2>
-
-                {% for project in site.projects | sort: 'order' %}
-                    {% if project.project_collection == item.slug and project.published == true  %}
-                        {{ project.name }}
-                        <h3>
-                            {{ forloop.index }}
-                        </h3>
-                    {% endif %}
-                {% endfor %}
-            {% endfor %}
         </main>
         <div class="page-navigation">
             <a href="javascript:;" class="page-navigation__item page-navigation__item--previous dither dither--3">
