@@ -21,18 +21,7 @@ layout: default
         </div>
         <main class="site-main site-main--project">
             <header class="project__header">
-                <div class="project__breadcrumbs">
-                    <ul class="breadcrumbs">
-                        <li class="breadcrumbs__item"><a href="{{ site.baseurl }}/">Home</a></li>
-                        <li class="breadcrumbs__item">
-                            {% for item in site.project_collections %}
-                                {% if item.slug == page.project_collection %}
-                                    <span>{{ item.name }}</span>
-                                {% endif %}
-                            {% endfor %}
-                        </li>
-                    </ul>
-                </div>
+                {% include project-breadcrumbs.liquid %}
                 <h1 class="project__title">{{ page.name }}</h1>
             </header>
             <p class="project__description">{{ page.description }}</p>

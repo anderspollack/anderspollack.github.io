@@ -9,6 +9,6 @@ icons:
   - code
 ---
 <section class="project__section project__section--website">
-    <img alt="Colleen Website Desktop" src="{{ site.baseurl }}/assets/images/colleen-website/colleen-website-desktop.png"/>
-    <img alt="Colleen Website Mobile" src="{{ site.baseurl }}/assets/images/colleen-website/colleen-website-mobile.png"/>
+    <img alt="ColleDesktop" src="{{ site.baseurl }}/assets/images/colleen-website/colleen-website-desktop.png"/>
+    <img alt="" src="{{ site.baseurl }}/assets/images/colleen-website/colleen-website-mobile.png"/>
 </section>

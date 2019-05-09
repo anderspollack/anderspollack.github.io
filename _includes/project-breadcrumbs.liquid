@@ -1,0 +1,15 @@
+<div class="project__breadcrumbs">
+    <ul class="breadcrumbs">
+        <li class="breadcrumbs__item"><a href="{{ site.baseurl }}/">Home</a></li>
+        <li class="breadcrumbs__item">
+            {% assign collections = site.collections | sort: 'order' | reverse | where_exp: 'collection', 'collection.label != "posts"' %}
+            {% for collection in collections %}
+                {% if collection.label == page.collection %}
+                    {% assign current_collection = collection.name  %}
+                {% endif %}
+            {% endfor %}
+
+            <span>{{ current_collection }}</span>
+        </li>
+    </ul>
+</div>

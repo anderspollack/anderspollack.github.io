@@ -564,14 +564,13 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
 .site-main--project {
   min-height: 600px;
   flex-grow: 1;
-  /* padding: 12px 13px 24px 16px; */
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 @media screen and (min-width: {{ page.med_desktop }}px) {
   .site-main--project {
     margin-bottom: 1px;
-    /* padding: 12px 16px; */
   }
 }
 
@@ -626,8 +625,9 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
   content: '';
   display: block;
   height: 16px;
-  width: 32px;
+  width: 24px;
   background-image: url('{{ site.baseurl }}/assets/images/caret-right@2x.png');
+  background-position: top left 4px;
   background-size: 16px;
   background-repeat: no-repeat;
 }
@@ -734,21 +734,44 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 /* MAIN: Project: Website */
 .project__section--website {
   position: relative;
-  padding: 24px 26px 48px;
-  max-width: 1604px;
+  padding: 24px 26px 64px;
+  max-width: 1508px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+@media screen and (min-width: {{ page.min_desktop }}px) {
+  .project__section--website {
+    padding: 24px 26px 48px;
+    display: block;
+  }
 }
 
 .project__section--website img:first-child {
-  width: 100%;
+  width: calc(100% + 96px);
+  max-width: 1552px;
+  transform: translateX(-48px);
+}
+@media screen and (min-width: {{ page.min_desktop }}px) {
+  .project__section--website img:first-child {
+    width: calc(100%);
+  }
 }
 
 .project__section--website img:last-child {
-  width: 25%;
-  position: absolute;
-  top: 25%;
-  right: 10%;
+  width: 100%;
+  max-width: 360px;
   webkit-filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+}
+@media screen and (min-width: {{ page.min_desktop }}px) {
+  .project__section--website img:last-child {
+    position: absolute;
+    width: 25%;
+    top: 33.333%;
+    right: 10%;
+    webkit-filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+ }
 }
 
 /* /MAIN: Project: Website */
@@ -1172,9 +1195,15 @@ body * {
 .breadcrumbs__item a {
   color: #000;
   font-weight: 100;
-  font-size: 13px;
+  font-size: 10px;
   line-height: 18px;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.8px;
+}
+@media screen and (min-width: {{ page.med_desktop }}px) {
+  .breadcrumbs__item,
+  .breadcrumbs__item a {
+    font-size: 11px;
+  }
 }
 
 p.indented-image-caption {
