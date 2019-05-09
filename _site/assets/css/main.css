@@ -563,7 +563,7 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
   overflow: auto;
 }
 .site-main--project {
-  min-height: calc(100vh + 4px);
+  min-height: calc(100vh - 98px - 4px);
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -571,6 +571,7 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
 }
 @media screen and (min-width: 888px) {
   .site-main--project {
+    min-height: calc(100vh + 4px);
     margin-bottom: 1px;
   }
 }
