@@ -732,6 +732,28 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   }
 }
 
+/* MAIN: Project: Website */
+.project__section--website {
+  position: relative;
+  padding: 24px 26px 48px;
+  max-width: 1604px;
+}
+
+.project__section--website img:first-child {
+  width: 100%;
+}
+
+.project__section--website img:last-child {
+  width: 25%;
+  position: absolute;
+  top: 25%;
+  right: 10%;
+  webkit-filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+}
+
+/* /MAIN: Project: Website */
+/* MAIN: Project: Video */
 .project__section--video {
   padding: 24px 48px 24px 16px;
 }
