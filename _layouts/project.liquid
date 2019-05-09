@@ -37,12 +37,6 @@ layout: default
             </header>
             {{ content }}
         </main>
-        <div class="page-navigation">
-            <a href="javascript:;" class="page-navigation__item page-navigation__item--previous dither dither--3">
-            </a>
-            <a href="javascript:;" class="page-navigation__item page-navigation__item--next dither dither--3">
-            </a>
-            <a href="#top" class="back-to-top"></a>
-        </div>
+        {% include page-navigation.liquid %}
     </article>
 </body>

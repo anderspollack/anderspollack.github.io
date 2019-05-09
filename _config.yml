@@ -1,6 +1,36 @@
 title: Anders Pollack
 baseurl: /portfolio2019 
 port: 4001
+collections_dir: collections
+
+collections:
+  super-deluxe:
+    output: true
+    name: Super Deluxe
+    order: 4
+    description: "Graphic design and Shopify development for the Super Deluxe Store; UI design and front-end development for a game show prototype. RIP☠︎"
+    permalink: /projects/:name
+
+  website-projects:
+    output: true
+    name: Website Projects
+    order: 3
+    description: "Various websites I've made"
+    permalink: /projects/:name
+
+  tio:
+    output: true
+    name: Tuition.io
+    order: 2
+    description: "UX design and brand collateral for this student loan repayment benefit B2B platform"
+    permalink: /projects/:name
+
+  c2st:
+    output: true
+    name: The Chicago Council on Science and Technology
+    order: 1
+    description: "Graphic design and web development for a nonprofit organization that promotes science education and outreach"
+    permalink: /projects/:name
 
 defaults:
   - scope:
@@ -10,13 +40,25 @@ defaults:
 
   - scope:
       path: ""
-      type: "project_collections"
+      type: "super-deluxe"
     values:
       layout: project
 
   - scope:
       path: ""
-      type: "projects"
+      type: "website-projects"
+    values:
+      layout: project
+
+  - scope:
+      path: ""
+      type: "tio"
+    values:
+      layout: project
+
+  - scope:
+      path: ""
+      type: "c2st"
     values:
       layout: project
 
@@ -25,11 +67,3 @@ defaults:
     values:
       image: true
 
-collections:
-  project_collections:
-    output: true
-    permalink: /projects/:name
-
-  projects:
-    output: true
-    permalink: /projects/:name

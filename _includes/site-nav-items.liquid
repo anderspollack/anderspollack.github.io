@@ -1,19 +1,28 @@
 <ul class="projects-list site-nav__items">
-    {% assign items = site.project_collections | sort: 'order' | reverse %}
-    {% for item in items %}
+
+    {% assign collections = site.collections | sort: 'order' | reverse | where_exp: 'collection', 'collection.label != "posts"' %}
+    {% for collection in collections %} 
         <li class="site-nav__item">
-            <input class="collection-toggle-input invisible" name="{{ item.slug }}-toggle" id="{{ item.slug }}-toggle" type="checkbox" value=""/>
+            <input class="collection-toggle-input invisible" name="{{ collection.label }}-toggle" id="{{ collection.label }}-toggle" type="checkbox" value=""/>
             <div class="site-nav__expanded-margin">
                 <div class="site-nav__folder-icon"></div>
             </div>
             <div class="site-nav__collection">
-                <label for="{{ item.slug }}-toggle" class="collection-toggle">
-                    <h2 class="site-nav__heading">{{ item.name }}</h2>
+                <label for="{{ collection.label }}-toggle" class="collection-toggle">
+                    <h2 class="site-nav__heading">{{ collection.name }}</h2>
                     <div class="site-nav__arrow-icon"></div>
                     <p class="site-nav__body collection-body">
-                        {{ item.description }}
+                        {{ collection.description }}
                         <div class="project__icons project__icons--collection">
-                            {% for icon in item.icons %}
+                            {% assign projects = site[collection.label] | sort: 'order' %}
+                            {% assign icons = '' | split: '' %}
+                            {% for project in projects %}
+                                {% for icon in project.icons %}
+                                    {% assign icons = icons | concat: project.icons %}
+                                {% endfor %}
+                            {% endfor %}
+                            {% assign icons = icons | uniq %}
+                            {% for icon in icons %}
                                 <div class="project__icon icon-{{ icon }}"></div>
                             {% endfor %}
                         </div>
@@ -23,27 +32,24 @@
                     </p>
                 </label>
                 <ul class="site-nav__projects dither">
-                    {% assign projects = site.projects | sort: 'order' %}
                     {% for project in projects %}
-                        {% if project.project_collection == item.slug and project.published == true %}
-                            <li class="site-nav__project">
-                                <a class="project__link" href="{{ site.baseurl }}{{ project.url }}">
-                                    <h3 class="project__heading">
-                                        {{ project.name }}
-                                    </h3>
-                                    <div class="project__body">
-                                        <div class="project__description">
-                                            {{ project.description }}
-                                        </div>
-                                        <div class="project__icons">
-                                            {% for icon in project.icons %}
-                                                <div class="project__icon icon-{{ icon }}"></div>
-                                            {% endfor %}
-                                        </div>
+                        <li class="site-nav__project">
+                            <a class="project__link" href="{{ site.baseurl }}{{ project.url }}">
+                                <h3 class="project__heading">
+                                    {{ project.name }}
+                                </h3>
+                                <div class="project__body">
+                                    <div class="project__description">
+                                        {{ project.description }}
                                     </div>
-                                </a>
-                            </li>
-                        {% endif %}
+                                    <div class="project__icons">
+                                        {% for icon in project.icons %}
+                                            <div class="project__icon icon-{{ icon }}"></div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
                     {% endfor %}
                 </ul>
             </div>

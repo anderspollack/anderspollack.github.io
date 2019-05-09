@@ -1,0 +1,70 @@
+<div class="page-navigation">
+    {% assign collections = site.collections | sort: 'order' | reverse | where_exp: 'collection', 'collection.label != "posts"' %}
+    {% assign projects_count = 0 %}
+
+    {% for collection in collections %}
+        {% assign projects = site[collection.label] | sort: 'order' %}
+        {% for project in projects %}
+            {% assign projects_count = projects_count | plus: 1 %}
+            {% if project.url == page.url %}
+                {% assign current_index = projects_count %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
+    {% assign first_collection = collections | first %}
+    {% assign first_project = site[first_collection.label] | first %}
+    {% assign last_collection = collections | last %}
+    {% assign last_project = site[last_collection.label] | last %}
+    {% assign previous = current_index | minus: 1 %}
+    {% assign next = current_index | plus: 1 %}
+
+    {% if current_index == 1 %}
+        {% assign previous_url = last_project.url %}
+        {% assign i = 0 %}
+        {% for collection in collections %}
+            {% assign projects = site[collection.label] | sort: 'order' %}
+            {% for project in projects %}
+                {% assign i = i | plus: 1 %}
+                {% if i == next %}
+                    {% assign next_url = project.url %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% elsif current_index == projects_count %}
+        {% assign i = 0 %}
+        {% for collection in collections %}
+            {% assign projects = site[collection.label] | sort: 'order' %}
+            {% for project in projects %}
+                {% assign i = i | plus: 1 %}
+                {% if i == previous %}
+                    {% assign previous_url = project.url %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        {% assign next_url = first_project.url %}
+    {% else %}
+        {% assign i = 0 %}
+        {% for collection in collections %}
+            {% assign projects = site[collection.label] | sort: 'order' %}
+            {% for project in projects %}
+                {% assign i = i | plus: 1 %}
+                {% assign second = current_index | plus: 1 %}
+                {% if i == previous %}
+                    {% assign previous_url = project.url %}
+                {% elsif i == next %}
+                    {% assign next_url = project.url %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+
+    {% endif %}
+    <a href="{{ site.baseurl }}{{ previous_url }}" class="page-navigation__item page-navigation__item--previous dither dither--3">
+    </a>
+    <a href="{{ site.baseurl }}{{ next_url }}" class="page-navigation__item page-navigation__item--next dither dither--3">
+    </a>
+    <a href="#top" class="back-to-top"></a>
+</div>
