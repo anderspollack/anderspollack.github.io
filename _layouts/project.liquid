@@ -13,20 +13,21 @@ layout: default
     </nav>
     <article class="project__page">
         <div class="info-header">
-            <a class="info-header__interior dither" href="{{ site.baseurl }}/">
-                <div class="planets planets--project">
+            <div class="info-header__interior dither">
+                <a href="{{ site.baseurl }}/" class="planets planets--project">
                     <div class="planet world world--project"></div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
         <main class="site-main site-main--project">
             <header class="project__header">
                 {% include project-breadcrumbs.liquid %}
+                {% include page-navigation-desktop.liquid %}
                 <h1 class="project__title">{{ page.name }}</h1>
             </header>
             <p class="project__description">{{ page.description }}</p>
             {{ content }}
         </main>
-        {% include page-navigation.liquid %}
+        {% include page-navigation-mobile.liquid %}
     </article>
 </body>
