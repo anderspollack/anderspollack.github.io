@@ -755,14 +755,16 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 @media screen and (min-width: 667px) {
   .project__section--website img:first-child {
     width: calc(100%);
+    transform: none;
   }
 }
 
 .project__section--website img:last-child {
-  width: 100%;
+  width: 240px;
   max-width: 360px;
   webkit-filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+  object-fit: contain;
 }
 @media screen and (min-width: 667px) {
   .project__section--website img:last-child {
