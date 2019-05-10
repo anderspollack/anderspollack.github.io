@@ -609,6 +609,7 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
   transform-origin: 0% 100% 0;
   transform: translate(100%, 0) rotate(90deg);
   position: absolute;
+  z-index: 1;
   top: 4px;
   right: 14px;
 }
@@ -642,7 +643,7 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
   height: 16px;
   width: 24px;
   background-image: url('/portfolio2019/assets/images/caret-right@2x.png');
-  background-position: top -1px left 2px;
+  background-position: top -2px left 2px;
   background-size: 16px;
   background-repeat: no-repeat;
   flex-shrink: 0;
@@ -921,6 +922,34 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   width: 100%;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
+/* /MAIN: Project: Video */
+/* MAIN: Project: Newsletter */
+.project__section--newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newsletter-link {
+  display: inline-block;
+  transform: translateY(0) scale(1);
+  transition: transform 0.2s ease-in;
+  padding: 4% 32px 4% 8px;
+}
+.newsletter-link:hover {
+  transform: translateY(-2px) scale(1.005);
+}
+@media screen and (min-width: 667px) {
+  .newsletter-link {
+    padding: 4%;
+  }
+}
+
+.newsletter-link img {
+  width: 100%;
+  max-width: 1940px;
+}
+/* /MAIN: Project: Newsletter */
 
 .project__section--image {
     padding: 24px 26px 48px 26px;
