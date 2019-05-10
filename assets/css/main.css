@@ -857,7 +857,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 .project__section--website {
   position: relative;
   padding: 24px 22px 64px;
-  max-width: 1508px;
+  max-width: 1552px;
   display: flex;
   flex-direction: column-reverse;
 }
