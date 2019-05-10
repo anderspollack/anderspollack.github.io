@@ -821,25 +821,49 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 .project__title {
   margin: 24px 48px 8px 16px;
 }
+@media screen and (min-width: {{ page.min_desktop }}px) {
+  .project__title {
+    margin: 32px 48px 8px;
+  }
+}
 @media screen and (min-width: {{ page.med_desktop }}px) {
   .project__title {
     flex-basis: 100%;
-    margin-top: 16px;
+    margin: 8px 60px;
+  }
+}
+
+.project__description {
+  margin: 8px 48px 8px 16px;
+}
+@media screen and (min-width: {{ page.min_desktop }}px) {
+  .project__description {
+    margin: 8px 48px;
+  }
+}
+@media screen and (min-width: {{ page.med_desktop }}px) {
+  .project__description {
+    margin: 8px 62px;
   }
 }
 
 /* MAIN: Project: Website */
 .project__section--website {
   position: relative;
-  padding: 24px 26px 64px;
+  padding: 24px 22px 64px;
   max-width: 1508px;
   display: flex;
   flex-direction: column-reverse;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .project__section--website {
-    padding: 24px 26px 48px;
+    padding: 24px 22px 48px;
     display: block;
+  }
+}
+@media screen and (min-width: {{ page.med_desktop }}px) {
+  .project__section--website {
+    padding: 24px 0 48px;
   }
 }
 
@@ -906,7 +930,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   display: flex;
 }
 
-.site-main--project > p,
+.site-main--project > p:not(.project__description),
 .site-main--project > h1:not(.project__title),
 .site-main--project > h2,
 .site-main--project > h3 {
@@ -1245,11 +1269,24 @@ body * {
   font-size: 24px;
   font-weight: 750;
   letter-spacing: 0.8px;
+  position: relative;
+  display: inline-block;
+  width: auto;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .project__title {
     font-size: 30px;
   }
+}
+.project__title:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  bottom: -8px;
+  height: 1px;
+  background-image: url('{{ site.baseurl }}/assets/images/dither-horizontal-line@2x.png');
+  background-size: 16px;
 }
 
 .project__title em {
