@@ -301,13 +301,6 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
     border: none;
   }
 }
-@media screen and (min-width: {{ page.large_desktop }}px) {
-  input[type="checkbox"]#site-nav-toggle:not(:checked) ~ .site-nav--project,
-  input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project,
-  .site-nav--project {
-    width: 270px;
-  }
-}
 
 .site-nav__items {
   width: 100%;
@@ -826,7 +819,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 /* /MAIN: Page Navigation: Desktop */
 /* MAIN: Project */
 .project__title {
-  margin: 24px 48px 8px 16px;
+  margin: 24px 48px 8px 32px;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .project__title {
@@ -836,12 +829,12 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 @media screen and (min-width: {{ page.med_desktop }}px) {
   .project__title {
     flex-basis: 100%;
-    margin: 8px 60px;
+    margin: 32px 60px 8px;
   }
 }
 
 .project__page-description {
-  margin: 8px 48px 8px 16px;
+  margin: 8px 48px 8px 32px;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .project__page-description {
@@ -934,7 +927,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   display: inline-block;
   transform: translateY(0) scale(1);
   transition: transform 0.2s ease-in;
-  padding: 4% 32px 4% 32px;
+  padding: 4% 40px 4% 24px;
 }
 .newsletter-link:hover {
   transform: translateY(-2px) scale(1.005);
@@ -969,7 +962,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 .site-main--project > h1:not(.project__title),
 .site-main--project > h2,
 .site-main--project > h3 {
-  margin: 8px 48px 8px 16px;
+  margin: 8px 48px 8px 32px;
 }
 
 .site-main--project > p {
