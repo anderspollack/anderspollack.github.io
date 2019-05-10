@@ -709,12 +709,12 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .page-navigation
   align-items: center;
   opacity: 0;
   overflow: hidden
-  transition: opacity 0.2s ease-in-out;
 }
 input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   width: 100%;
   opacity: 1;
   padding: 24px;
+  transition: opacity 0.8s ease-in-out;
 }
 @media screen and (min-width: {{ page.med_desktop }}px) {
   .back-to-top {
