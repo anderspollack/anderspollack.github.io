@@ -925,12 +925,12 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 
 .newsletter-link {
   display: inline-block;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
   transition: transform 0.2s ease-in;
   padding: 4% 40px 4% 24px;
 }
 .newsletter-link:hover {
-  transform: translateY(-2px) scale(1.005);
+  transform: translateY(-5px);
 }
 @media screen and (min-width: 667px) {
   .newsletter-link {
