@@ -700,8 +700,8 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .page-navigation
 
 .back-to-top {
   box-sizing: border-box;
-  color: #fff;
   position: fixed;
+  z-index: 2;
   width: 0;
   height: 0;
   bottom: 160px;
@@ -714,7 +714,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .page-navigation
   overflow: hidden
 }
 input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
-  width: 100%;
+  width: auto;
   height: auto;
   opacity: 1;
   padding: 24px;
@@ -1333,6 +1333,7 @@ body * {
 .back-to-top {
   text-decoration: none;
   color: #fff;
+  white-space: nowrap;
 }
 
 .project__title {
