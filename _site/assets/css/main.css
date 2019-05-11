@@ -102,6 +102,7 @@ body {
 }
 @media screen and (min-width: 888px) {
   .site-header--project {
+    width: 280px;
     cursor: default;
     position: absolute;
   }
@@ -131,6 +132,7 @@ body {
 }
 
 .site-header__title {
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -178,9 +180,14 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
 .planets--project {
   padding: 0;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   position: relative;
   z-index: 1;
+}
+@media screen and (min-width: 888px) {
+  .planets--project {
+    align-items: flex-start;
+  }
 }
 
 .planet {
@@ -201,14 +208,15 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
 }
 
 .info-header__interior {
-  width: auto;
+  /* width: auto; */
+  width: 100%;
   padding-bottom: 12px;
   border-top: 1px solid #000;
   background-color: #fff;
 }
 @media screen and (min-width: 888px) {
   .info-header__interior {
-    min-width: 64px;
+    /* min-width: 64px; */
   }
 }
 
@@ -295,7 +303,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
     width: 280px;
     height: auto;
     flex-shrink: 0;
-    align-self: flex-start;
+    align-self: stretch;
     transform: translateY(0);
     margin-top: 31px;
     margin-right: 2px;
@@ -563,6 +571,9 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
 /* MAIN */
 .project__page {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .site-main {
@@ -581,6 +592,7 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
   .site-main--project {
     min-height: calc(100vh + 4px);
     margin-bottom: 1px;
+    align-self: stretch;
   }
 }
 
@@ -769,11 +781,11 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 .page-navigation-desktop__divider {
   width: 1px;
   background: #000;
-  margin: 0 16px;
 }
 
 .page-navigation-desktop__item {
-  padding: 24px 0 8px; 
+  padding-top: 24px; 
+  padding-bottom: 8px; 
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
@@ -782,10 +794,12 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   position: relative;
 }
 .page-navigation-desktop__item--previous {
+  padding-right: 16px;
   padding-left: 32px;
 }
 .page-navigation-desktop__item--next {
   padding-right: 32px;
+  padding-left: 16px;
 }
 @media screen and (min-width: 888px) {
   .page-navigation-desktop__item {
@@ -839,7 +853,6 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 }
 @media screen and (min-width: 888px) {
   .project__title {
-    flex-basis: 100%;
     margin: 32px 60px 8px;
   }
 }
@@ -888,6 +901,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 }
 
 .project__page-icons {
+  width: auto;
   min-width: 64px;
   margin: 8px 0;
   transform: translateX(-4px);
@@ -1238,7 +1252,7 @@ p.indented-image-caption {
   background-color: white;
   border: 2px solid #fff;
   animation:
-    World-appear-small 1 0.6s linear,
+    /* World-appear-small 1 0.6s linear, */
     World-hover 1.6s ease-in-out infinite alternate 0.2s;
 }
 @media screen and (min-width: 888px) {
@@ -1249,6 +1263,9 @@ p.indented-image-caption {
     background-size: 32px;
     border: 3px solid #fff;
   }
+}
+.planets--project:hover .world--project {
+  animation-play-state: paused;
 }
 
 .project__icon {
@@ -1315,7 +1332,6 @@ body * {
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 10px;
-  text-align: center;
 }
 
 .site-header__site-title {
@@ -1373,10 +1389,6 @@ body * {
 .project__title em {
   font-weight: 250;
   margin-right: 0.15em;
-}
-
-.project__page-link-label {
-  text-align: left;
 }
 
 .project__page-link {
