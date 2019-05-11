@@ -178,11 +178,13 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
   padding: 0 16px;
 }
 .planets--project {
+  max-width: 48px;
   padding: 0;
   flex-direction: column;
   align-items: flex-end;
   position: relative;
   z-index: 1;
+  flex-shrink: 0;
 }
 @media screen and (min-width: 888px) {
   .planets--project {
@@ -196,27 +198,17 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
 }
 
 .info-header {
+  box-sizing: border-box;
   width: 100%;
   height: 31px;
   display: flex;
   justify-content: flex-end;
-}
-@media screen and (min-width: 888px) {
-  .info-header {
-    justify-content: flex-start;
-  }
-}
-
-.info-header__interior {
-  /* width: auto; */
-  width: 100%;
-  padding-bottom: 12px;
   border-top: 1px solid #000;
   background-color: #fff;
 }
 @media screen and (min-width: 888px) {
-  .info-header__interior {
-    /* min-width: 64px; */
+  .info-header {
+    justify-content: flex-start;
   }
 }
 
