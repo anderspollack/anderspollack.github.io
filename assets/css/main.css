@@ -517,6 +517,11 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
   justify-content: space-between;
   padding: 16px 16px 24px 22px;
 }
+@media screen and (min-width: {{ page.min_desktop }}px) {
+  .project .project__link {
+    flex-wrap: nowrap;
+  }
+}
 @media screen
 and (min-width: {{ page.min_desktop }}px)
 and (min-height: {{ page.min_desktop }}px) {
@@ -525,11 +530,11 @@ and (min-height: {{ page.min_desktop }}px) {
   }
 }
 @media screen and (min-width: {{ page.med_desktop }}px) {
-  .project__link {
-    flex-wrap: wrap;
-  }
   .home .project__link {
     flex-wrap: nowrap;
+  }
+  .project .project__link {
+    flex-wrap: wrap;
   }
 }
 
@@ -540,9 +545,19 @@ and (min-height: {{ page.min_desktop }}px) {
 .project__body {
   width: 100%;
 }
+@media screen and (min-width: {{ page.min_desktop }}px) {
+  .project .project__body {
+    margin-right: 24px;
+  }
+}
 @media screen
 and (min-width: {{ page.min_desktop }}px)
 and (min-height: {{ page.min_desktop }}px) {
+  .home .project__body {
+    margin-right: 24px;
+  }
+}
+@media screen and (min-width: {{ page.med_desktop }}px) {
   .home .project__body {
     margin-right: 24px;
   }
@@ -554,8 +569,12 @@ and (min-height: {{ page.min_desktop }}px) {
 }
 
 @media screen and (min-width: {{ page.min_desktop }}px) {
-  .project__link .project__icons {
+  .home .project__link .project__icons {
     margin-top: 16px;
+  }
+  .project .project__link .project__icons {
+    margin-top: 0;
+    width: auto;
   }
 }
 @media screen
