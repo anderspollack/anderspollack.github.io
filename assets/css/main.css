@@ -38,6 +38,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   overflow: scroll;
+  min-height: 100%;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   body {
