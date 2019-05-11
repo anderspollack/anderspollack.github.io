@@ -39,9 +39,6 @@ body {
   flex-wrap: wrap;
   overflow: scroll;
 }
-body.project {
-  justify-content: space-between;
-}
 @media screen and (min-width: {{ page.min_desktop }}px) {
   body {
     flex-wrap: nowrap;
