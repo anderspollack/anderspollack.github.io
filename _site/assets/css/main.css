@@ -257,18 +257,16 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
   margin-top: 30px;
   width: calc(100% - 72px);
   max-width: 460px;
-  height: 0;
   /* uncomment below if you want nav container to always try to be as tall as .site-main */
   /* min-height: calc(100% - 40px); */
   transition: transform 0.3s ease-in-out;
-  transform: translateX(calc(-100% - 100px));
+  transform: translate(calc(-100% - 100px), calc(-100% - 100px));
   position: absolute;
   z-index: 3;
 }
 input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
-  transform: translateX(0);
+  transform: translate(0, 0);
   border: 1px solid #000;
-  height: auto;
 }
 @media screen and (min-width: 667px) {
   .site-nav--home {
