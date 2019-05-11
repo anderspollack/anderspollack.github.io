@@ -179,6 +179,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
 }
 .planets--project {
   max-width: 48px;
+  min-height: 48px;
   padding: 0;
   flex-direction: column;
   align-items: flex-end;
