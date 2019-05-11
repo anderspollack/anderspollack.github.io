@@ -181,6 +181,8 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
   padding: 0;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .planet {
@@ -217,6 +219,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
 .site-nav-screen {
   /* background-color: rgba(0,0,0,0.1); */
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -889,27 +892,26 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 /* MAIN: Project: Website */
 .project__section--website {
   position: relative;
-  padding: 24px 22px 64px;
+  margin: 24px 40px 80px 24px;
   max-width: 1552px;
   display: flex;
   flex-direction: column-reverse;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .project__section--website {
-    padding: 24px 22px 48px;
+    margin: 24px 22px 80px;
     display: block;
   }
 }
 @media screen and (min-width: {{ page.med_desktop }}px) {
   .project__section--website {
-    padding: 24px 0 48px;
+    margin: 24px 32px 48px;
   }
 }
 
 .project__section--website img:first-child {
-  width: calc(100% + 48px);
+  width: 100%;
   max-width: 1552px;
-  transform: translateX(-24px);
   object-fit: contain;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
@@ -919,23 +921,23 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   }
 }
 
+/* .project__section--website img:last-child {
+   width: 240px;
+   max-width: 360px;
+   webkit-filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+   object-fit: contain;
+   }
+   @media screen and (min-width: {{ page.min_desktop }}px) { */
 .project__section--website img:last-child {
-  width: 240px;
-  max-width: 360px;
-  webkit-filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
-  object-fit: contain;
+  position: absolute;
+  width: 25%;
+  top: 33.333%;
+  right: 10%;
+  webkit-filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
 }
-@media screen and (min-width: {{ page.min_desktop }}px) {
-  .project__section--website img:last-child {
-    position: absolute;
-    width: 25%;
-    top: 33.333%;
-    right: 10%;
-    webkit-filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
-    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
- }
-}
+/* } */
 
 /* /MAIN: Project: Website */
 /* MAIN: Project: Video */
