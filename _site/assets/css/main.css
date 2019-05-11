@@ -309,7 +309,6 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
 }
 
 .site-nav__item {
-  max-width: 640px;
   margin: 4px 0;
   border-radius: 8px;
   background: #fff;
@@ -318,6 +317,11 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
 }
 .site-nav__item:hover {
   border-radius: 20px;
+}
+@media screen and (min-width: 888px) {
+  .site-nav__item {
+    max-width: 640px;
+  }
 }
 
 .site-nav__expanded-margin {
@@ -421,7 +425,9 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
 .collection-body {
   transform: translateY(0);
   overflow: hidden;
+  max-width: 480px;
   max-height: 200px;
+  margin-right: 16px;
   transition: opacity 0.2s ease-in-out 0.15s;
   padding-bottom: 16px;
 }
@@ -454,6 +460,8 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
 }
 
 .project__icons {
+  width: 100%;
+  transform: translateX(-4px);
   display: flex;
   flex-wrap: wrap;
   opacity: 1;
