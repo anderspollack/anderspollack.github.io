@@ -833,17 +833,35 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   }
 }
 
-.project__page-description {
-  margin: 8px 48px 8px 32px;
+.project__subheader {
+  display: flex;
+  flex-direction: column;
+  padding: 0 48px 0 32px;
 }
 @media screen and (min-width: 667px) {
-  .project__page-description {
-    margin: 8px 48px;
+  .project__subheader {
+    padding: 0 48px;
   }
 }
 @media screen and (min-width: 888px) {
-  .project__page-description {
-    margin: 8px 62px;
+  .project__subheader {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 60px;
+  }
+}
+
+.project__page-description {
+  margin: 8px 16px 8px 0;
+}
+
+.project__page-icons {
+  min-width: 64px;
+  margin: 8px 0;
+}
+@media screen and (min-width: 888px) {
+  .project__page-icons {
+    justify-content: flex-end;
   }
 }
 
