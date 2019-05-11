@@ -85,7 +85,7 @@ body.project {
   height: 31px;
   position: fixed;
   overflow: hidden;
-  z-index: 3;
+  z-index: 4;
   background-color: transparent;
   cursor: pointer;
 }
@@ -264,6 +264,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
   transition: transform 0.3s ease-in-out;
   transform: translateX(calc(-100% - 100px));
   position: absolute;
+  z-index: 3;
 }
 input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
   transform: translateX(0);
