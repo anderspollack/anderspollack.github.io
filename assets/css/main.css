@@ -773,7 +773,8 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 
 .page-navigation-desktop__divider {
   width: 1px;
-  background: #000;
+  background-image: url('{{ site.baseurl }}/assets/images/dither-vertical-line@2x.png');
+  background-size: 1px;
 }
 
 .page-navigation-desktop__item {
