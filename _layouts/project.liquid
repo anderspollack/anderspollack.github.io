@@ -26,14 +26,18 @@ layout: default
             </header>
             <h1 class="project__title">{{ page.name }}</h1>
             <div class="project__subheader">
-                <p class="project__page-description">{{ page.description }}</p>
+                <p class="project__page-description">
+                    {{ page.description }}
+                    {% if page.link %}
+                        <a href="{{ page.link }}" class="project__page-link"><span class="project__page-link-label">Link:</span><span class="project__page-link-url">{{ page.link }}</span></a>
+                    {% endif %}
+                </p>
                 <div class="project__icons project__page-icons">
                     {% for icon in page.icons %}
                         <div class="project__icon icon-{{ icon }}"></div>
                     {% endfor %}
                 </div>
             </div>
-            <!-- icons -->
             {{ content }}
         </main>
         {% include page-navigation-mobile.liquid %}
