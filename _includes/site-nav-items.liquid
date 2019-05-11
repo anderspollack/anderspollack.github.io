@@ -11,22 +11,20 @@
                 <label for="{{ collection.label }}-toggle" class="collection-toggle">
                     <h2 class="site-nav__heading">{{ collection.name }}</h2>
                     <div class="site-nav__arrow-icon"></div>
-                    <p class="site-nav__body collection-body">
-                        {{ collection.description }}
-                        <div class="project__icons project__icons--collection">
-                            {% assign projects = site[collection.label] | sort: 'order' %}
-                            {% assign icons = '' | split: '' %}
-                            {% for project in projects %}
-                                {% for icon in project.icons %}
-                                    {% assign icons = icons | concat: project.icons %}
-                                {% endfor %}
+                    <p class="site-nav__body collection-body">{{ collection.description }}</p>
+                    <div class="project__icons project__icons--collection">
+                        {% assign projects = site[collection.label] | sort: 'order' %}
+                        {% assign icons = '' | split: '' %}
+                        {% for project in projects %}
+                            {% for icon in project.icons %}
+                                {% assign icons = icons | concat: project.icons %}
                             {% endfor %}
-                            {% assign icons = icons | uniq %}
-                            {% for icon in icons %}
-                                <div class="project__icon icon-{{ icon }}"></div>
-                            {% endfor %}
-                        </div>
-                    </p>
+                        {% endfor %}
+                        {% assign icons = icons | uniq %}
+                        {% for icon in icons %}
+                            <div class="project__icon icon-{{ icon }}"></div>
+                        {% endfor %}
+                    </div>
                     <p class="site-nav__body collection-body-alternate">
                         Projects
                     </p>
@@ -35,18 +33,18 @@
                     {% for project in projects %}
                         <li class="site-nav__project">
                             <a class="project__link" href="{{ site.baseurl }}{{ project.url }}">
-                                <h3 class="project__heading">
-                                    {{ project.name }}
-                                </h3>
                                 <div class="project__body">
+                                    <h3 class="project__heading">
+                                        {{ project.name }}
+                                    </h3>
                                     <div class="project__description">
                                         {{ project.description }}
                                     </div>
-                                    <div class="project__icons">
-                                        {% for icon in project.icons %}
-                                            <div class="project__icon icon-{{ icon }}"></div>
-                                        {% endfor %}
-                                    </div>
+                                </div>
+                                <div class="project__icons">
+                                    {% for icon in project.icons %}
+                                        <div class="project__icon icon-{{ icon }}"></div>
+                                    {% endfor %}
                                 </div>
                             </a>
                         </li>

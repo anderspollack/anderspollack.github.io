@@ -464,6 +464,7 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
   width: 100%;
   transform: translateX(-4px);
   display: flex;
+  flex-shrink: 0;
   flex-wrap: wrap;
   opacity: 1;
   transition: opacity 0.2s ease-in-out 0.15s;
@@ -516,6 +517,18 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
   justify-content: space-between;
   padding: 16px 16px 24px 22px;
 }
+@media screen
+and (min-width: 667px)
+and (min-height: 667px) {
+  .home .project__link {
+    flex-wrap: nowrap;
+  }
+}
+@media screen and (min-width: 888px) {
+  .home .project__link {
+    flex-wrap: nowrap;
+  }
+}
 
 .project__heading {
   width: 100%;
@@ -523,48 +536,37 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
 
 .project__body {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: space-between;
 }
-@media screen and (min-width: 667px) {
+@media screen
+and (min-width: 667px)
+and (min-height: 667px) {
   .project__body {
-    flex-direction: row;
-  }
-}
-@media screen and (min-width: 888px) {
-  .project .project__body {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-.project__body .project__icons,
-.project__body .project__description {
-  margin-top: 16px;
-  flex-basis: 100%;
-}
-
-@media screen and (min-width: 667px) {
-  .home .project__body .project__description {
     margin-right: 24px;
   }
+}
 
-  .home .project__body .project__icons {
-    flex-basis: 64px;
-    flex-shrink: 0;
-    justify-content: flex-end;
+.project__link .project__icons,
+.project__description {
+  margin-top: 16px;
+}
+
+@media screen and (min-width: 667px) {
+  .project__link .project__icons {
+    margin-top: 16px;
+  }
+}
+@media screen
+and (min-width: 667px)
+and (min-height: 667px) {
+  .home .project__link .project__icons {
+    margin-top: 0;
+    width: auto;
   }
 }
 @media screen and (min-width: 888px) {
-  .home .project__body .project__icons {
-    flex-basis: 96px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .home .project__body .project__icons {
+  .home .project__link .project__icons {
+    margin-top: 0;
     width: auto;
-    flex-basis: auto;
   }
 }
 
