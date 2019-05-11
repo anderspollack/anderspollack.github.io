@@ -882,10 +882,12 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 .project__page-icons {
   min-width: 64px;
   margin: 8px 0;
+  transform: translateX(-4px);
 }
 @media screen and (min-width: 888px) {
   .project__page-icons {
     justify-content: flex-end;
+    transform: none;
   }
 }
 
