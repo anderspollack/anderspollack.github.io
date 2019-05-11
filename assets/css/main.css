@@ -525,7 +525,7 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: space-between;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .project__body {
@@ -548,14 +548,27 @@ input[type="checkbox"].collection-toggle-input:checked ~ .site-nav__collection .
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .project__body .project__icons,
   .project__body .project__description {
-    flex-basis: 50%;
-    margin-right: 16px;
+  }
+
+  .project__body .project__description {
+    margin-right: 24px;
+  }
+
+  .project__body .project__icons {
+    flex-basis: 64px;
+    flex-shrink: 0;
+    justify-content: flex-end;
   }
 }
 @media screen and (min-width: {{ page.med_desktop }}px) {
-  .project .project__body .project__icons,
-  .project .project__body .project__description {
-    flex-basis: 100%;
+  .project__body .project__icons {
+    flex-basis: 96px;
+  }
+}
+@media screen and (min-width: {{ page.large_desktop }}px) {
+  .project__body .project__icons {
+    width: auto;
+    flex-basis: auto;
   }
 }
 
