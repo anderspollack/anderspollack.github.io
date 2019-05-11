@@ -243,6 +243,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
 
 .site-nav {
   padding: 4px 8px;
+  box-sizing: border-box;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -256,7 +257,6 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav-screen {
   z-index: 2;
   margin-top: 30px;
   width: calc(100% - 72px);
-  max-width: 460px;
   /* uncomment below if you want nav container to always try to be as tall as .site-main */
   /* min-height: calc(100% - 40px); */
   transition: transform 0.3s ease-in-out;
@@ -309,6 +309,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-nav--project {
 }
 
 .site-nav__item {
+  max-width: 640px;
   margin: 4px 0;
   border-radius: 8px;
   background: #fff;
