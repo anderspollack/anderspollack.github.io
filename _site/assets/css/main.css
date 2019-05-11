@@ -38,7 +38,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   overflow: scroll;
-  min-height: calc(100vh - (4px * 2));
 }
 @media screen and (min-width: 667px) {
   body {
@@ -53,6 +52,7 @@ body {
 @media screen and (min-width: 888px) {
   body.home {
     flex-wrap: nowrap;
+    min-height: calc(100vh - (4px * 2));
   }
 }
 
@@ -1236,6 +1236,7 @@ p.indented-image-caption {
     World-hover 1.6s ease-in-out infinite alternate 0.2s;
 }
 .world--project {
+  flex-shrink: 0;
   width: 24px;
   height: 24px;
   margin: 6px 8px;
