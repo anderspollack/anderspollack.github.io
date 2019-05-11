@@ -838,7 +838,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 /* /MAIN: Page Navigation: Desktop */
 /* MAIN: Project */
 .project__title {
-  margin: 24px 48px 8px 32px;
+  margin: 32px 48px 8px 32px;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .project__title {
