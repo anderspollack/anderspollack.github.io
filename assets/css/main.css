@@ -1102,16 +1102,22 @@ p.indented-image-caption {
 }
 
 .site-main--project > img {
-  width: calc(100% - 64px);
+  width: calc(100% - 80px);
   height: auto;
   max-width: 640px;
-  margin: 24px 48px 24px 16px;
+  margin: 24px 48px 24px 32px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .site-main--project > img {
     width: calc(100% - 96px);
     margin: 32px 48px;
+  }
+}
+@media screen and (min-width: {{ page.min_desktop }}px) {
+  .site-main--project > img {
+    width: calc(100% - 120px);
+    margin: 32px 60px;
   }
 }
 
