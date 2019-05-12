@@ -988,10 +988,16 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 }
 @media screen and (min-width: 667px) {
   .project__section--website img:first-child {
-    width: 100%;
+    width: calc(100% - 8px);
     transform: none;
   }
 }
+@media screen and (min-width: 667px) {
+  .project__section--website img:first-child {
+    width: 100%;
+  }
+}
+
 .project__section--website-800 img:first-child {
   width: 51.54%;
   margin: 0 auto;
@@ -1129,7 +1135,7 @@ p.indented-image-caption {
     margin: 32px 48px;
   }
 }
-@media screen and (min-width: 667px) {
+@media screen and (min-width: 888px) {
   .site-main--project > img {
     width: calc(100% - 120px);
     margin: 32px 60px;
