@@ -72,7 +72,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 .site-header--home {
@@ -109,26 +109,34 @@ body {
 }
 
 .site-header__interior {
-  position: relative;
-  top: 8px;
+    position: static;
+    margin: 48px 0;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .site-header__interior {
+    margin: 0;
     position: fixed;
     top: 30%;
   }
 }
 @media screen and (min-height: {{ page.min_desktop }}px) {
   .site-header__interior {
-    position: relative;
-    top: 8px;
+    position: static;
+    margin: 48px 0;
   }
 }
 @media screen and (min-width: {{ page.med_desktop }}px) {
   .site-header__interior {
+    margin: 0;
     position: fixed;
-    top: 230px;
+    /* top: 230px; */
   }
+}
+
+.site-header__site-title {
+  position: relative;
+  left: 4px;
+  margin: 0 24px;
 }
 
 .site-header__title {
@@ -196,6 +204,38 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
 .planet {
   display: block;
   width: auto;
+}
+
+.site-header__about {
+  margin: 24px 32px;
+  max-width: 40em;
+  align-self: flex-start;
+}
+@media screen and (min-width: {{ page.min_desktop }}px) {
+  .site-header__about {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    margin: 0;
+    max-width: 20em;
+  }
+}
+@media screen
+and (min-width: {{ page.min_desktop }}px)
+and (min-height: {{ page.min_desktop }}px) {
+  .site-header__about {
+    position: static;
+    margin: 24px 32px;
+  }
+}
+@media screen and (min-width: {{ page.med_desktop }}px) {
+  .site-header__about {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    margin: 0;
+    max-width: 32em;
+  }
 }
 
 .info-header {
@@ -1409,8 +1449,7 @@ body * {
 
 .site-header__site-title {
   font-size: 16px;
-  position: relative;
-  left: 4px;
+  text-align: center;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
   .site-header__site-title {
@@ -1427,6 +1466,10 @@ body * {
   .site-header__site-title {
     font-size: 16px;
   }
+}
+
+.site-header__about a {
+  color: #000;
 }
 
 .back-to-top {
@@ -1477,6 +1520,7 @@ body * {
   letter-spacing: 0.6px;
 }
 
+.site-header__about,
 .site-nav__body,
 .site-nav__project {
   font-size: 11px;
