@@ -930,6 +930,17 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   background-size: 16px;
 }
 
+.page-link__icon,
+.external-link-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-image: url('{{ site.baseurl }}/assets/images/arrow-curve@2x.png');
+  background-size: 16px;
+  background-repeat: no-repeat
+}
+
 .project__page-icons {
   width: auto;
   min-width: 64px;
