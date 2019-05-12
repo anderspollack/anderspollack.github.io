@@ -208,7 +208,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .site-header--project:after {
 
 .site-header__about {
   margin: 24px 32px;
-  max-width: 40em;
+  max-width: 32em;
   align-self: flex-start;
 }
 @media screen and (min-width: {{ page.min_desktop }}px) {
