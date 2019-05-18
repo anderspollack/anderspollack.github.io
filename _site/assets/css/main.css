@@ -1149,8 +1149,8 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 
 .slides__chooser,
 .slides__video-placeholder {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 49px;
   overflow: hidden;
   position: relative;
   display: flex;
