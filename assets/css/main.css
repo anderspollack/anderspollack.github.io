@@ -1197,6 +1197,7 @@ input[type="radio"].slides__toggle:checked + img,
 input[type="radio"].slides__toggle:checked + video {
   width: 100%;
   opacity: 1;
+  z-index: 1;
 }
 input[type="radio"].slides__toggle:not(:checked) + img,
 input[type="radio"].slides__toggle:not(:checked) + video {
