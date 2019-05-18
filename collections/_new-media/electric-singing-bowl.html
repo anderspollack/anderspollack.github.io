@@ -18,7 +18,7 @@ slides:
 <section class="project__section project__section--slides">
     <div class="slides">
         {% for slide in page.slides %}
-            <label class="slides__chooser" for="slides-toggle-{{ page.slug }}-{{ forloop.index }}">
+            <label class="slides__chooser {% if slide.video %}slides__chooser--video{% endif %}" for="slides-toggle-{{ page.slug }}-{{ forloop.index }}">
                 {% if slide.poster %}
                     <img alt="{{ page.name }}" src="{{ site.baseurl }}/assets/media/{{ page.slug }}/{{ slide.poster }}"/>
                 {% elsif slide.video %}

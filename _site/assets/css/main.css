@@ -1153,22 +1153,23 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   height: 48px;
   overflow: hidden;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 8px;
   margin-bottom: 8px;
   cursor: pointer;
+  background-image: url('/assets/images/dither@2x.png');
+  background-size: 16px;
+  background-repeat: repeat;
+  background-position: top -1px center;
 }
 
 .slides__chooser img,
 .slides__chooser video {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: auto;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .slides__current {
@@ -1183,6 +1184,8 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   justify-content: center;
   background-image: url('/assets/images/dither@2x.png');
   background-size: 16px;
+  background-repeat: repeat;
+  background-position: top -1px center;
 }
 
 .slides__current img,
@@ -1206,17 +1209,13 @@ input[type="radio"].slides__toggle:not(:checked) + video {
   position: absolute;
 }
 
-.slide__video-placeholder {
+.slides__video-placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  background-image: url('/assets/images/dither@2x.png');
-  background-size: 16px;
-  background-repeat: repeat;
-  background-position: top -1px center;
 }
-.slide__video-placeholder:before {
+.slides__video-placeholder:before {
   content: '';
   display: block;
   position: absolute;
@@ -1225,7 +1224,8 @@ input[type="radio"].slides__toggle:not(:checked) + video {
   padding-bottom: 56.25%;
   background-color: #000;
 }
-.slide__video-placeholder:after {
+.slides__chooser--video:after,
+.slides__video-placeholder:after {
   content: '▶';
   position: absolute;
   font-size: 13px;
