@@ -1154,6 +1154,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   overflow: hidden;
   position: relative;
   margin-right: 8px;
+  cursor: pointer;
 }
 
 .slides__chooser img,
@@ -1173,28 +1174,33 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   flex-basis: 100%;
   max-width: 1200px;
   margin-top: 16px;
-  position: relative;
   overflow: hidden;
   display: flex;
+  flex-wrap: wrap;
+  position: relative;
   justify-content: center;
   background-image: url('{{ site.baseurl }}/assets/images/dither@2x.png');
   background-size: 16px;
 }
 
-input[type="radio"].slides__toggle:not(:checked) + .slides__current {
-  position: absolute;
-  z-index: -1;
-  max-height: 0;
-}
-
-input[type="radio"].slides__toggle + .slides__current img,
-input[type="radio"].slides__toggle + .slides__current video {
+.slides__current img,
+.slides__current video {
   max-width: 800px;
   max-height: 800px;
   object-fit: contain;
-  width: 100%;
   height: auto;
   display: block;
+  transition: opacity 0.3s linear;
+}
+input[type="radio"].slides__toggle:checked + img,
+input[type="radio"].slides__toggle:checked + video {
+  width: 100%;
+  opacity: 1;
+}
+input[type="radio"].slides__toggle:not(:checked) + img,
+input[type="radio"].slides__toggle:not(:checked) + video {
+  opacity: 0;
+  position: absolute;
 }
 
 .slide__video-placeholder {
