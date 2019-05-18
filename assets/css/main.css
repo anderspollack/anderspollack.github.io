@@ -1154,6 +1154,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   overflow: hidden;
   position: relative;
   margin-right: 8px;
+  margin-bottom: 8px;
   cursor: pointer;
 }
 
@@ -1173,7 +1174,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
 .slides__current {
   flex-basis: 100%;
   max-width: 1200px;
-  margin-top: 16px;
+  margin-top: 8px;
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
