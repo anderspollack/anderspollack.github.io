@@ -5,6 +5,13 @@ collections_dir: collections
 about: "I'm a designer and web developer based in Los Angeles, CA. Get in touch at <a href='mailto:pollack.anders@gmail.com'>pollack.anders@gmail.com</a>"
 
 collections:
+  new-media:
+    output: true
+    name: New Media Projects
+    order: 6
+    description: "Interactive and multimedia works"
+    permalink: /projects/:name
+
   super-deluxe:
     output: true
     name: Super Deluxe
@@ -41,6 +48,12 @@ defaults:
 
   - scope:
       path: ""
+      type: "new-media"
+    values:
+      layout: project
+
+  - scope:
+      path: ""
       type: "super-deluxe"
     values:
       layout: project
@@ -67,4 +80,3 @@ defaults:
       path: "/assets/images"
     values:
       image: true
-

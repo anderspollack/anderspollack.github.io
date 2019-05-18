@@ -1120,6 +1120,111 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   display: flex;
 }
 
+/* MAIN: Project: slides */
+.project__section--slides {
+  margin: 32px 48px 8px 32px;
+}
+@media screen and (min-width: 667px) {
+  .project__section--slides {
+    margin: 32px 48px 8px;
+  }
+}
+@media screen and (min-width: 888px) {
+  .project__section--slides {
+    margin: 32px 60px 8px;
+  }
+}
+
+.slides {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project__section--slides video,
+.project__section--slides img {
+  width: 100%;
+  display: block;
+}
+
+.slides__chooser,
+.slides__video-placeholder {
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  position: relative;
+  margin-right: 8px;
+}
+
+.slides__chooser img,
+.slides__chooser video {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.slides__current {
+  flex-basis: 100%;
+  max-width: 1200px;
+  margin-top: 16px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background-image: url('/assets/images/dither@2x.png');
+  background-size: 16px;
+}
+
+input[type="radio"].slides__toggle:not(:checked) + .slides__current {
+  position: absolute;
+  z-index: -1;
+  max-height: 0;
+}
+
+input[type="radio"].slides__toggle + .slides__current img,
+input[type="radio"].slides__toggle + .slides__current video {
+  max-width: 800px;
+  max-height: 800px;
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.slide__video-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-image: url('/assets/images/dither@2x.png');
+  background-size: 16px;
+  background-repeat: repeat;
+  background-position: top -1px center;
+}
+.slide__video-placeholder:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  background-color: #000;
+}
+.slide__video-placeholder:after {
+  content: '▶';
+  position: absolute;
+  font-size: 13px;
+  color: #fff;
+}
+
+/* /MAIN: Project: slides */
+
 .site-main--project > p:not(.project__page-description),
 .site-main--project > h1:not(.project__title),
 .site-main--project > h2,
