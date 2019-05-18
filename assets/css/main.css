@@ -1177,7 +1177,7 @@ input[type="checkbox"]#site-nav-toggle:checked ~ .project__page .back-to-top {
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start
+  align-items: flex-start;
   position: relative;
   justify-content: center;
   background-image: url('{{ site.baseurl }}/assets/images/dither@2x.png');
