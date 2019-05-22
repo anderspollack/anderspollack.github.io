@@ -1589,7 +1589,7 @@ body * {
 }
 @media screen and (min-height: {{ page.min_desktop }}px) {
   .site-header__site-title {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 8px;
   }
 }
