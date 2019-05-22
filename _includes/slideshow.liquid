@@ -1,0 +1,25 @@
+<section class="project__section project__section--slides">
+    <div class="slides">
+        {% for slide in include.slides %}
+            <label class="slides__chooser {% if slide.video %}slides__chooser--video{% endif %}" for="slides-toggle-{{ include.slug }}-{{ forloop.index }}">
+                {% if slide.poster %}
+                    <img alt="{{ include.name }}" src="{{ site.baseurl }}/assets/media/{{ include.slug }}/{{ slide.poster }}"/>
+                {% elsif slide.video %}
+                    <div class="slide__video-placeholder"></div>
+                {% else %}
+                    <img alt="{{ include.name }}" src="{{ site.baseurl }}/assets/media/{{ include.slug }}/{{ slide.media }}"/>
+                {% endif %}
+            </label>
+        {% endfor %}
+        <div class="slides__current {% if include.shadow %}slides__current--shadow{% endif %}">
+            {% for slide in include.slides %}
+                <input name="slides-toggle-{{ include.slug }}" id="slides-toggle-{{ include.slug }}-{{ forloop.index }}" class="slides__toggle invisible" type="radio" {% if forloop.index == 1 %}checked{% endif %} value=""/>
+                {% if slide.video == true %}
+                    <video controls playsinline src="{{ site.baseurl }}/assets/media/{{ include.slug }}/{{ slide.media }}" poster="{{ site.baseurl }}/assets/media/{{ include.slug }}/{{ slide.poster }}"></video>
+                {% else %}
+                    <img alt="{{ include.name }}" src="{{ site.baseurl }}/assets/media/{{ include.slug }}/{{ slide.media }}"/>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

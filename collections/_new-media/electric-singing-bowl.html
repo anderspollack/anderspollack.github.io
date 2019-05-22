@@ -15,28 +15,8 @@ slides:
   - media: electric-singing-bowl-4.jpg
   - media: electric-singing-bowl-pd-patch.png
 ---
-<section class="project__section project__section--slides">
-    <div class="slides">
-        {% for slide in page.slides %}
-            <label class="slides__chooser {% if slide.video %}slides__chooser--video{% endif %}" for="slides-toggle-{{ page.slug }}-{{ forloop.index }}">
-                {% if slide.poster %}
-                    <img alt="{{ page.name }}" src="{{ site.baseurl }}/assets/media/{{ page.slug }}/{{ slide.poster }}"/>
-                {% elsif slide.video %}
-                    <div class="slide__video-placeholder"></div>
-                {% else %}
-                    <img alt="{{ page.name }}" src="{{ site.baseurl }}/assets/media/{{ page.slug }}/{{ slide.media }}"/>
-                {% endif %}
-            </label>
-        {% endfor %}
-        <div class="slides__current">
-            {% for slide in page.slides %}
-                <input name="slides-toggle-{{ page.slug }}" id="slides-toggle-{{ page.slug }}-{{ forloop.index }}" class="slides__toggle invisible" type="radio" {% if forloop.index == 1 %}checked{% endif %} value=""/>
-                {% if slide.video == true %}
-                    <video controls playsinline src="{{ site.baseurl }}/assets/media/{{ page.slug }}/{{ slide.media }}" poster="{{ site.baseurl }}/assets/media/{{ page.slug }}/{{ slide.poster }}"></video>
-                {% else %}
-                    <img alt="{{ page.name }}" src="{{ site.baseurl }}/assets/media/{{ page.slug }}/{{ slide.media }}"/>
-                {% endif %}
-            {% endfor %}
-        </div>
-    </div>
-</section>
+{% include slideshow.liquid
+name=page.name
+slug=page.slug
+slides=page.slides
+%}

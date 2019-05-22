@@ -6,4 +6,17 @@ published: true
 description: UX design for the Tuition.io platform
 icons:
   - ux
+slides:
+  - media: portal-login.jpg
+  - media: portal-paying.jpg
+  - media: portal-coffee.jpg
+  - media: portal-optimizer.jpg
+  - media: portal-calculator.jpg
+  - media: portal-glossary.jpg
 ---
+{% include slideshow.liquid
+name=page.name
+slug=page.slug
+slides=page.slides
+shadow=true
+%}

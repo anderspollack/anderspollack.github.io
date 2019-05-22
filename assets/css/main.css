@@ -1209,6 +1209,15 @@ input[type="radio"].slides__toggle:not(:checked) + video {
   position: absolute;
 }
 
+.slides__current--shadow img,
+.slides__current--shadow video {
+  max-height: 852px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  margin: 20px;
+}
+
 .slides__video-placeholder {
   display: flex;
   justify-content: center;
