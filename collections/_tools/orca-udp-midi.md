@@ -76,7 +76,7 @@ I'm really pleased with the results of the extra delay parameter. Combined with 
 
 _sound sample from GarageBand_
 
-# Crash Override
+# Crash override
 
 Aside from UDP reliability, I encountered one final flaw — sending a single ```;``` message without any parameters to my patch would immediately crash Pure Data (often taking IAC Driver down with it). It isn't great when a wrong note also kills your whole rig!
 
@@ -88,7 +88,7 @@ _video of ORCΛ running on iPad sort of well_
 
 You can clone or download the patch [here](https://github.com/anderspollack/orca-udp-midi).
 
-# Moving Forward
+# Moving forward
 
 To make this thing more useful and to help justify the weekend of work that went into finding and solving nearly all of these problems, the next step for the non-vanilla ORCΛ UDP MIDI Translator is adding Ableton Link support via [```abl_link~```](https://github.com/libpd/abl_link).
 
