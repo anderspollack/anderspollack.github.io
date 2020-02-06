@@ -48,7 +48,7 @@ So only natural notes would be allowed, unless I included another parameter for 
 
 where I could add  a ```b``` (flat) or ```s``` (for sharp? — ```#``` already being the syntax for ORCΛ comments) after the root note. Needless to say, MIDI-over-OSC was not gonna happen.
 
-The only solution was to use ```;``` and parse the raw binary output from ```netreceive```. Not only would this resolve the capital/lowercase problem, it would allow for UDP MIDI notes to be visually identical to ORCΛ's MIDI notes, just with a ```;``` instead of a ```:```
+The solution was to use ```;``` and parse the raw binary output from ```netreceive```. Not only would this solve the capital/lowercase problem, it would allow UDP MIDI messages to be nearly identical to ORCΛ's MIDI notes, just replacing ```:``` with ```;```.
 
 [![=a505Czz](../assets/images/tools/orca-udp-midi/osc-issue-4.png)](../assets/images/tools/orca-udp-midi/osc-issue-4.png)
 

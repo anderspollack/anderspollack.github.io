@@ -642,7 +642,7 @@
 
 <p>where I could add  a <code class="highlighter-rouge">b</code> (flat) or <code class="highlighter-rouge">s</code> (for sharp? — <code class="highlighter-rouge">#</code> already being the syntax for ORCΛ comments) after the root note. Needless to say, MIDI-over-OSC was not gonna happen.</p>
 
-<p>The only solution was to use <code class="highlighter-rouge">;</code> and parse the raw binary output from <code class="highlighter-rouge">netreceive</code>. Not only would this resolve the capital/lowercase problem, it would allow for UDP MIDI notes to be visually identical to ORCΛ’s MIDI notes, just with a <code class="highlighter-rouge">;</code> instead of a <code class="highlighter-rouge">:</code></p>
+<p>The solution was to use <code class="highlighter-rouge">;</code> and parse the raw binary output from <code class="highlighter-rouge">netreceive</code>. Not only would this solve the capital/lowercase problem, it would allow UDP MIDI messages to be nearly identical to ORCΛ’s MIDI notes, just replacing <code class="highlighter-rouge">:</code> with <code class="highlighter-rouge">;</code>.</p>
 
 <p><a href="../assets/images/tools/orca-udp-midi/osc-issue-4.png"><img src="../assets/images/tools/orca-udp-midi/osc-issue-4.png" alt="=a505Czz" /></a></p>
 
