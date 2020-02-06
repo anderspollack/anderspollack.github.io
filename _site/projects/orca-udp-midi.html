@@ -52,7 +52,7 @@
                                         ORCΛ UDP MIDI Translator
                                     </h3>
                                     <div class="project__description">
-                                        A UDP-to-MIDI translator Pd utility for the ORCΛ live-coding environment
+                                        A UDP-to-MIDI Pd translator utility for the ORCΛ live-coding environment
                                     </div>
                                 </div>
                                 <div class="project__icons">
@@ -587,7 +587,7 @@
             <h1 class="project__title">ORCΛ UDP MIDI Translator</h1>
             <div class="project__subheader">
                 <p class="project__page-description">
-                    A UDP-to-MIDI translator Pd utility for the ORCΛ live-coding environment
+                    A UDP-to-MIDI Pd translator utility for the ORCΛ live-coding environment
                     
                 </p>
                 <div class="project__icons project__page-icons">
@@ -598,9 +598,11 @@
                     
                 </div>
             </div>
-            <h1 id="what-are-all-these-things">What are all these things?</h1>
+            <p>Because I can’t just enjoy nice, free music software, I spent a few days trying to recreate and extend my live-coding setup on an iPad. Here’s what worked, what failed completely, and what I learned along the way.</p>
 
-<p><a href="https://github.com/hundredrabbits/Orca">ORCΛ</a> is a visual programming language for building sequencers and pattern machines. It is truly delightful, addictive, and expressive, and anyone who enjoys computers that make music should try it out. For a better idea of what ORCΛ can do, check out these links:</p>
+<h1 id="what-are-all-these-things">What are all these things?</h1>
+
+<p><a href="https://github.com/hundredrabbits/Orca">ORCΛ</a> is a visual programming language for building sequencers and pattern machines. It is truly delightful, addictive, and expressive, and anyone who enjoys computers that make music should try it out. For a better idea of what ORCΛ can do, click on these:</p>
 <ul>
   <li><a href="https://www.youtube.com/watch?v=WIzI_PSBw6o">Orca Workshop</a></li>
   <li><a href="https://www.youtube.com/watch?v=w9do-qFNAmQ">ORCΛ Time Crystal</a></li>
@@ -608,27 +610,27 @@
   <li><a href="https://twitter.com/Johannes_Knop/status/1220113861451427842?s=20">another sapling, another tree.</a></li>
 </ul>
 
-<p><a href="http://puredata.info/">Pure Data (Pd)</a> is a visual programming language for multimedia. I mainly use it as multipurpose audio/MIDI/network glue when I want music apps to communicate. It’s also great for making audio samplers, <a href="https://www.automatonism.com/">synthesizers</a>, live visuals, and <a href="electric-singing-bowl">Electric Singing Bowls</a>.</p>
+<p><a href="http://puredata.info/">Pure Data (Pd)</a> is a visual programming language for multimedia. I mainly use it as multipurpose audio/MIDI/network glue when I want music apps to communicate. It’s great for making audio samplers, <a href="https://www.automatonism.com/">synthesizers</a>, live visuals, and <a href="electric-singing-bowl">Electric Singing Bowls</a>.</p>
 
 <h1 id="why">Why?</h1>
 
-<p>Some background: I’ve been using the <a href="https://github.com/hundredrabbits/Orca-c">C port</a> of ORCΛ, as it runs just as nicely on a Raspberry Pi over SSH as it does on my 10-year-old Macbook Pro. I was even able to build and run it on my iPad inside of <a href="https://ish.app/">iSH</a>, an emulated Linux shell runs on iOS. It seemed like an ideal setup; ORCΛ running on my most portable device with access to all of the music software that I’ve paid actual money for!</p>
+<p>Some background: I’ve been happily using the <a href="https://github.com/hundredrabbits/Orca-c">C port</a> of ORCΛ, as it runs just as well on a Raspberry Pi over SSH as it does on my 10-year-old Macbook Pro. As a true testament to <a href="https://100r.co/site/philosophy.html">ORCΛ’s creators’ lean development philosophy</a>, I was even able to build and run it inside of <a href="https://ish.app/">iSH</a>, an emulated Linux shell that runs on iOS. What a dream! ORCΛ running on a mobile device with access to all of the music software that I’ve paid actual money for.</p>
 
-<p>Except <a href="https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management">APK</a> doesn’t have a portmidi package — an optional ORCΛ dependency that enables MIDI support — which meant that my iSH build of ORCΛ was totally cut off from the rest of my apps; totally useless. I could have attempted to build portmidi from source inside iSH, but even then it seemed unlikely that it would be magically capable of communicating with an iOS app from inside a Linux sandbox.</p>
+<p>Except <a href="https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management">APK</a> doesn’t have a portmidi package — an optional ORCΛ dependency that enables MIDI support — which meant that my iSH build of ORCΛ was totally cut off from the rest of my apps; totally useless. I could have attempted to build portmidi inside iSH, but even if that was successful it seemed unlikely that any MIDI coming out of iSH would ever find its way out of the sandbox and into another iOS app.</p>
 
-<p>However, ORCΛ speaks OSC (<a href="https://en.wikipedia.org/wiki/Open_Sound_Control">open sound control</a>) and UDP with its <code class="highlighter-rouge">=</code> and <code class="highlighter-rouge">;</code> operators, and there was nothing preventing iSH from communicating over a network!</p>
+<p>However, ORCΛ speaks OSC (<a href="https://en.wikipedia.org/wiki/Open_Sound_Control">open sound control</a>) and UDP with its <code class="highlighter-rouge">=</code> and <code class="highlighter-rouge">;</code> operators, and there was nothing preventing network communication!</p>
 
 <p><a href="../assets/images/tools/orca-udp-midi/osc-udp-operators.png"><img src="../assets/images/tools/orca-udp-midi/osc-udp-operators.png" alt="osc and udp operators" /></a></p>
 
-<p>The only thing I needed was a way to listen to embedded ORCΛ’s network messages and translate them into usable MIDI output — a perfect job for a Pure Data patch, hosted by danomatika’s wonderful <a href="https://github.com/danomatika/PdParty">PdParty</a> app.</p>
+<p>The only thing I needed was a way to listen to embedded ORCΛ’s network messages and translate them into usable MIDI output — a perfect job for Pure Data, provided by danomatika’s wonderful <a href="https://github.com/danomatika/PdParty">PdParty</a> app.</p>
 
-<h1 id="some-issues">Some Issues</h1>
+<h1 id="issues">Issues</h1>
 
 <p>Initially I planned to use the <code class="highlighter-rouge">=</code> operator and send Pd messages in this form:</p>
 
 <p><a href="../assets/images/tools/orca-udp-midi/osc-issue-1.png"><img src="../assets/images/tools/orca-udp-midi/osc-issue-1.png" alt="=a505Czz" /></a></p>
 
-<p>as ORCΛ’s <code class="highlighter-rouge">=</code> needs to start with a path parameter (the <code class="highlighter-rouge">a</code>), and a number indicating the amount of items included in the OSC message (<code class="highlighter-rouge">5</code>). This was hardly ideal, as it would be in a different format than a normal ORCΛ MIDI message, and the extra characters would add just a bit too much extra mental overhead for ORCΛ-on-iPad to still feel like a fun time.</p>
+<p>as ORCΛ’s <code class="highlighter-rouge">=</code> needs to start with a path parameter (the <code class="highlighter-rouge">a</code>), and a number indicating the amount of items included in the OSC message (<code class="highlighter-rouge">5</code>). This was hardly ideal, as it would be in a different format than a normal ORCΛ MIDI message, and the extra characters would add a bit too much mental overhead for ORCΛ-on-iPad to still feel like a fun time.</p>
 
 <p>Additionally, Pd’s <code class="highlighter-rouge">oscparse</code> object wouldn’t distinguish between a capital or lowercase letter sent from ORCΛ.</p>
 
@@ -638,13 +640,13 @@
 
 <p><a href="../assets/images/tools/orca-udp-midi/osc-issue-3.png"><img src="../assets/images/tools/orca-udp-midi/osc-issue-3.png" alt="=a505Czz" /></a></p>
 
-<p>where I could add  a <code class="highlighter-rouge">b</code> (flat) or <code class="highlighter-rouge">s</code> (for sharp? — <code class="highlighter-rouge">#</code> already being the syntax for ORCΛ comments) after the root note. Needless to say, MIDI-over-OSC was not going to work.</p>
+<p>where I could add  a <code class="highlighter-rouge">b</code> (flat) or <code class="highlighter-rouge">s</code> (for sharp? — <code class="highlighter-rouge">#</code> already being the syntax for ORCΛ comments) after the root note. Needless to say, MIDI-over-OSC was not gonna happen.</p>
 
-<p>The obvious solution was to use <code class="highlighter-rouge">;</code> and parse the raw binary output from <code class="highlighter-rouge">netreceive</code>. Not only would this resolve the capital/lowercase problem, it would allow for UDP MIDI notes to be visually identical to ORCΛ’s MIDI notes, just with a <code class="highlighter-rouge">;</code> instead of a <code class="highlighter-rouge">:</code></p>
+<p>The only solution was to use <code class="highlighter-rouge">;</code> and parse the raw binary output from <code class="highlighter-rouge">netreceive</code>. Not only would this resolve the capital/lowercase problem, it would allow for UDP MIDI notes to be visually identical to ORCΛ’s MIDI notes, just with a <code class="highlighter-rouge">;</code> instead of a <code class="highlighter-rouge">:</code></p>
 
 <p><a href="../assets/images/tools/orca-udp-midi/osc-issue-4.png"><img src="../assets/images/tools/orca-udp-midi/osc-issue-4.png" alt="=a505Czz" /></a></p>
 
-<h1 id="fixing-things">Fixing Things</h1>
+<h1 id="mods">Mods</h1>
 
 <p><a href="../assets/images/tools/orca-udp-midi/udp-fixing-1.png"><img src="../assets/images/tools/orca-udp-midi/udp-fixing-1.png" alt="working patch" /></a></p>
 
@@ -656,27 +658,33 @@
 
 <h1 id="breaking-the-grid">Breaking the grid</h1>
 
-<p>To encourage ORCΛ to play notes a bit more loosely, I decided one extra parameter would be allowed. The sixth character in an ORCΛ UDP MIDI message would add small increments of time to delay the attack of the current note. Determining how this timing would work with the current BPM  was a bit tricky, but I ultimately decided on steps of 1/18 of a quarter note, so that a delay of <code class="highlighter-rouge">z</code> on a note being hit once per measure would be offset exactly two beats (don’t ask) and <code class="highlighter-rouge">0–9</code> would be a nice subtle range of delay values for expressive keyboard control.</p>
+<p>To encourage ORCΛ to play notes a bit more loosely, one extra parameter would be allowed: delay. The sixth character in an ORCΛ UDP MIDI message would add small increments of time to offset the attack of the current note.</p>
 
-<p><em>video of delay operator doing cool things</em></p>
+<p><a href="../assets/images/tools/orca-udp-midi/udp-fixing-2.png"><img src="../assets/images/tools/orca-udp-midi/udp-fixing-2.png" alt="working patch" /></a></p>
 
-<p>I’m really pleased with the results of the extra delay parameter. Combined with unpredictable network latency and random UDP packet loss between iSH and PdParty it yielded something close to one of GarageBand’s goofy automatic drummers, but with a more ameteurish, chaotic style.</p>
+<p>Determining how this timing would interact with the current BPM  was a bit tricky, but I ultimately settled on steps of 1/18 of a quarter note. A delay of <code class="highlighter-rouge">z</code> on a note being hit once per measure would be offset exactly two beats (don’t ask me why but it seemed sensible at the time) and <code class="highlighter-rouge">0–9</code> would be a nice subtle range of delay values for expressive keyboard control.</p>
+
+<p><em>video of delay parameter doing cool things</em></p>
+
+<p>I’m really pleased with the results of the extra delay parameter. Combined with unpredictable network lag and random UDP packet loss between iSH and PdParty, it yielded something close to one of GarageBand’s goofy automatic drummers, but with a stripped-down, mildly chaotic style.</p>
 
 <p><em>sound sample from GarageBand</em></p>
 
 <h1 id="more-issues">More Issues</h1>
 
-<p>Aside from the unavoidable issues of UDP reliability, I encountered one final dealbreaker — sending a single <code class="highlighter-rouge">;</code> message without any parameters to my patch would immediately crash Pure Data (and often take IAC Driver down with it). It ain’t great when a wrong note also kills your whole rig!</p>
+<p>Aside from UDP reliability, I encountered one final flaw — sending a single <code class="highlighter-rouge">;</code> message without any parameters to my patch would immediately crash Pure Data (often taking IAC Driver down with it). It isn’t great when a wrong note also kills your whole rig!</p>
 
-<p>Thankfully, the mrpeach <code class="highlighter-rouge">udpreceive</code> external worked as a drop-in replacement for <code class="highlighter-rouge">netreceive</code>. Only now I was unable to run my translator in PdParty at all, as it doesn’t include all of the mrpeach externals. 😞</p>
+<p>Thankfully, the <a href="https://puredata.info/downloads/mrpeach">mrpeach</a> <code class="highlighter-rouge">udpreceive</code> external worked as a drop-in replacement for <code class="highlighter-rouge">netreceive</code>. Only now I couldn’t run my translator in PdParty at all as it only supports a subset of the mrpeach externals. 😞</p>
 
-<p>With a Pd-vanilla version that uses <code class="highlighter-rouge">netreceive</code> and crashes with incorrectly formatted data, and a totally flawless version that won’t run on the iPad, my original intent was sort of achieved: a portable ORCΛ machine that can be set to drum badly on purpose.</p>
+<p>With a Pd-vanilla version that used <code class="highlighter-rouge">netreceive</code> prone to crashes from incomplete data (and a solid mrpeach version that wouldn’t run on the iPad at all), the project’s original intent met my new ambition: a portable ORCΛ machine that could drum poorly on purpose.</p>
 
 <p><em>video of ORCΛ running on iPad sort of well</em></p>
 
+<p>You can clone or download the patch <a href="https://github.com/anderspollack/orca-udp-midi">here</a>.</p>
+
 <h1 id="moving-forward">Moving Forward</h1>
 
-<p>To make this thing more useful and to help justify the weekend of work that went into finding and almost solving all these problems, the next step for this ORCΛ UDP MIDI Translator will be adding Ableton Link support via <a href="https://github.com/libpd/abl_link"><code class="highlighter-rouge">abl_link~</code></a>, allowing ORCΛ to magically change everything else’s tempo. Update soon!</p>
+<p>To make this thing more useful and to help justify the weekend of work that went into finding and solving nearly all of these problems, the next step for the (non-vanilla) ORCΛ UDP MIDI Translator is adding Ableton Link support via <a href="https://github.com/libpd/abl_link"><code class="highlighter-rouge">abl_link~</code></a>, allowing ORCΛ to magically change everything else’s tempo as well as its own. Update soon!</p>
 
         </main>
         <div class="page-navigation">
