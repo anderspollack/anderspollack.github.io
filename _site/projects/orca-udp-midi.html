@@ -618,33 +618,35 @@
 
 <p>However, ORCΛ speaks OSC (<a href="https://en.wikipedia.org/wiki/Open_Sound_Control">open sound control</a>) and UDP with its <code class="highlighter-rouge">=</code> and <code class="highlighter-rouge">;</code> operators, and there was nothing preventing iSH from communicating over a network!</p>
 
-<p><em>insert image of orca operators</em></p>
+<p><img src="../assets/images/tools/orca-udp-midi/osc-udp-operators.png" alt="osc and udp operators" /></p>
 
 <p>The only remaining task would be listening to embedded ORCΛ’s network messages and translating them into usable MIDI output — a perfect job for a Pure Data patch, hosted by danomatika’s wonderful <a href="https://github.com/danomatika/PdParty">PdParty</a> app.</p>
 
 <h1 id="some-issues">Some Issues</h1>
 
-<p>Initially I planned to use the <code class="highlighter-rouge">=</code> operator and send Pd messages in the form of</p>
+<p>Initially I planned to use the <code class="highlighter-rouge">=</code> operator and send Pd messages in this form:</p>
 
-<p><code class="highlighter-rouge">=a505Czz</code></p>
+<p><img src="../assets/images/tools/orca-udp-midi/osc-issue-1.png" alt="=a505Czz" /></p>
 
 <p>as ORCΛ’s <code class="highlighter-rouge">=</code> needs to start with a path parameter (the <code class="highlighter-rouge">a</code>), and a number indicating the amount of items included in the OSC message (<code class="highlighter-rouge">5</code>). This was hardly ideal, as it would be in a different format than a normal ORCΛ MIDI message, and the extra characters would add just a bit too much extra mental overhead for ORCΛ-on-iPad to still feel like a fun time.</p>
 
-<p>Additionally, Pd’s <code class="highlighter-rouge">oscparse</code> object wouldn’t distinguish between a capital or lowercase letter sent from ORCΛ. so only natural notes would be allowed, unless I included another parameter for sharp/flat:</p>
+<p>Additionally, Pd’s <code class="highlighter-rouge">oscparse</code> object wouldn’t distinguish between a capital or lowercase letter sent from ORCΛ.</p>
 
-<p><code class="highlighter-rouge">=a605Dbzz</code></p>
+<p><img src="../assets/images/tools/orca-udp-midi/osc-issue-2.png" alt="=a505Czz" /></p>
 
-<p>where I could add something like a <code class="highlighter-rouge">b</code> (flat) or <code class="highlighter-rouge">s</code> (for sharp? — <code class="highlighter-rouge">#</code> already being the syntax for ORCΛ comments) after the root note. Needless to say, MIDI-over-OSC was not going to work.</p>
+<p>So only natural notes would be allowed, unless I included another parameter for sharp/flat:</p>
 
-<p><em>picture of capital and lowercase OSC message in ORCΛ</em></p>
+<p><img src="../assets/images/tools/orca-udp-midi/osc-issue-3.png" alt="=a505Czz" /></p>
 
-<p>The only remaining solution was to use <code class="highlighter-rouge">;</code> and parse the raw binary output from <code class="highlighter-rouge">netreceive</code>. Not only would this resolve the capital/lowercase problem, it would allow for UDP MIDI notes to be visually identical to ORCΛ’s MIDI notes, just with a <code class="highlighter-rouge">;</code> instead of a <code class="highlighter-rouge">:</code></p>
+<p>where I could add  a <code class="highlighter-rouge">b</code> (flat) or <code class="highlighter-rouge">s</code> (for sharp? — <code class="highlighter-rouge">#</code> already being the syntax for ORCΛ comments) after the root note. Needless to say, MIDI-over-OSC was not going to work.</p>
 
-<p><em>picture of both side by side in ORCΛ</em></p>
+<p>The obvious solution was to use <code class="highlighter-rouge">;</code> and parse the raw binary output from <code class="highlighter-rouge">netreceive</code>. Not only would this resolve the capital/lowercase problem, it would allow for UDP MIDI notes to be visually identical to ORCΛ’s MIDI notes, just with a <code class="highlighter-rouge">;</code> instead of a <code class="highlighter-rouge">:</code></p>
+
+<p><img src="../assets/images/tools/orca-udp-midi/osc-issue-4.png" alt="=a505Czz" /></p>
 
 <h1 id="fixing-things">Fixing Things</h1>
 
-<p><em>picture of working note patch</em></p>
+<p><img src="../assets/images/tools/orca-udp-midi/udp-fixing-1.png" alt="working patch" /></p>
 
 <p>With functioning UDP MIDI set up to work exactly the same as ORCΛ’s MIDI operator, I decided to address some issues I had encountered with ORCΛ itself — namely the 0-indexed MIDI channel numbers, a lack of omni-channel messages, and an inability to introduce off-beat timing in between ORCΛ’s ‘frames’ without resorting to weird double-time BPM hacks.</p>
 
@@ -654,7 +656,7 @@
 
 <h1 id="breaking-the-grid">Breaking the grid</h1>
 
-<p>To encourage ORCΛ to play notes a bit more loosely, I decided one extra parameter would be allowed. The sixth character in an ORCΛ UDP MIDI would add small increments of time to delay the attack of the current note. Determining how this timing would work with the current BPM  was a bit tricky, but I ultimately decided on steps of 1/18 of a quarter note, so that a delay of <code class="highlighter-rouge">z</code> on a note being hit once per measure would be offset exactly two beats, and <code class="highlighter-rouge">0–9</code> would be a nice subtle range of delay values for expressive keyboard control.</p>
+<p>To encourage ORCΛ to play notes a bit more loosely, I decided one extra parameter would be allowed. The sixth character in an ORCΛ UDP MIDI message would add small increments of time to delay the attack of the current note. Determining how this timing would work with the current BPM  was a bit tricky, but I ultimately decided on steps of 1/18 of a quarter note, so that a delay of <code class="highlighter-rouge">z</code> on a note being hit once per measure would be offset exactly two beats (don’t ask) and <code class="highlighter-rouge">0–9</code> would be a nice subtle range of delay values for expressive keyboard control.</p>
 
 <p><em>video of delay operator doing cool things</em></p>
 
