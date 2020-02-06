@@ -26,7 +26,7 @@ However, ORCΛ speaks OSC ([open sound control](https://en.wikipedia.org/wiki/Op
 
 [![osc and udp operators](../assets/images/tools/orca-udp-midi/osc-udp-operators.png)](../assets/images/tools/orca-udp-midi/osc-udp-operators.png)
 
-The only remaining task would be listening to embedded ORCΛ's network messages and translating them into usable MIDI output — a perfect job for a Pure Data patch, hosted by danomatika's wonderful [PdParty](https://github.com/danomatika/PdParty) app.
+The only thing I needed was a way to listen to embedded ORCΛ's network messages and translate them into usable MIDI output — a perfect job for a Pure Data patch, hosted by danomatika's wonderful [PdParty](https://github.com/danomatika/PdParty) app.
 
 # Some Issues
 
@@ -66,7 +66,7 @@ To encourage ORCΛ to play notes a bit more loosely, I decided one extra paramet
 
 _video of delay operator doing cool things_
 
-I'm really pleased with the results of the extra delay parameter. Combined with unpredictable network latency and random UDP packet loss between iSH and PdParty it yielded something close to one of GarageBand's goofy automatic drummers, but with a looser, more chaotic style.
+I'm really pleased with the results of the extra delay parameter. Combined with unpredictable network latency and random UDP packet loss between iSH and PdParty it yielded something close to one of GarageBand's goofy automatic drummers, but with a more ameteurish, chaotic style.
 
 _sound sample from GarageBand_
 
