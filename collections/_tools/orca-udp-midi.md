@@ -44,7 +44,7 @@ where I could add something like a ```b``` (flat) or ```s``` (for sharp? — ```
 
 _picture of capital and lowercase OSC message in ORCΛ_
 
-The only remaining solution was to use ```;``` and parse the raw binary output from ```netreceive```. Not only would this resolve the captial/lowercase problem, it would allow for UDP MIDI notes to be visually identical to ORCΛ's MIDI notes, just with a ```;``` instead of a ```:```
+The only remaining solution was to use ```;``` and parse the raw binary output from ```netreceive```. Not only would this resolve the capital/lowercase problem, it would allow for UDP MIDI notes to be visually identical to ORCΛ's MIDI notes, just with a ```;``` instead of a ```:```
 
 _picture of both side by side in ORCΛ_
 
@@ -66,7 +66,7 @@ _video of delay operator doing cool things_
 
 I'm really pleased with the results of the extra delay parameter. Combined with unpredictable network latency and random UDP packet loss between iSH and PdParty it yielded something close to one of GarageBand's goofy automatic drummers, but with a looser, more chaotic style.
 
-_sound sample from garageband_
+_sound sample from GarageBand_
 
 # More Issues
 
@@ -76,7 +76,7 @@ Thankfully, the mrpeach ```udpreceive``` external worked as a drop-in replacemen
 
 With a Pd-vanilla version that uses ```netreceive``` and crashes with incorrectly formatted data, and a totally flawless version that won't run on the iPad, my original intent was sort of achieved: a portable ORCΛ machine that can be set to drum badly on purpose.
 
-_video of ORCΛ running on ipad sort of well_
+_video of ORCΛ running on iPad sort of well_
 
 # Moving Forward
 
