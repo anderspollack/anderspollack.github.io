@@ -618,7 +618,7 @@
 
 <p>However, ORCΛ speaks OSC (<a href="https://en.wikipedia.org/wiki/Open_Sound_Control">open sound control</a>) and UDP with its <code class="highlighter-rouge">=</code> and <code class="highlighter-rouge">;</code> operators, and there was nothing preventing iSH from communicating over a network!</p>
 
-<p><img src="../assets/images/tools/orca-udp-midi/osc-udp-operators.png" alt="osc and udp operators" /></p>
+<p><a href="../assets/images/tools/orca-udp-midi/osc-udp-operators.png"><img src="../assets/images/tools/orca-udp-midi/osc-udp-operators.png" alt="osc and udp operators" /></a></p>
 
 <p>The only remaining task would be listening to embedded ORCΛ’s network messages and translating them into usable MIDI output — a perfect job for a Pure Data patch, hosted by danomatika’s wonderful <a href="https://github.com/danomatika/PdParty">PdParty</a> app.</p>
 
@@ -626,27 +626,27 @@
 
 <p>Initially I planned to use the <code class="highlighter-rouge">=</code> operator and send Pd messages in this form:</p>
 
-<p><img src="../assets/images/tools/orca-udp-midi/osc-issue-1.png" alt="=a505Czz" /></p>
+<p><a href="../assets/images/tools/orca-udp-midi/osc-issue-1.png"><img src="../assets/images/tools/orca-udp-midi/osc-issue-1.png" alt="=a505Czz" /></a></p>
 
 <p>as ORCΛ’s <code class="highlighter-rouge">=</code> needs to start with a path parameter (the <code class="highlighter-rouge">a</code>), and a number indicating the amount of items included in the OSC message (<code class="highlighter-rouge">5</code>). This was hardly ideal, as it would be in a different format than a normal ORCΛ MIDI message, and the extra characters would add just a bit too much extra mental overhead for ORCΛ-on-iPad to still feel like a fun time.</p>
 
 <p>Additionally, Pd’s <code class="highlighter-rouge">oscparse</code> object wouldn’t distinguish between a capital or lowercase letter sent from ORCΛ.</p>
 
-<p><img src="../assets/images/tools/orca-udp-midi/osc-issue-2.png" alt="=a505Czz" /></p>
+<p><a href="../assets/images/tools/orca-udp-midi/osc-issue-2.png"><img src="../assets/images/tools/orca-udp-midi/osc-issue-2.png" alt="=a505Czz" /></a></p>
 
 <p>So only natural notes would be allowed, unless I included another parameter for sharp/flat:</p>
 
-<p><img src="../assets/images/tools/orca-udp-midi/osc-issue-3.png" alt="=a505Czz" /></p>
+<p><a href="../assets/images/tools/orca-udp-midi/osc-issue-3.png"><img src="../assets/images/tools/orca-udp-midi/osc-issue-3.png" alt="=a505Czz" /></a></p>
 
 <p>where I could add  a <code class="highlighter-rouge">b</code> (flat) or <code class="highlighter-rouge">s</code> (for sharp? — <code class="highlighter-rouge">#</code> already being the syntax for ORCΛ comments) after the root note. Needless to say, MIDI-over-OSC was not going to work.</p>
 
 <p>The obvious solution was to use <code class="highlighter-rouge">;</code> and parse the raw binary output from <code class="highlighter-rouge">netreceive</code>. Not only would this resolve the capital/lowercase problem, it would allow for UDP MIDI notes to be visually identical to ORCΛ’s MIDI notes, just with a <code class="highlighter-rouge">;</code> instead of a <code class="highlighter-rouge">:</code></p>
 
-<p><img src="../assets/images/tools/orca-udp-midi/osc-issue-4.png" alt="=a505Czz" /></p>
+<p><a href="../assets/images/tools/orca-udp-midi/osc-issue-4.png"><img src="../assets/images/tools/orca-udp-midi/osc-issue-4.png" alt="=a505Czz" /></a></p>
 
 <h1 id="fixing-things">Fixing Things</h1>
 
-<p><img src="../assets/images/tools/orca-udp-midi/udp-fixing-1.png" alt="working patch" /></p>
+<p><a href="../assets/images/tools/orca-udp-midi/udp-fixing-1.png"><img src="../assets/images/tools/orca-udp-midi/udp-fixing-1.png" alt="working patch" /></a></p>
 
 <p>With functioning UDP MIDI set up to work exactly the same as ORCΛ’s MIDI operator, I decided to address some issues I had encountered with ORCΛ itself — namely the 0-indexed MIDI channel numbers, a lack of omni-channel messages, and an inability to introduce off-beat timing in between ORCΛ’s ‘frames’ without resorting to weird double-time BPM hacks.</p>
 

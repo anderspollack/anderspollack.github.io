@@ -24,7 +24,7 @@ Except [APK](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management) 
 
 However, ORCΛ speaks OSC ([open sound control](https://en.wikipedia.org/wiki/Open_Sound_Control)) and UDP with its ```=``` and ```;``` operators, and there was nothing preventing iSH from communicating over a network!
 
-![osc and udp operators](../assets/images/tools/orca-udp-midi/osc-udp-operators.png)
+[![osc and udp operators](../assets/images/tools/orca-udp-midi/osc-udp-operators.png)](../assets/images/tools/orca-udp-midi/osc-udp-operators.png)
 
 The only remaining task would be listening to embedded ORCΛ's network messages and translating them into usable MIDI output — a perfect job for a Pure Data patch, hosted by danomatika's wonderful [PdParty](https://github.com/danomatika/PdParty) app.
 
@@ -32,27 +32,27 @@ The only remaining task would be listening to embedded ORCΛ's network messages 
 
 Initially I planned to use the ```=``` operator and send Pd messages in this form:
 
-![=a505Czz](../assets/images/tools/orca-udp-midi/osc-issue-1.png)
+[![=a505Czz](../assets/images/tools/orca-udp-midi/osc-issue-1.png)](../assets/images/tools/orca-udp-midi/osc-issue-1.png)
 
 as ORCΛ's ```=``` needs to start with a path parameter (the ```a```), and a number indicating the amount of items included in the OSC message (```5```). This was hardly ideal, as it would be in a different format than a normal ORCΛ MIDI message, and the extra characters would add just a bit too much extra mental overhead for ORCΛ-on-iPad to still feel like a fun time.
 
 Additionally, Pd's ```oscparse``` object wouldn't distinguish between a capital or lowercase letter sent from ORCΛ. 
 
-![=a505Czz](../assets/images/tools/orca-udp-midi/osc-issue-2.png)
+[![=a505Czz](../assets/images/tools/orca-udp-midi/osc-issue-2.png)](../assets/images/tools/orca-udp-midi/osc-issue-2.png)
 
 So only natural notes would be allowed, unless I included another parameter for sharp/flat:
 
-![=a505Czz](../assets/images/tools/orca-udp-midi/osc-issue-3.png)
+[![=a505Czz](../assets/images/tools/orca-udp-midi/osc-issue-3.png)](../assets/images/tools/orca-udp-midi/osc-issue-3.png)
 
 where I could add  a ```b``` (flat) or ```s``` (for sharp? — ```#``` already being the syntax for ORCΛ comments) after the root note. Needless to say, MIDI-over-OSC was not going to work.
 
 The obvious solution was to use ```;``` and parse the raw binary output from ```netreceive```. Not only would this resolve the capital/lowercase problem, it would allow for UDP MIDI notes to be visually identical to ORCΛ's MIDI notes, just with a ```;``` instead of a ```:```
 
-![=a505Czz](../assets/images/tools/orca-udp-midi/osc-issue-4.png)
+[![=a505Czz](../assets/images/tools/orca-udp-midi/osc-issue-4.png)](../assets/images/tools/orca-udp-midi/osc-issue-4.png)
 
 # Fixing Things
 
-![working patch](../assets/images/tools/orca-udp-midi/udp-fixing-1.png)
+[![working patch](../assets/images/tools/orca-udp-midi/udp-fixing-1.png)](../assets/images/tools/orca-udp-midi/udp-fixing-1.png)
 
 With functioning UDP MIDI set up to work exactly the same as ORCΛ's MIDI operator, I decided to address some issues I had encountered with ORCΛ itself — namely the 0-indexed MIDI channel numbers, a lack of omni-channel messages, and an inability to introduce off-beat timing in between ORCΛ's 'frames' without resorting to weird double-time BPM hacks.
 

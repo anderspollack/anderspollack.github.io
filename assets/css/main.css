@@ -1281,6 +1281,10 @@ input[type="radio"].slides__toggle:not(:checked) + video {
     }
 }
 
+.site-main--project img {
+    width: 100%;
+}
+
 .site-main--project h1:not(.project__title) {
     font-size: 1.75em;
     font-weight: 500;
