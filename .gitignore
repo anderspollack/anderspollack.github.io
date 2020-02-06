@@ -1,3 +1,4 @@
 design
 _site/design
 .DS_Store
+.jekyll-cache

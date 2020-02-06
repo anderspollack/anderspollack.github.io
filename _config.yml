@@ -5,10 +5,17 @@ collections_dir: collections
 about: "I'm a designer and web developer based in Los Angeles, CA. Get in touch at <a href='mailto:pollack.anders@gmail.com'>pollack.anders@gmail.com</a>"
 
 collections:
+  tools:
+    output: true
+    name: Software Tools
+    order: 6
+    description: "Software Tools I've made or configured for my day-to-day use"
+    permalink: /projects/:name
+  
   new-media:
     output: true
     name: New Media Projects
-    order: 6
+    order: 5
     description: "Interactive and multimedia works"
     permalink: /projects/:name
 
@@ -45,6 +52,12 @@ defaults:
       path: ""
     values:
       layout: default
+
+  - scope:
+      path: ""
+      type: "tools"
+    values:
+      layout: project
 
   - scope:
       path: ""

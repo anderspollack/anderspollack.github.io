@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width">
-        <title>C2st Newsletter</title>
+        <title>Orca Udp Midi</title>
         <link href="/assets/css/main.css" rel="stylesheet"/>
     </head>
     <body class="project">
@@ -494,7 +494,7 @@
             
             
 
-            <span>The Chicago Council on Science and Technology</span>
+            <span>Software Tools</span>
         </li>
     </ul>
 </div>
@@ -515,49 +515,9 @@
 
     
     
-        
-        
-            
-            
-        
+    
     
         
-        
-            
-            
-        
-    
-        
-        
-            
-            
-        
-            
-            
-        
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-    
-        
-        
-            
-            
-        
-            
-            
         
             
             
@@ -571,33 +531,150 @@
                 
                 
     
+        
+        
+            
+            
+        
+            
+            
+        
     
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+    
+        
+        
+            
+            
+        
+            
+            
+        
     
 
 
     <a href="/projects/c2st-website" class="page-navigation-desktop__item page-navigation-desktop__item--previous"><span class="page-navigation-desktop__label">Previous:</span><span class="page-navigation-desktop__name">C2ST.org</span></a>
     <div class="page-navigation-desktop__divider"></div>
-    <a href="/projects/orca-udp-midi" class="page-navigation-desktop__item page-navigation-desktop__item--next"><span class="page-navigation-desktop__label">Next:</span><span class="page-navigation-desktop__name">ORCΛ UDP MIDI Translator</span></a>
+    <a href="/projects/electric-singing-bowl" class="page-navigation-desktop__item page-navigation-desktop__item--next"><span class="page-navigation-desktop__label">Next:</span><span class="page-navigation-desktop__name">Electric Singing Bowl</span></a>
 </div>
 
             </header>
-            <h1 class="project__title">C2ST Year in Review 2015 - 2017</h1>
+            <h1 class="project__title">ORCΛ UDP MIDI Translator</h1>
             <div class="project__subheader">
                 <p class="project__page-description">
-                    An annual print newsletter for the Chicago Council on Science and Technology
+                    A UDP-to-MIDI translator Pd utility for the ORCΛ live-coding environment
                     
                 </p>
                 <div class="project__icons project__page-icons">
                     
-                        <div class="project__icon icon-graphic"></div>
+                        <div class="project__icon icon-sound"></div>
+                    
+                        <div class="project__icon icon-code"></div>
                     
                 </div>
             </div>
-            <section class="project__section project__section--newsletter">
-    <a href="/assets/documents/c2st/newsletter-2015.pdf" target="_blank" class="newsletter-link"><img alt="" src="/assets/images/c2st/newsletter-2015-spread.jpg"/></a>
-    <a href="/assets/documents/c2st/newsletter-2016.pdf" target="_blank" class="newsletter-link"><img alt="" src="/assets/images/c2st/newsletter-2016-spread.jpg"/></a>
-    <a href="/assets/documents/c2st/newsletter-2017.pdf" target="_blank" class="newsletter-link"><img alt="" src="/assets/images/c2st/newsletter-2017-spread.jpg"/></a>
-</section>
+            <h1 id="what-are-all-these-things">What are all these things?</h1>
+
+<p><a href="https://github.com/hundredrabbits/Orca">ORCΛ</a> is a visual programming language for building sequencers and pattern machines. It is truly delightful, addictive, and expressive, and anyone who enjoys computers that make music should try it out. For a better idea of what ORCΛ can do, check out these links:</p>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=WIzI_PSBw6o">Orca Workshop</a></li>
+  <li><a href="https://www.youtube.com/watch?v=w9do-qFNAmQ">ORCΛ Time Crystal</a></li>
+  <li><a href="https://twitter.com/search?q=ORC%CE%9B&amp;src=typed_query">#ORCΛ</a></li>
+  <li><a href="https://twitter.com/Johannes_Knop/status/1220113861451427842?s=20">another sapling, another tree.</a></li>
+</ul>
+
+<p><a href="http://puredata.info/">Pure Data (Pd)</a> is a visual programming language for multimedia. I mainly use it as multipurpose audio/MIDI/network glue when I want music apps to communicate. It’s also great for making audio samplers, <a href="https://www.automatonism.com/">synthesizers</a>, live visuals, and <a href="electric-singing-bowl">Electric Singing Bowls</a>.</p>
+
+<h1 id="why">Why?</h1>
+
+<p>Some background — I’ve been using the <a href="https://github.com/hundredrabbits/Orca-c">C port</a> of ORCΛ, as it runs just as nicely on a Raspberry Pi over SSH as it does on my 10-year-old Macbook Pro. I was even able to build and run it on my iPad inside of <a href="https://ish.app/">iSH</a>, an emulated Linux shell runs on iOS. It seemed like an ideal setup — ORCΛ running on my most portable device with access to all of the music software that I’ve paid actual money for!</p>
+
+<p>Except <a href="https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management">APK</a> doesn’t have a portmidi package, an optional ORCΛ dependency that enables MIDI support, which meant that my iSH build of ORCΛ was totally cut off from the rest of my apps — totally useless. I could have attempted to build portmidi from source inside iSH, but even then it seemed unlikely that it would be magically capable of communicating with an iOS app from inside a Linux sandbox.</p>
+
+<p>However, ORCΛ speaks OSC (<a href="https://en.wikipedia.org/wiki/Open_Sound_Control">open sound control</a>) and UDP with its <code class="highlighter-rouge">=</code> and <code class="highlighter-rouge">;</code> operators, and there was nothing preventing iSH from communicating over a network!</p>
+
+<p><em>insert image of orca operators</em></p>
+
+<p>The only remaining task would be listening to embedded ORCΛ’s network messages and translating them into usable MIDI output — a perfect job for a Pure Data patch, hosted by danomatika’s wonderful <a href="https://github.com/danomatika/PdParty">PdParty</a> app.</p>
+
+<h1 id="some-issues">Some Issues</h1>
+
+<p>Initially I planned to use the <code class="highlighter-rouge">=</code> operator and send Pd messages in the form of</p>
+
+<p><code class="highlighter-rouge">=a505Czz</code></p>
+
+<p>as ORCΛ’s <code class="highlighter-rouge">=</code> needs to start with a path parameter (the <code class="highlighter-rouge">a</code>), and a number indicating the amount of items included in the OSC message (<code class="highlighter-rouge">5</code>). This was hardly ideal, as it would be in a different format than a normal ORCΛ MIDI message, and the extra characters would add just a bit too much extra mental overhead for ORCΛ-on-iPad to still feel like a fun time.</p>
+
+<p>Additionally, Pd’s <code class="highlighter-rouge">oscparse</code> object wouldn’t distinguish between a capital or lowercase letter sent from ORCΛ. so only natural notes would be allowed, unless I included another parameter for sharp/flat:</p>
+
+<p><code class="highlighter-rouge">=a605Dbzz</code></p>
+
+<p>where I could add something like a <code class="highlighter-rouge">b</code> (flat) or <code class="highlighter-rouge">s</code> (for sharp? — <code class="highlighter-rouge">#</code> already being the syntax for ORCΛ comments) after the root note. Needless to say, MIDI-over-OSC was not going to work.</p>
+
+<p><em>picture of capital and lowercase OSC message in ORCΛ</em></p>
+
+<p>The only remaining solution was to use <code class="highlighter-rouge">;</code> and parse the raw binary output from <code class="highlighter-rouge">netreceive</code>. Not only would this resolve the captial/lowercase problem, it would allow for UDP MIDI notes to be visually identical to ORCΛ’s MIDI notes, just with a <code class="highlighter-rouge">;</code> instead of a <code class="highlighter-rouge">:</code></p>
+
+<p><em>picture of both side by side in ORCΛ</em></p>
+
+<h1 id="fixing-things">Fixing Things</h1>
+
+<p><em>picture of working note patch</em></p>
+
+<p>With functioning UDP MIDI set up to work exactly the same as ORCΛ’s MIDI operator, I decided to address some issues I had encountered with ORCΛ itself — namely the 0-indexed MIDI channel numbers, a lack of omni-channel messages, and an inability to introduce off-beat timing in between ORCΛ’s ‘frames’ without resorting to weird double-time BPM hacks.</p>
+
+<p><em>video of weird doubletime junk</em></p>
+
+<p>The first adjustment was simple enough. Instead of treating channel <code class="highlighter-rouge">0</code> as channel 1 (which feels like a programmer quirk to me), <code class="highlighter-rouge">0</code> would be a new omni channel (thanks to Pd), and channel <code class="highlighter-rouge">1</code> would actually mean channel 1.</p>
+
+<h1 id="breaking-the-grid">Breaking the grid</h1>
+
+<p>To encourage ORCΛ to play notes a bit more loosely, I decided one extra parameter would be allowed. The sixth character in an ORCΛ UDP MIDI would add small increments of time to delay the attack of the current note. Determining how this timing would work with the current BPM  was a bit tricky, but I ultimately decided on steps of 1/18 of a quarter note, so that a delay of <code class="highlighter-rouge">z</code> on a note being hit once per measure would be offset exactly two beats, and <code class="highlighter-rouge">0–9</code> would be a nice subtle range of delay values for expressive keyboard control.</p>
+
+<p><em>video of delay operator doing cool things</em></p>
+
+<p>I’m really pleased with the results of the extra delay parameter. Combined with unpredictable network latency and random UDP packet loss between iSH and PdParty it yielded something close to one of GarageBand’s goofy automatic drummers, but with a looser, more chaotic style.</p>
+
+<p><em>sound sample from garageband</em></p>
+
+<h1 id="more-issues">More Issues</h1>
+
+<p>Aside from the unavoidable issues of UDP reliability, I encountered one final dealbreaker — sending a single <code class="highlighter-rouge">;</code> message without any parameters to my patch would immediately crash Pure Data (and often take IAC Driver down with it). It ain’t great when a wrong note also kills your whole rig!</p>
+
+<p>Thankfully, the mrpeach <code class="highlighter-rouge">udpreceive</code> external worked as a drop-in replacement for <code class="highlighter-rouge">netreceive</code>. Only now I was unable to run my translator in PdParty at all, as it doesn’t include all of the mrpeach externals. 😞</p>
+
+<p>With a Pd-vanilla version that uses <code class="highlighter-rouge">netreceive</code> and crashes with incorrectly formatted data, and a totally flawless version that won’t run on the iPad, my original intent was sort of achieved: a portable ORCΛ machine that can be set to drum badly on purpose.</p>
+
+<p><em>video of ORCΛ running on ipad sort of well</em></p>
+
+<h1 id="moving-forward">Moving Forward</h1>
+
+<p>To make this thing more useful and to help justify the weekend of work that went into finding and almost solving all these problems, the next step for this ORCΛ UDP MIDI Translator will be adding Ableton Link support via <a href="https://github.com/libpd/abl_link"><code class="highlighter-rouge">abl_link~</code></a>, allowing ORCΛ to magically change everything else’s tempo. Update soon!</p>
 
         </main>
         <div class="page-navigation">
@@ -616,49 +693,9 @@
 
     
     
-        
-        
-            
-            
-        
+    
     
         
-        
-            
-            
-        
-    
-        
-        
-            
-            
-        
-            
-            
-        
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-    
-        
-        
-            
-            
-        
-            
-            
         
             
             
@@ -672,13 +709,56 @@
                 
                 
     
+        
+        
+            
+            
+        
+            
+            
+        
     
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+    
+        
+        
+            
+            
+        
+            
+            
+        
     
 
 
     <a href="/projects/c2st-website" class="page-navigation__item page-navigation__item--previous dither dither--3">
     </a>
-    <a href="/projects/orca-udp-midi" class="page-navigation__item page-navigation__item--next dither dither--3">
+    <a href="/projects/electric-singing-bowl" class="page-navigation__item page-navigation__item--next dither dither--3">
     </a>
     <a href="#top" class="back-to-top">Back to Top</a>
 </div>
