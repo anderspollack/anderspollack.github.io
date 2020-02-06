@@ -18,9 +18,9 @@ icons:
 
 # Why?
 
-Some background — I've been using the [C port](https://github.com/hundredrabbits/Orca-c) of ORCΛ, as it runs just as nicely on a Raspberry Pi over SSH as it does on my 10-year-old Macbook Pro. I was even able to build and run it on my iPad inside of [iSH](https://ish.app/), an emulated Linux shell runs on iOS. It seemed like an ideal setup — ORCΛ running on my most portable device with access to all of the music software that I've paid actual money for!
+Some background: I've been using the [C port](https://github.com/hundredrabbits/Orca-c) of ORCΛ, as it runs just as nicely on a Raspberry Pi over SSH as it does on my 10-year-old Macbook Pro. I was even able to build and run it on my iPad inside of [iSH](https://ish.app/), an emulated Linux shell runs on iOS. It seemed like an ideal setup; ORCΛ running on my most portable device with access to all of the music software that I've paid actual money for!
 
-Except [APK](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management) doesn't have a portmidi package, an optional ORCΛ dependency that enables MIDI support, which meant that my iSH build of ORCΛ was totally cut off from the rest of my apps — totally useless. I could have attempted to build portmidi from source inside iSH, but even then it seemed unlikely that it would be magically capable of communicating with an iOS app from inside a Linux sandbox.
+Except [APK](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management) doesn't have a portmidi package — an optional ORCΛ dependency that enables MIDI support — which meant that my iSH build of ORCΛ was totally cut off from the rest of my apps; totally useless. I could have attempted to build portmidi from source inside iSH, but even then it seemed unlikely that it would be magically capable of communicating with an iOS app from inside a Linux sandbox.
 
 However, ORCΛ speaks OSC ([open sound control](https://en.wikipedia.org/wiki/Open_Sound_Control)) and UDP with its ```=``` and ```;``` operators, and there was nothing preventing iSH from communicating over a network!
 
