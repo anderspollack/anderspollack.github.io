@@ -60,7 +60,7 @@ With functioning UDP MIDI set up to work exactly the same as ORCΛ's MIDI operat
 
 _video of weird doubletime junk_
 
-The first adjustment was simple enough. Instead of treating channel ```0``` as channel 1 (which feels like a programmer quirk to me), ```0``` would be a new omni channel (thanks to Pd), and channel ```1``` would actually mean channel 1.
+The first adjustment was simple enough: Instead of treating channel ```0``` as channel 1 (which feels like a programmer quirk to me), ```0``` would be a new omni channel (thanks to Pd), and channel ```1``` would actually mean channel 1.
 
 # Breaking the grid
 
