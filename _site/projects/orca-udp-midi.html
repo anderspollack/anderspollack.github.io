@@ -618,7 +618,7 @@
 
 <p>Except <a href="https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management">APK</a> doesn’t have a portmidi package — an optional ORCΛ dependency that enables MIDI support — which meant that my iSH build of ORCΛ was totally cut off from the rest of my apps; totally useless. I could have attempted to build portmidi inside iSH, but even if that was successful it seemed unlikely that any MIDI made inside iSH would ever find its way out of the sandbox and into another iOS app.</p>
 
-<p>However, ORCΛ speaks OSC (<a href="https://en.wikipedia.org/wiki/Open_Sound_Control">open sound control</a>) and UDP with its <code class="highlighter-rouge">=</code> and <code class="highlighter-rouge">;</code> operators, and there was nothing preventing network communication!</p>
+<p>However, ORCΛ speaks OSC (<a href="https://en.wikipedia.org/wiki/Open_Sound_Control">open sound control</a>) and UDP with its <code class="language-plaintext highlighter-rouge">=</code> and <code class="language-plaintext highlighter-rouge">;</code> operators, and there was nothing preventing network communication!</p>
 
 <p><a href="../assets/images/tools/orca-udp-midi/osc-udp-operators.png"><img src="../assets/images/tools/orca-udp-midi/osc-udp-operators.png" alt="osc and udp operators" /></a></p>
 
@@ -626,13 +626,13 @@
 
 <h1 id="issues">Issues</h1>
 
-<p>Initially I planned to use the <code class="highlighter-rouge">=</code> operator and send Pd messages in this form:</p>
+<p>Initially I planned to use the <code class="language-plaintext highlighter-rouge">=</code> operator and send Pd messages in this form:</p>
 
 <p><a href="../assets/images/tools/orca-udp-midi/osc-issue-1.png"><img src="../assets/images/tools/orca-udp-midi/osc-issue-1.png" alt="=a505Czz" /></a></p>
 
-<p>as ORCΛ’s <code class="highlighter-rouge">=</code> needs to start with a path parameter (the <code class="highlighter-rouge">a</code>), and a number indicating the amount of items included in the OSC message (<code class="highlighter-rouge">5</code>). This was hardly ideal, as it would be in a different format than a normal ORCΛ MIDI message, and the extra characters would add a bit too much mental overhead for ORCΛ-on-iPad to still feel like a fun time.</p>
+<p>as ORCΛ’s <code class="language-plaintext highlighter-rouge">=</code> needs to start with a path parameter (the <code class="language-plaintext highlighter-rouge">a</code>), and a number indicating the amount of items included in the OSC message (<code class="language-plaintext highlighter-rouge">5</code>). This was hardly ideal, as it would be in a different format than a normal ORCΛ MIDI message, and the extra characters would add a bit too much mental overhead for ORCΛ-on-iPad to still feel like a fun time.</p>
 
-<p>Additionally, Pd’s <code class="highlighter-rouge">oscparse</code> object wouldn’t distinguish between a capital or lowercase letter sent from ORCΛ.</p>
+<p>Additionally, Pd’s <code class="language-plaintext highlighter-rouge">oscparse</code> object wouldn’t distinguish between a capital or lowercase letter sent from ORCΛ.</p>
 
 <p><a href="../assets/images/tools/orca-udp-midi/osc-issue-2.png"><img src="../assets/images/tools/orca-udp-midi/osc-issue-2.png" alt="=a505Czz" /></a></p>
 
@@ -640,9 +640,9 @@
 
 <p><a href="../assets/images/tools/orca-udp-midi/osc-issue-3.png"><img src="../assets/images/tools/orca-udp-midi/osc-issue-3.png" alt="=a505Czz" /></a></p>
 
-<p>where I could add  a <code class="highlighter-rouge">b</code> (flat) or <code class="highlighter-rouge">s</code> (for sharp? — <code class="highlighter-rouge">#</code> already being the syntax for ORCΛ comments) after the root note. Needless to say, MIDI-over-OSC was not gonna happen.</p>
+<p>where I could add  a <code class="language-plaintext highlighter-rouge">b</code> (flat) or <code class="language-plaintext highlighter-rouge">s</code> (for sharp? — <code class="language-plaintext highlighter-rouge">#</code> already being the syntax for ORCΛ comments) after the root note. Needless to say, MIDI-over-OSC was not gonna happen.</p>
 
-<p>The solution was to use <code class="highlighter-rouge">;</code> and parse the raw binary output from <code class="highlighter-rouge">netreceive</code>. Not only would this solve the capital/lowercase problem, it would allow UDP MIDI messages to be nearly identical to ORCΛ’s MIDI notes, just replacing <code class="highlighter-rouge">:</code> with <code class="highlighter-rouge">;</code>.</p>
+<p>The solution was to use <code class="language-plaintext highlighter-rouge">;</code> and parse the raw binary output from <code class="language-plaintext highlighter-rouge">netreceive</code>. Not only would this solve the capital/lowercase problem, it would allow UDP MIDI messages to be nearly identical to ORCΛ’s MIDI notes, just replacing <code class="language-plaintext highlighter-rouge">:</code> with <code class="language-plaintext highlighter-rouge">;</code>.</p>
 
 <p><a href="../assets/images/tools/orca-udp-midi/osc-issue-4.png"><img src="../assets/images/tools/orca-udp-midi/osc-issue-4.png" alt="=a505Czz" /></a></p>
 
@@ -654,7 +654,7 @@
 
 <p><em>video of weird doubletime junk</em></p>
 
-<p>The first adjustment was simple enough: instead of treating channel <code class="highlighter-rouge">0</code> as channel 1 (which feels like a programmer quirk to me), <code class="highlighter-rouge">0</code> would be a new omni channel (thanks to Pd), and channel <code class="highlighter-rouge">1</code> would actually mean channel 1.</p>
+<p>The first adjustment was simple enough: instead of treating channel <code class="language-plaintext highlighter-rouge">0</code> as channel 1 (which feels like a programmer quirk to me), <code class="language-plaintext highlighter-rouge">0</code> would be a new omni channel (thanks to Pd), and channel <code class="language-plaintext highlighter-rouge">1</code> would actually mean channel 1.</p>
 
 <h1 id="breaking-the-grid">Breaking the grid</h1>
 
@@ -662,7 +662,7 @@
 
 <p><a href="../assets/images/tools/orca-udp-midi/udp-fixing-2.png"><img src="../assets/images/tools/orca-udp-midi/udp-fixing-2.png" alt="working patch" /></a></p>
 
-<p>Determining how this timing would interact with the current BPM  was a bit tricky, but I ultimately settled on steps of 1/18 of a quarter note. A delay of <code class="highlighter-rouge">z</code> on a note being hit once per measure would be offset exactly two beats (don’t ask me why but it seemed sensible at the time) and <code class="highlighter-rouge">0–9</code> would be a nice subtle range of delay values for expressive keyboard control.</p>
+<p>Determining how this timing would interact with the current BPM  was a bit tricky, but I ultimately settled on steps of 1/18 of a quarter note. A delay of <code class="language-plaintext highlighter-rouge">z</code> on a note being hit once per measure would be offset exactly two beats (don’t ask me why but it seemed sensible at the time) and <code class="language-plaintext highlighter-rouge">0–9</code> would be a nice subtle range of delay values for expressive keyboard control.</p>
 
 <p><em>video of delay parameter doing cool things</em></p>
 
@@ -672,11 +672,11 @@
 
 <h1 id="crash-override">Crash override</h1>
 
-<p>Aside from UDP reliability, I encountered one final flaw — sending a single <code class="highlighter-rouge">;</code> message without any parameters to my patch would immediately crash Pure Data (often taking IAC Driver down with it). It isn’t great when a wrong note also kills your whole rig!</p>
+<p>Aside from UDP reliability, I encountered one final flaw — sending a single <code class="language-plaintext highlighter-rouge">;</code> message without any parameters to my patch would immediately crash Pure Data (often taking IAC Driver down with it). It isn’t great when a wrong note also kills your whole rig!</p>
 
-<p>Thankfully, the <a href="https://puredata.info/downloads/mrpeach">mrpeach</a> <code class="highlighter-rouge">udpreceive</code> external worked as a drop-in replacement for <code class="highlighter-rouge">netreceive</code>. Only now I couldn’t run my translator in PdParty at all as it only supports a subset of the mrpeach externals. 😞</p>
+<p>Thankfully, the <a href="https://puredata.info/downloads/mrpeach">mrpeach</a> <code class="language-plaintext highlighter-rouge">udpreceive</code> external worked as a drop-in replacement for <code class="language-plaintext highlighter-rouge">netreceive</code>. Only now I couldn’t run my translator in PdParty at all as it only supports a subset of the mrpeach externals. 😞</p>
 
-<p>With a Pd-vanilla version that used <code class="highlighter-rouge">netreceive</code> prone to crashes from incomplete data (and a solid mrpeach version that wouldn’t run on the iPad at all), the project’s original intent met my new ambition: a portable ORCΛ machine that could drum poorly on purpose.</p>
+<p>With a Pd-vanilla version that used <code class="language-plaintext highlighter-rouge">netreceive</code> prone to crashes from incomplete data (and a solid mrpeach version that wouldn’t run on the iPad at all), the project’s original intent met my new ambition: a portable ORCΛ machine that could drum poorly on purpose.</p>
 
 <p><em>video of ORCΛ running on iPad sort of well</em></p>
 
@@ -684,7 +684,7 @@
 
 <h1 id="moving-forward">Moving forward</h1>
 
-<p>To make this thing more useful and to help justify the weekend of work that went into finding and solving nearly all of these problems, the next step for the non-vanilla ORCΛ UDP MIDI Translator is adding Ableton Link support via <a href="https://github.com/libpd/abl_link"><code class="highlighter-rouge">abl_link~</code></a>.</p>
+<p>To make this thing more useful and to help justify the weekend of work that went into finding and solving nearly all of these problems, the next step for the non-vanilla ORCΛ UDP MIDI Translator is adding Ableton Link support via <a href="https://github.com/libpd/abl_link"><code class="language-plaintext highlighter-rouge">abl_link~</code></a>.</p>
 
 <p>This will allow ORCΛ to magically change everything’s tempo, and also control iOS apps in a much more sensible way. Update soon!</p>
 
