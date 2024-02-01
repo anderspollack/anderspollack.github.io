@@ -1,6 +1,6 @@
 domain: anderspollack.com
 url: https://www.anderspollack.com
-repository: https://github.com/anderspollack/anderspollack.github.io
+repository: anderspollack/anderspollack.github.io
 title: Anders Pollack
 baseurl: '' 
 port: 4001
